@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2D Animation Tutorial — Milestone Ledger</title>
+<style>
+  :root{
+    --bg:#101316; --panel:#171c21; --panel2:#1c2329; --line:#2a333c;
+    --ink:#eaeff3; --muted:#a7b4bf; --faint:#75828e;
+    --accent:#4a8fae; --done:#3fbf7f; --current:#e0a72e; --todo:#47525c;
+    --shadow:0 1px 0 rgba(255,255,255,.03),0 8px 24px rgba(0,0,0,.35);
+  }
+  @media (prefers-color-scheme:light){
+    :root{
+      --bg:#f4f6f7; --panel:#ffffff; --panel2:#f7fafb; --line:#dde5e9;
+      --ink:#1d2429; --muted:#5f6c76; --faint:#8b98a2;
+      --accent:#33768f; --done:#1f9d63; --current:#c9820a; --todo:#ccd6dc;
+      --shadow:0 1px 0 rgba(0,0,0,.02),0 8px 24px rgba(20,40,50,.08);
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+
+  /* ---------- tab chrome (shared shell) ---------- */
+  .tabbar{position:sticky;top:0;z-index:10;display:flex;gap:6px;justify-content:center;
+    padding:14px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
+  .tabbtn{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--muted);
+    font:600 13.5px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    padding:9px 16px;border-radius:99px;cursor:pointer;letter-spacing:.01em}
+  .tabbtn:hover{color:var(--ink)}
+  .tabbtn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .tabpanel{display:none}
+  .tabpanel.active{display:block}
+
+  /* ---------- Progress tab ---------- */
+  #tab-progress{padding:32px 20px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+  header{margin-bottom:8px}
+  h1{font-size:24px;margin:0 0 4px;letter-spacing:-.02em}
+  .sub{color:var(--muted);font-size:14px;margin:0}
+  .meta{color:var(--faint);font-size:12.5px;margin-top:10px}
+  .bar{height:10px;border-radius:99px;background:var(--panel2);overflow:hidden;
+    border:1px solid var(--line);margin:18px 0 6px}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--done));
+    border-radius:99px;transition:width .4s ease}
+  .barlabel{color:var(--muted);font-size:12.5px;margin-bottom:26px}
+  .m{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;margin:14px 0;box-shadow:var(--shadow)}
+  .m.active{border-color:color-mix(in srgb,var(--current) 55%,var(--line))}
+  .mhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .mid{font-size:12px;font-weight:700;color:var(--faint);letter-spacing:.08em}
+  .mtitle{font-size:17px;font-weight:650;margin:0;letter-spacing:-.01em}
+  .mgoal{color:var(--muted);font-size:13.5px;margin:4px 0 12px}
+  .mcount{color:var(--faint);font-size:12px;margin-left:auto}
+  ul.lessons{list-style:none;margin:0;padding:0}
+  ul.lessons li{display:flex;align-items:flex-start;gap:11px;padding:8px 10px;border-radius:9px}
+  ul.lessons li.current{background:color-mix(in srgb,var(--current) 12%,transparent)}
+  ul.lessons li.hasreview{cursor:pointer}
+  ul.lessons li.hasreview:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  .chev{flex:0 0 auto;color:var(--accent);font-size:12px;margin-top:3px;
+    transition:transform .18s ease;font-weight:700}
+  .chev.open{transform:rotate(90deg)}
+
+  /* ---------- lesson detail panel (the reviewable record) ---------- */
+  .detail{margin:2px 0 14px;padding:18px 20px;border:1px solid var(--line);
+    border-left:3px solid var(--accent);border-radius:0 12px 12px 0;background:var(--panel2)}
+  .detail h4{margin:0 0 3px;font-size:14px;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--accent)}
+  .detail .when{color:var(--faint);font-size:12px;margin:0 0 16px}
+  .detail h5{margin:20px 0 8px;font-size:13.5px;color:var(--ink);
+    border-bottom:1px solid var(--line);padding-bottom:5px}
+  .detail p,.detail li{font-size:13.5px;line-height:1.65;color:var(--muted)}
+  .detail ul{margin:6px 0;padding-left:20px}
+  .detail b{color:var(--ink)}
+  .caveat{background:color-mix(in srgb,var(--current) 13%,transparent);
+    border:1px solid color-mix(in srgb,var(--current) 45%,var(--line));
+    border-radius:9px;padding:12px 15px;margin:0 0 16px}
+  .caveat .ct{color:var(--current);font-weight:700;font-size:12px;letter-spacing:.05em;
+    text-transform:uppercase;display:block;margin-bottom:5px}
+  .caveat p{margin:0;font-size:13px}
+  .fix{background:color-mix(in srgb,var(--accent) 12%,transparent);
+    border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));
+    border-radius:9px;padding:13px 16px;margin:8px 0}
+  .fix p{margin:0 0 8px}.fix p:last-child{margin:0}
+  table.meas{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+  table.meas th{text-align:left;color:var(--faint);font-weight:600;font-size:11.5px;
+    letter-spacing:.05em;text-transform:uppercase;padding:5px 8px;border-bottom:1px solid var(--line)}
+  table.meas td{padding:7px 8px;border-bottom:1px solid var(--line);color:var(--muted)}
+  table.meas td.v{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:600}
+  .ok{color:var(--done);font-weight:700}.no{color:var(--accent);font-weight:700}
+
+  /* ---------- image + annotation overlay ---------- */
+  .canvasbox{position:relative;margin:10px 0 6px;border:1px solid var(--line);
+    border-radius:9px;overflow:hidden;background:#fff;line-height:0}
+  .canvasbox img{width:100%;display:block}
+  .canvasbox img.ovl{position:absolute;inset:0;opacity:0;transition:opacity .2s ease}
+  .canvasbox.show img.ovl{opacity:1}
+  .ctrls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+  .tgl{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--muted);
+    font:600 12px/1 inherit;padding:7px 13px;border-radius:99px;cursor:pointer}
+  .tgl:hover{color:var(--ink)}
+  .tgl.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .fnote{color:var(--faint);font-size:11.5px;font-style:italic}
+  .dot{flex:0 0 auto;width:18px;height:18px;border-radius:50%;margin-top:2px;
+    border:2px solid var(--todo);position:relative}
+  .done .dot{background:var(--done);border-color:var(--done)}
+  .done .dot::after{content:"";position:absolute;left:5px;top:1.5px;width:4px;height:8px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .current .dot{border-color:var(--current);background:color-mix(in srgb,var(--current) 25%,transparent)}
+  .current .dot::after{content:"";position:absolute;left:4px;top:4px;width:6px;height:6px;
+    border-radius:50%;background:var(--current)}
+  .lz{flex:1 1 auto;min-width:0}
+  .lid{font-variant-numeric:tabular-nums;color:var(--faint);font-size:12.5px;
+    margin-right:7px;font-weight:600}
+  .ltitle{font-size:14.5px}
+  .done .ltitle{color:var(--muted)}
+  .lnote{color:var(--faint);font-size:12.5px;margin-top:2px;font-style:italic}
+  .pill{flex:0 0 auto;font-size:10.5px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;padding:3px 8px;border-radius:99px;margin-top:1px}
+  .current .pill{background:var(--current);color:#1a1206}
+  .done .pill{background:color-mix(in srgb,var(--done) 20%,transparent);color:var(--done)}
+  .todo .pill{background:var(--panel2);color:var(--faint);border:1px solid var(--line)}
+  /* a thread that runs alongside the spine rather than in sequence */
+  .parallel .dot{border-color:var(--accent);
+    background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--accent) 30%,transparent),
+      color-mix(in srgb,var(--accent) 30%,transparent) 3px,transparent 3px,transparent 6px)}
+  .parallel .pill{background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--accent)}
+  /* gated on something earlier */
+  .locked{opacity:.62}
+  .locked .dot{border-style:dashed}
+  .locked .pill{background:var(--panel2);color:var(--faint);border:1px solid var(--line)}
+  footer{color:var(--faint);font-size:12px;margin-top:34px;text-align:center;line-height:1.7}
+  code{background:var(--panel2);border:1px solid var(--line);border-radius:5px;
+    padding:1px 5px;font-size:12.5px}
+
+  /* ---------- Grimoire tab — its own committed look (aged parchment), ---------- */
+  /* ---------- independent of the app shell's light/dark theme.        ---------- */
+  #tab-grimoire{
+    --parch:#e9dbb8; --parch2:#f1e6c8; --edge:#8a6d43;
+    --ink2:#3b2b20; --ink2-soft:#5c4632; --accent2:#7a3b2e; --gold:#93712f;
+    background:
+      radial-gradient(ellipse at top left, rgba(255,255,255,.30), transparent 55%),
+      radial-gradient(ellipse at bottom right, rgba(0,0,0,.12), transparent 55%),
+      var(--parch);
+    color:var(--ink2);
+    font-family:Georgia,"Palatino Linotype","Book Antiqua",serif;
+    padding:40px 16px 90px;
+    min-height:100vh;
+  }
+  .book{max-width:760px;margin:0 auto;background:var(--parch2);
+    border:1px solid var(--edge);border-radius:4px;
+    box-shadow:0 2px 0 rgba(0,0,0,.06), 0 24px 48px rgba(50,35,15,.30);
+    padding:20px 28px 44px}
+  @media (min-width:640px){ .book{padding:44px 56px 56px} }
+  .gtitle{font-size:26px;text-align:center;letter-spacing:.05em;margin:6px 0 4px;
+    color:var(--accent2);font-variant:small-caps}
+  .gsub{text-align:center;color:var(--ink2-soft);font-style:italic;margin:0 0 6px;font-size:14px}
+  .quill{display:block;margin:0 auto 6px;color:var(--accent2)}
+  .divider{display:flex;align-items:center;gap:14px;margin:30px 0;color:var(--gold)}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--edge);opacity:.6}
+  .sigil{flex:0 0 auto;opacity:.85}
+  .chapter h2{font-size:20px;color:var(--accent2);border-bottom:1px solid var(--edge);
+    padding-bottom:7px;margin:0 0 2px;font-weight:600}
+  .chnum{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:2px}
+  .chgoal{color:var(--ink2-soft);font-style:italic;font-size:13.5px;margin:8px 0 16px}
+  .chapter h3{font-size:14.5px;color:var(--ink2-soft);margin:18px 0 7px;
+    font-variant:small-caps;letter-spacing:.04em;border-bottom:1px dotted var(--edge);
+    padding-bottom:3px}
+  .chapter ul{margin:0 0 6px;padding-left:22px}
+  .chapter li{margin:6px 0;line-height:1.6;font-size:14px}
+  .book code{background:rgba(122,59,46,.08);border:1px solid rgba(138,109,67,.4);
+    border-radius:4px;padding:1px 5px;font-size:12.5px;color:var(--accent2)}
+  .toc{list-style:none;padding:0;margin:0 0 4px;display:grid;gap:6px}
+  .toc a{color:var(--ink2);text-decoration:none;font-size:14px;display:flex;gap:8px}
+  .toc a:hover{color:var(--accent2)}
+  .toc .chnum{margin:0;min-width:110px}
+  .unwritten{font-style:italic;color:var(--ink2-soft);font-size:13.5px}
+  .footnote{margin-top:36px;text-align:center;font-style:italic;color:var(--ink2-soft);font-size:13px;
+    line-height:1.7}
+</style>
+</head>
+<body>
+
+<div class="tabbar">
+  <button class="tabbtn active" data-tab="progress">🎨 Progress</button>
+  <button class="tabbtn" data-tab="grimoire">📜 Grimoire</button>
+</div>
+
+<main id="tab-progress" class="tabpanel active">
+<div class="wrap">
+  <header>
+    <h1>2D Animation Tutorial — Milestone Ledger</h1>
+    <p class="sub">The project runs on four parallel tracks: <b>1 — Tools</b> (digital animation workflow, graduating to OpenToonz), <b>2 — Drawing</b> (fundamentals + drawing specifically for animation), <b>3 — Animation</b> (the classic milestones, from the Disney tradition), <b>4 — Pen &amp; Tablet</b> (a thread running through everything). Full lessons live in <a href="curriculum/">curriculum/</a> — this stays lean.</p>
+    <p class="meta" id="meta"></p>
+  </header>
+  <div class="bar"><i id="fill"></i></div>
+  <p class="barlabel" id="barlabel"></p>
+  <div id="milestones"></div>
+  <footer>
+    Open this file in your browser to see progress. Claude updates the
+    <code>LEDGER</code> data block below as you finish each lesson.
+  </footer>
+</div>
+</main>
+
+<main id="tab-grimoire" class="tabpanel">
+<div class="book">
+  <svg class="quill" width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 31 L27 9 L31 13 L13 35 L8 36 Z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+    <path d="M27 9 L31 13" stroke="currentColor" stroke-width="1.3"/>
+    <path d="M24.5 12 L28 15.5" stroke="currentColor" stroke-width=".8" opacity=".55"/>
+  </svg>
+  <h1 class="gtitle">The Grimoire</h1>
+  <p class="gsub">Every concept and method taught here, kept in this project's own hand</p>
+
+  <ul class="toc">
+    <li><a href="#ch1"><span class="chnum">Chapter I</span> Track 1 — Tools &amp; workflow</a></li>
+    <li><a href="#ch2"><span class="chnum">Chapter II</span> Track 2 — Drawing</a></li>
+    <li><a href="#ch3"><span class="chnum">Chapter III</span> Track 3 — Animation fundamentals</a></li>
+    <li><a href="#ch4"><span class="chnum">Chapter IV</span> Track 4 — Pen &amp; tablet</a></li>
+  </ul>
+
+  <p class="unwritten" style="text-align:center;margin-top:30px">
+    These chapters are pages yet unwritten — they fill in as the lessons are lived,<br>
+    including every question you ask along the way.
+  </p>
+  <p class="footnote">
+    Ask Claude to explain any entry further, or to quiz you on a chapter whenever you want a
+    check on retention.
+  </p>
+</div>
+</main>
+
+<script>
+/* ============================================================================
+   LEDGER — the single source of truth for progress.
+   Claude edits ONLY this block (small diffs = cheap updates). Then reload.
+   status per lesson: "done" | "current" | "todo"
+   ==========================================================================*/
+const LEDGER = {
+  updated: "2026-08-09",
+  now: "Setup & orientation",
+  milestones: [
+    {
+      id: "T1",
+      title: "Track 1 — Tools & workflow",
+      goal: "The universal machinery of digital 2D animation, ending in the move to OpenToonz — the open-sourced descendant of Ghibli's own in-house software.",
+      lessons: [
+        {
+          id: "t1-01",
+          title: "Setup & orientation",
+          status: "current",
+          lesson: "curriculum/track-1-tools/01-setup-krita.md"
+        },
+        {
+          id: "t1-02",
+          title: "Universal animation tool concepts",
+          status: "locked",
+          lesson: "curriculum/track-1-tools/02-animation-tool-concepts.md",
+          note: "after T4-01"
+        },
+        {
+          id: "t1-03",
+          title: "Transition to OpenToonz",
+          status: "locked",
+          lesson: "curriculum/track-1-tools/03-opentoonz-transition.md",
+          note: "gated on T3-05"
+        }
+      ]
+    },
+    {
+      id: "T2",
+      title: "Track 2 — Drawing",
+      goal: "From line control through \"why does my art look flat\" to drawing specifically for animation: gesture, silhouette, and the model sheet.",
+      lessons: [
+        {
+          id: "t2-01",
+          title: "Line & shape control",
+          status: "locked",
+          lesson: "curriculum/track-2-drawing/01-line-control.md"
+        },
+        {
+          id: "t2-02",
+          title: "Form & volume (the flatness fix)",
+          status: "locked",
+          lesson: "curriculum/track-2-drawing/02-form-and-volume.md"
+        },
+        {
+          id: "t2-03",
+          title: "Construction: heads, bodies, poses",
+          status: "locked",
+          lesson: "curriculum/track-2-drawing/03-construction.md"
+        },
+        {
+          id: "t2-04",
+          title: "Drawing for animation (gesture, silhouette, model sheet)",
+          status: "locked",
+          lesson: "curriculum/track-2-drawing/04-drawing-for-animation.md"
+        }
+      ]
+    },
+    {
+      id: "T3",
+      title: "Track 3 — Animation fundamentals",
+      goal: "The classic milestone sequence from the Disney tradition (Thomas & Johnston's 12 principles, Williams' Survival Kit): ball → sack → walk → scene.",
+      lessons: [
+        {
+          id: "t3-01",
+          title: "Animation principles primer",
+          status: "locked",
+          lesson: "curriculum/track-3-animation/01-principles.md"
+        },
+        {
+          id: "t3-02",
+          title: "Bouncing prop (soot sprite / mana orb)",
+          status: "locked",
+          lesson: "curriculum/track-3-animation/02-bouncing-prop.md"
+        },
+        {
+          id: "t3-03",
+          title: "Flour sack (the weary soot sprite)",
+          status: "locked",
+          lesson: "curriculum/track-3-animation/03-flour-sack.md"
+        },
+        {
+          id: "t3-04",
+          title: "Walk cycle",
+          status: "locked",
+          lesson: "curriculum/track-3-animation/04-walk-cycle.md"
+        },
+        {
+          id: "t3-05",
+          title: "Parallax background & camera pan",
+          status: "locked",
+          lesson: "curriculum/track-3-animation/05-parallax-background.md"
+        },
+        {
+          id: "t3-06",
+          title: "Capstone short",
+          status: "locked",
+          lesson: "curriculum/track-3-animation/06-capstone-short.md",
+          note: "after T1-03"
+        },
+        {
+          id: "t3-07",
+          title: "Polish & retrospective",
+          status: "locked",
+          lesson: "curriculum/track-3-animation/07-polish-retrospective.md"
+        }
+      ]
+    },
+    {
+      id: "T4",
+      title: "Track 4 — Pen & tablet",
+      goal: "A parallel thread, not a phase: grip and misfire fixes first, then shortcuts and two-handed flow. Grip/strain feedback belongs in every check-in.",
+      lessons: [
+        {
+          id: "t4-01",
+          title: "Grip, buttons & the misfire problem",
+          status: "parallel",
+          lesson: "curriculum/track-4-pen-tablet/01-grip-and-buttons.md",
+          note: "start right after T1-01"
+        },
+        {
+          id: "t4-02",
+          title: "Shortcuts & two-handed flow",
+          status: "locked",
+          lesson: "curriculum/track-4-pen-tablet/02-shortcuts-and-flow.md",
+          note: "once drawing regularly"
+        }
+      ]
+    }
+  ]
+};
+/* ==========================  end editable block  ========================== */
+
+(function render(){
+  const all = LEDGER.milestones.flatMap(m => m.lessons);
+  const done = all.filter(l => l.status === "done").length;
+  const pct = Math.round(done / all.length * 100);
+
+  document.getElementById("meta").innerHTML =
+    "Now: <b>" + LEDGER.now + "</b> &nbsp;·&nbsp; updated " + LEDGER.updated;
+  document.getElementById("fill").style.width = pct + "%";
+  document.getElementById("barlabel").textContent =
+    done + " of " + all.length + " lessons complete (" + pct + "%)";
+
+  const STATUS = { done:"Done", current:"Now", todo:"To do",
+                   parallel:"Parallel", locked:"Locked" };
+  const host = document.getElementById("milestones");
+  for (const m of LEDGER.milestones){
+    const md = m.lessons.filter(l => l.status === "done").length;
+    const active = m.lessons.some(l => l.status === "current");
+    const el = document.createElement("section");
+    el.className = "m" + (active ? " active" : "");
+    el.innerHTML =
+      '<div class="mhead"><span class="mid">' + m.id + '</span>' +
+      '<h2 class="mtitle">' + m.title + '</h2>' +
+      '<span class="mcount">' + md + '/' + m.lessons.length + '</span></div>' +
+      '<p class="mgoal">' + m.goal + '</p>' +
+      '<ul class="lessons">' + m.lessons.map(l => {
+        const has = !!(l.review || l.work);
+        return '<li class="' + l.status + (has ? ' hasreview' : '') + '"' +
+          (has ? ' data-lesson="' + l.id + '"' : '') + '>' +
+          '<span class="dot"></span>' +
+          '<span class="lz"><span class="lid">' + l.id + '</span>' +
+          '<span class="ltitle">' + l.title + '</span>' +
+          (l.note ? '<div class="lnote">' + l.note + '</div>' : '') +
+          '</span>' +
+          (has ? '<span class="chev">&#9656;</span>' : '') +
+          '<span class="pill">' + STATUS[l.status] + '</span></li>' +
+          (has ? '<li class="detailrow" data-for="' + l.id + '" style="display:none;padding:0">' +
+                 renderDetail(l) + '</li>' : '');
+      }).join("") + '</ul>';
+    host.appendChild(el);
+  }
+
+  /* ---- the reviewable record for one lesson ---- */
+  function renderDetail(l){
+    const r = l.review, w = l.work;
+    let h = '<div class="detail" style="flex:1 1 auto">';
+    h += '<h4>Review — Lesson ' + l.id + '</h4>';
+    h += '<p class="when">' + (r && r.date ? 'reviewed ' + r.date : 'work in progress') + '</p>';
+
+    if (w && w.image){
+      const base = '../progress/' + w.folder + '/';
+      h += '<div class="ctrls">' +
+           (w.overlay ? '<button class="tgl" data-ovl="' + l.id + '">Show Claude\'s measurements</button>' : '') +
+           '<a class="tgl" href="' + base + w.image + '" target="_blank">Open full size</a>' +
+           '</div>';
+      h += '<div class="canvasbox" id="cv-' + l.id + '">' +
+           '<img src="' + base + w.image + '" alt="lesson ' + l.id + '">' +
+           (w.overlay ? '<img class="ovl" src="' + base + w.overlay + '" alt="annotations">' : '') +
+           '</div>';
+      if (w.caption) h += '<p class="fnote">' + w.caption + '</p>';
+    }
+
+    if (r && r.caveat)
+      h += '<div class="caveat"><span class="ct">⚠ Baseline integrity</span><p>' + r.caveat + '</p></div>';
+
+    if (r && r.measures && r.measures.length){
+      h += '<h5>Measurements</h5><table class="meas"><tr><th>What</th><th>Yours</th><th>Target</th><th>Note</th></tr>';
+      for (const m of r.measures){
+        const mark = m.ok === true ? '<span class="ok">✓</span> ' : m.ok === false ? '<span class="no">✗</span> ' : '';
+        h += '<tr><td>' + m.what + '</td><td class="v">' + m.got + '</td><td class="v">' + m.target +
+             '</td><td>' + mark + (m.note || '') + '</td></tr>';
+      }
+      h += '</table>';
+    }
+
+    if (r && r.working && r.working.length)
+      h += '<h5>What&rsquo;s working</h5><ul>' + r.working.map(x => '<li>' + x + '</li>').join('') + '</ul>';
+
+    if (r && r.fix){
+      h += '<h5>The one fix — ' + r.fix.title + '</h5><div class="fix"><p>' + r.fix.body + '</p>' +
+           (r.fix.drill ? '<p>' + r.fix.drill + '</p>' : '') + '</div>';
+    }
+
+    if (r && r.forward && r.forward.length)
+      h += '<h5>Carried forward</h5><ul>' + r.forward.map(x => '<li>' + x + '</li>').join('') + '</ul>';
+
+    return h + '</div>';
+  }
+
+  /* ---- expand / collapse + overlay toggle ---- */
+  document.addEventListener('click', function(ev){
+    const tgl = ev.target.closest('.tgl[data-ovl]');
+    if (tgl){
+      const box = document.getElementById('cv-' + tgl.dataset.ovl);
+      const on = box.classList.toggle('show');
+      tgl.classList.toggle('on', on);
+      tgl.textContent = on ? "Hide Claude's measurements" : "Show Claude's measurements";
+      return;
+    }
+    const li = ev.target.closest('li.hasreview');
+    if (!li) return;
+    const row = document.querySelector('li.detailrow[data-for="' + li.dataset.lesson + '"]');
+    const open = row.style.display === 'none';
+    row.style.display = open ? 'flex' : 'none';
+    li.querySelector('.chev').classList.toggle('open', open);
+  });
+})();
+
+/* ---------- tab switching ---------- */
+(function tabs(){
+  const btns = document.querySelectorAll(".tabbtn");
+  btns.forEach(btn => btn.addEventListener("click", () => {
+    btns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    document.querySelectorAll(".tabpanel").forEach(p => p.classList.remove("active"));
+    document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
+  }));
+})();
+</script>
+</body>
+</html>
