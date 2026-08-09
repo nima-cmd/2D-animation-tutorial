@@ -1,0 +1,15 @@
+# Study materials — reference footage, stills, copyrighted frames. Local-only.
+references/
+
+# Local Claude Code settings (machine-specific)
+.claude/
+
+# Krita / editor clutter
+*.kra~
+*.kra-autosave.kra
+*~
+
+# OS noise
+.directory
+Thumbs.db
+.DS_Store
