@@ -468,6 +468,74 @@
       animators frequently cut straight from open to shut with no in-between: the physiology was
       never available at this resolution to begin with.</p>
 
+    <h3>speed = spacing ÷ timing — the two levers</h3>
+    <p><b>Observed by the user</b>, unprompted, on comparing the three versions of the blink:
+      <i>“keyframes closer together for faster animation — the first three keyframes, the eyes
+      closing, are back to back, and that’s where we want our speed. Inversely, when the eyes open
+      we want to go slower, and the keyframes are spaced farther apart.”</i> Correct — and worth
+      stating in its general form, because the blink is the <em>special case</em>:</p>
+    <ul>
+      <li><b>Spacing</b> — how far the subject moved <em>in position</em> between two drawings.</li>
+      <li><b>Timing</b> — how many frames sit between them.</li>
+      <li><b>Speed = spacing ÷ timing.</b> Distance over time; literally velocity. Which means there
+        are <b>two independent levers</b> on speed, and most exercises only hand you one.</li>
+    </ul>
+    <p><b>Why the blink only offered one:</b> its five drawings are fixed, so the positional distance
+      between “open” and “half-shut” is <em>baked into the artwork</em> and cannot change without
+      redrawing. Spacing was frozen; <b>time was the only variable</b>. Compressing the frames covers
+      the same distance in less time — faster.</p>
+    <p><b>The bouncing prop (T3-02) inverts this exactly:</b> timing is held constant (on twos
+      throughout) and the ball is <em>drawn in a different place</em> each time — gaps wide while it
+      falls fast, bunching tight as it slows at the top of the arc. Same drawings per second, and it
+      still reads as accelerating and decelerating. That is <b>spacing working alone, with timing
+      frozen.</b></p>
+    <p><b>Blink = the time lever. Ball = the position lever.</b> Animation is driving both at once.</p>
+    <p>Note also the shape of the reopening: gaps of <b>2 then 4</b> — <em>doubling</em>. Widening
+      gaps are a deceleration curve, and drawing them out as a diagram is precisely Williams’
+      <b>spacing chart</b>.</p>
+
+    <h3>Inverting the asymmetry — where an emotion actually lives</h3>
+    <p><b>Found by the user</b> while deriving a <em>drowsy</em> blink from the same five drawings,
+      reasoning about what a tired eyelid is <em>doing</em> rather than reaching for “the same thing,
+      slower”: <i>“you start fighting to keep your eyes open, so the lids drop slowly; then you lose
+      the battle and it accelerates shut; you hold there as you doze; then the last two frames are
+      in succession to mirror the frantic, jolting reopening as you catch yourself.”</i></p>
+    <ul>
+      <li><b>A waking blink:</b> fast close (92 ms), slow open (242 ms) — ratio ≈ <b>1 : 2.6</b>.</li>
+      <li><b>A drowsy blink:</b> slow close (208 ms), fast open (83 ms) — ratio ≈ <b>2.5 : 1</b>.</li>
+    </ul>
+    <p><b>The emotion is not in the duration; it is in the reversal.</b> An alert eye snaps shut and
+      drifts open. An eye fighting sleep sags shut and snaps open. Stretching every gap uniformly
+      would only have produced a slow blink — the characterisation comes from flipping <em>which
+      phase is the fast one</em>. Look for the asymmetry first, and ask whether the feeling inverts
+      it.</p>
+    <p><b>And note what carried the meaning: a hold.</b> The most expressive moment in the shot is
+      the one where nothing moves. That is <em>ma</em> — Miyazaki’s pause — arrived at from the
+      opposite direction, and a reminder that stillness is an active choice rather than an absence of
+      animation. Corollary: <b>a jolt reads as frantic only in proportion to the stillness it
+      interrupts</b>, so lengthening the hold buys a sharper recovery for free.</p>
+
+    <h3>Timing is read relatively, not absolutely</h3>
+    <p><b>Found by the user</b> on lengthening the drowsy blink’s hold: <i>“when I increased the
+      length of the shut, I needed to further slow down the shutting of the eyes at the beginning,
+      and add one extra hold before the eyes open, to keep things in scale and balance.”</i></p>
+    <p>The close had not been touched — yet it now felt too fast. <b>A duration has no speed of its
+      own; it is perceived against its neighbours.</b> 208 ms beside a 208 ms hold reads as measured;
+      the identical 208 ms beside an 875 ms hold reads as hurried.</p>
+    <p><b>Consequence:</b> stretching one element silently changes the read of every element around
+      it. Timing must be rebalanced as a <em>whole</em>, never adjusted one gap at a time. This is
+      why a shot is judged on playback rather than in the numbers — and it is the same reason
+      <b>a jolt reads as frantic only in proportion to the stillness it interrupts</b>.</p>
+
+    <h3>Re-using drawings out of order (non-monotonic keyframes)</h3>
+    <p>A keyframe need not introduce a <em>new</em> drawing — it can re-place one already made.
+      A sequence may therefore double back: <code>open → half → open → half → shut</code>.</p>
+    <p><b>Why it matters:</b> a lid that only ever descends is a <em>surrender</em>; a lid that
+      briefly climbs back is a <em>struggle</em>. Any action containing conflict, hesitation,
+      tremor, or repetition needs this — and it costs <b>no new artwork</b>, only copied keyframes.
+      It is the technique on which a <em>nervous</em> read almost entirely depends, since
+      nervousness is irregularity and irregularity requires revisiting positions.</p>
+
     <h3>Timing as expression — is there a right and a wrong?</h3>
     <p><b>Question asked:</b> “Is timing what gives a film its signature? Do Ghibli and <em>Frieren</em>
       each have their own cadence? Is there a right and wrong timing, or is it whatever I want to
@@ -588,7 +656,7 @@
    ==========================================================================*/
 const LEDGER = {
   updated: "2026-08-11",
-  now: "T3-01 — animation principles primer (blink re-time done; timing-as-expression next)",
+  now: "T3-01 — principles primer: drowsy blink reviewed; nervous + excited next",
   milestones: [
     {
       id: "T1",
@@ -630,6 +698,7 @@ const LEDGER = {
             },
             forward: [
               "<b>Fix completed 2026-08-11</b> — re-timed to <b>0 / 2 / 3 / 5 / 8</b>, verified exact from the keyframe XML. Cadence now runs <b>twos → ones → twos → threes</b> instead of threes throughout. Saved as <code>t1-02-blink-retimed.kra</code> beside the untouched original. Your own read on playback: <i>“far more in line with what I'd expect to see in a Ghibli film.”</i> Four keyframes moved, nothing redrawn.",
+              "<b>Third version, derived from measurement</b> — <code>t1-02-blink-derived.kra</code> at <b>0/1/2/4/8</b>, from VanderWerf et al. (2003). Claude predicted the step from 0/2/3/5/8 would be <i>imperceptible</i>. <b>It wasn't</b> — you saw it, and read the cause off the timeline unprompted: dense keyframes on the close for speed, widening gaps on the reopen for slowness. <b>One frame at 24fps sits above your perceptual floor</b>, which is finer discrimination than assumed and means precision here is worth spending on.",
               "timing &amp; spacing (even vs. uneven) → rechecked in T3-01 (principles) and T3-02 (bouncing prop), where it's the entire lesson",
               "<b>ffmpeg is absent on this machine</b>, so Krita cannot render video and motion can only be exported as a PNG sequence. Fine for a pure re-time (the .kra carries the timing), but must be solved before T3-02, where new motion needs playable video for review."
             ]
@@ -684,7 +753,33 @@ const LEDGER = {
           id: "t3-01",
           title: "Animation principles primer",
           status: "current",
-          lesson: "curriculum/track-3-animation/01-principles.md"
+          lesson: "curriculum/track-3-animation/01-principles.md",
+          note: "drowsy done; nervous + excited remain",
+          review: {
+            date: "2026-08-11",
+            measures: [
+              { what: "Derivation given before animating", got: "full reasoning, unprompted", target: "state the intent first", ok: true, note: "invented a narrative arc — fight, lose, doze, jolt" },
+              { what: "Shut hold (the doze)", got: "875ms (21 frames)", target: "500–1000ms", ok: true, note: "was 208ms; now genuinely reads as dozing" },
+              { what: "Close : reopen ratio", got: "375ms : 83ms ≈ 4.5 : 1", target: "inverted from waking (1 : 2.6)", ok: true, note: "the inversion is what makes it drowsy" },
+              { what: "Frame 0", got: "keyframe present at 0", target: "no blank first frame", ok: true, note: "found and fixed the flash independently" },
+              { what: "The struggle", got: "lid descends monotonically", target: "non-monotonic — a catch", ok: false, note: "the fight is described but not on the timeline" }
+            ],
+            working: [
+              "You <b>derived before you animated</b> and the derivation was a <em>story</em> — fighting to stay awake, losing, dozing, jolting back. Nothing in the brief asked for narrative; you brought it.",
+              "<b>You inverted the physiological asymmetry.</b> A waking blink is fast-close/slow-open (92ms / 242ms). Yours is slow-close/fast-open. Stretching every gap uniformly would only have made a slow blink — flipping <em>which phase is fast</em> is what produces the characterisation. This was not in Claude's drowsy recipe; it is a better idea and is now in the Grimoire under your name.",
+              "<b>You discovered that timing is read relatively, not absolutely.</b> On lengthening the hold you felt the close had become too fast — though you had not touched it — and rescaled it. 208ms beside a 208ms hold reads measured; the same 208ms beside an 875ms hold reads hurried. Correcting for that unprompted is the instinct this whole lesson exists to build.",
+              "<b>The expressive weight sits on a hold</b> — the most meaningful moment in the shot is the one where nothing moves. That is <em>ma</em>, reached from the opposite direction."
+            ],
+            fix: {
+              title: "animate the fight, not just the fall",
+              body: "Your stated intent was <i>“you're actually trying to stay awake.”</i> But the timeline runs <b>open → half → shut</b>: monotonic, a smooth descent. <b>A smooth descent is a surrender, not a struggle.</b> The fight exists only in the description.",
+              drill: "A fight means the lid comes back <em>up</em>. Do it with <b>zero new drawings</b> — a keyframe can re-use a drawing already made, out of order: <code>open → half → (open again, briefly — the catch) → half → shut</code>. That momentary return is winning before losing. <b>Re-using drawings non-monotonically</b> is the technique the <em>nervous</em> blink will depend on entirely, so it is worth meeting here."
+            },
+            forward: [
+              "<b>Non-monotonic reuse of drawings</b> → the core technique for the <em>nervous</em> blink, where irregularity and repetition are the whole read",
+              "<b>The wall to expect:</b> catching yourself falling asleep really wants an <em>overshoot</em> — eyes flying wider than normal, then settling. That needs a drawing that doesn't exist yet. Finding the point where the time lever runs out and new artwork is required is the intended lesson of this exercise."
+            ]
+          }
         },
         {
           id: "t3-02",
