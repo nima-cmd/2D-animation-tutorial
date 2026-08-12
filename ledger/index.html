@@ -56,10 +56,13 @@
   .mgoal{color:var(--muted);font-size:13.5px;margin:4px 0 12px}
   .mcount{color:var(--faint);font-size:12px;margin-left:auto}
   ul.lessons{list-style:none;margin:0;padding:0}
-  ul.lessons li{display:flex;align-items:flex-start;gap:11px;padding:8px 10px;border-radius:9px}
-  ul.lessons li.current{background:color-mix(in srgb,var(--current) 12%,transparent)}
-  ul.lessons li.hasreview{cursor:pointer}
-  ul.lessons li.hasreview:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  /* NB: child combinator, not descendant — the review panel nests its own <ul><li>,
+     and a descendant selector turned every inline <b>/<code> into a flex item. */
+  ul.lessons > li{display:flex;align-items:flex-start;gap:11px;padding:8px 10px;border-radius:9px}
+  ul.lessons > li.current{background:color-mix(in srgb,var(--current) 12%,transparent)}
+  ul.lessons > li.hasreview{cursor:pointer}
+  ul.lessons > li.hasreview:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+  .detail ul li{display:list-item}
   .chev{flex:0 0 auto;color:var(--accent);font-size:12px;margin-top:3px;
     transition:transform .18s ease;font-weight:700}
   .chev.open{transform:rotate(90deg)}
@@ -170,8 +173,9 @@
   .chapter h3{font-size:14.5px;color:var(--ink2-soft);margin:18px 0 7px;
     font-variant:small-caps;letter-spacing:.04em;border-bottom:1px dotted var(--edge);
     padding-bottom:3px}
-  .chapter ul{margin:0 0 6px;padding-left:22px}
+  .chapter ul,.chapter ol{margin:0 0 6px;padding-left:22px}
   .chapter li{margin:6px 0;line-height:1.6;font-size:14px}
+  .chapter ol li{padding-left:2px}
   .book code{background:rgba(122,59,46,.08);border:1px solid rgba(138,109,67,.4);
     border-radius:4px;padding:1px 5px;font-size:12.5px;color:var(--accent2)}
   .toc{list-style:none;padding:0;margin:0 0 4px;display:grid;gap:6px}
@@ -218,15 +222,356 @@
   <p class="gsub">Every concept and method taught here, kept in this project's own hand</p>
 
   <ul class="toc">
+    <li><a href="#ch0"><span class="chnum">Front matter</span> On the four tracks, and why they are not in order</a></li>
     <li><a href="#ch1"><span class="chnum">Chapter I</span> Track 1 — Tools &amp; workflow</a></li>
     <li><a href="#ch2"><span class="chnum">Chapter II</span> Track 2 — Drawing</a></li>
     <li><a href="#ch3"><span class="chnum">Chapter III</span> Track 3 — Animation fundamentals</a></li>
     <li><a href="#ch4"><span class="chnum">Chapter IV</span> Track 4 — Pen &amp; tablet</a></li>
   </ul>
 
-  <p class="unwritten" style="text-align:center;margin-top:30px">
-    These chapters are pages yet unwritten — they fill in as the lessons are lived,<br>
-    including every question you ask along the way.
+  <div class="chapter" id="ch0">
+    <span class="chnum">Front matter</span>
+    <h2>On the four tracks, and why they are not in order</h2>
+    <p><b>Question asked:</b> “Track 4 is done and we’re on Track 3, but we never did Track 2 — are we
+      going out of order, or am I reading these wrong?”</p>
+    <p>The numbers are <em>subject labels, not a sequence</em>. Only <b>Track 3</b> is a spine; the
+      others are threads pulled in at the moment they are needed.</p>
+    <ul>
+      <li><b>Track 4 (pen &amp; tablet) came first</b> because it gates everything — no usable pen,
+        no drawing of any kind. It is a parallel thread, not a phase.</li>
+      <li><b>Track 3 starts early on purpose.</b> The classic exercises — bouncing ball, flour sack —
+        are deliberately built from <em>circles and blobs</em>. The tradition begins there precisely
+        so that motion can be taught with shapes that demand no drawing skill. Waiting until you can
+        draw well before animating anything is backwards.</li>
+      <li><b>Track 2 (drawing) is deferred, not skipped.</b> It unlocks when an animation exercise
+        starts hurting without it: <b>T3-03 the flour sack</b> needs <b>T2-02 form &amp; volume</b>
+        (a sack must feel like it has mass), and <b>T3-04 the walk cycle</b> needs <b>T2-03
+        construction</b> (you cannot animate a body you cannot build). The bouncing prop needs
+        neither — it is a circle.</li>
+    </ul>
+    <p>The principle underneath: <b>learn a skill at the moment you have a concrete use for it</b>,
+      rather than doing four lessons on faith. A lesson marked <code>locked</code> in the Progress
+      ledger therefore means <em>“not needed yet,”</em> not <em>“not earned yet.”</em></p>
+  </div>
+
+  <div class="divider" aria-hidden="true">
+    <svg class="sigil" width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="15" stroke="currentColor" stroke-width="1"/>
+      <circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width=".7" opacity=".7"/>
+      <circle cx="20" cy="20" r="3" stroke="currentColor" stroke-width="1"/>
+      <path d="M20 5V1 M20 35v4 M5 20H1 M35 20h4" stroke="currentColor" stroke-width=".8"/>
+      <path d="M9.5 9.5 7 7 M30.5 9.5 33 7 M9.5 30.5 7 33 M30.5 30.5 33 33" stroke="currentColor" stroke-width=".6" opacity=".6"/>
+    </svg>
+  </div>
+
+  <div class="chapter" id="ch1">
+    <span class="chnum">Chapter I</span>
+    <h2>Track 1 — Tools &amp; workflow</h2>
+    <p class="chgoal">The universal machinery of digital 2D animation — the tools found in every
+      serious program (Krita, OpenToonz, Toon Boom…), so that graduating to OpenToonz means
+      relearning button <em>locations</em>, not ideas.</p>
+
+    <h3>Onion skinning</h3>
+    <p>The digital lightbox. It shows faint coloured “ghosts” of the neighbouring frames beneath the
+      one you are drawing, so each new drawing can be lined up against the last — the single tool
+      that makes smooth frame-by-frame motion possible.</p>
+    <ul>
+      <li><b>Red ghost = the previous frame; green ghost = the next</b> (set by the colour keys at
+        the bottom of the Onion Skins docker). Standing on a later frame, the earlier drawing sits
+        behind you in red.</li>
+      <li><b>Two switches must both be on</b> or nothing shows: the <em>Onion Skins docker</em>’s
+        main toggle, <em>and</em> the per-layer <b>light-bulb</b> in the Layers docker.</li>
+      <li><b>Gotcha we hit:</b> that light-bulb is camouflaged — far-left edge of the layer row,
+        to the <em>left</em> of the eyeball, and it only appears on hover. If the ghosts won’t
+        show, this bulb is almost always why.</li>
+      <li>Choose which neighbours appear with the number strip (<code>-2 -1 0 1 2</code>) in the
+        docker — the negative numbers are the <em>previous</em> frames.</li>
+    </ul>
+
+    <h3>Holds, and animating “on twos”</h3>
+    <p>A drawing lasts until the next keyframe replaces it — the gap between keyframes <em>is</em>
+      the exposure. Two distinct uses of that gap:</p>
+    <ul>
+      <li><b>A hold</b> is the <em>same</em> drawing kept on screen while nothing changes —
+        deliberate stillness (a character breathing, a landscape settling).</li>
+      <li><b>“On twos”</b> is the working cadence for <em>movement</em>: a <em>new</em> drawing every
+        <em>2</em> frames, each in a new position. The subject is moving the whole time — you’re just
+        making ~12 drawings a second instead of 24. Not the same as a hold.</li>
+    </ul>
+    <p><b>Question asked:</b> “If it’s moving, why hold every drawing for two frames — why twos at
+      all?”</p>
+    <ul>
+      <li><b>The eye can’t tell.</b> ~12 image-changes/second already reads as smooth; doubling to 24
+        adds little for most motion.</li>
+      <li><b>Half the drawings.</b> Hand-drawn means one picture at a time — twos is half the labour,
+        which is why every studio (Disney, Ghibli, anime) standardised on it.</li>
+      <li><b>The look.</b> On-twos crispness is part of the hand-drawn visual language; on-ones can
+        feel uncannily “video-like.”</li>
+      <li><b>When to break it:</b> fast motion → drop to <b>ones</b> (else it strobes); calm → longer
+        <b>holds</b>. Twos is the baseline, not a rule. A <em>Frieren</em> scene mixes all three —
+        dialogue on twos, a slash on ones, a quiet gaze on a big hold.</li>
+      <li><b>Spacing = speed</b>: the distance a subject jumps between successive drawings is what
+        sells how fast it’s going. Spacing so wide it strobes is your cue to switch to ones.</li>
+    </ul>
+
+    <h3>Reusing drawings — duplicate frames &amp; layers-as-cels</h3>
+    <p><b>Question asked:</b> “Drawing the body by hand took ages — do I have to draw the whole
+      thing over again on the next frame?” <b>No.</b> Two ways animation avoids redrawing what
+      doesn’t change:</p>
+    <ul>
+      <li><b>Create Duplicate Frame</b> copies the <em>entire</em> current drawing into the new
+        frame — you then erase/redraw only the part that changes (for a blink, just the eyes). The
+        body comes along for free; you never redraw it.</li>
+      <li><b>Layers as cels (the pro method):</b> put the parts that <em>don’t</em> move on their
+        own layer (the fuzzy body) and hold it — one drawing, never redrawn — and animate only the
+        moving part (the eyes) on a layer above. This is exactly how hand-drawn studios worked:
+        stacked transparent <em>cels</em> over a single held background painting. For slow,
+        laborious drawing this is the biggest time-saver there is — <b>draw the hard part once.</b></li>
+    </ul>
+
+    <h3>Re-timing: moving keyframes without redrawing anything</h3>
+    <p>Timing is editable after the fact. A drawing is not welded to its frame — drag a keyframe
+      along the timeline and the drawing travels with it. <b>An entire re-time costs zero new
+      drawings</b>, which makes timing the cheapest thing in animation to experiment with, and
+      therefore the thing to experiment with most.</p>
+    <ul>
+      <li><b>Work in the direction you are moving.</b> Shifting keyframes <em>earlier</em>
+        (0,3,6,9,12 → 0,2,3,5,8), go <b>left to right</b>: each move vacates the slot the next one
+        needs, so nothing ever lands on an occupied frame. Shifting <em>later</em>, go right to
+        left. Getting this backwards makes one keyframe drop onto another and destroy it.</li>
+      <li><b>Save a copy before re-timing</b> (<code>-retimed</code> suffix). Keeping the original
+        beside the new version is what lets you play the two back to back — and the comparison is
+        where the learning actually is.</li>
+      <li><b>If you save over the original anyway</b> (done here, 2026-08-11): Krita keeps a backup
+        beside the file named <code>&lt;name&gt;.kra~</code>, which holds the document
+        <em>as it was before the most recent save</em>. The original was recovered from it intact.
+        <b>But the window is exactly one save wide</b> — the next save rewrites <code>.kra~</code>
+        with the new version and the original is gone for good. On discovering the mistake, copy the
+        backup somewhere safe <em>before</em> touching Krita again, and immediately
+        <b>File → Save As</b> onto the intended name so the open document stops pointing at the file
+        you meant to protect.</li>
+      <li><b>A <code>.kra</code> is a zip.</b> The exact keyframe times sit in
+        <code>&lt;name&gt;/layers/&lt;layer&gt;.keyframes.xml</code>. For a pure re-time — where no
+        drawing changed — those times <em>are</em> the whole edit, so the timing can be verified to
+        the frame without rendering anything.</li>
+    </ul>
+
+    <h3>In-betweens (met early, in the blink)</h3>
+    <p>Between two key drawings you can add <em>in-between</em> drawings that ease from one to the
+      next — a blink reads far smoother as open → half → shut → half → open than as a hard
+      open/shut cut. <b>How those in-betweens are spaced in time</b> (even vs. uneven, fast vs.
+      slow) is what makes motion feel alive or mechanical — first met here in T1-02, drilled
+      properly in Track 3’s principles lessons.</p>
+  </div>
+
+  <div class="divider" aria-hidden="true">
+    <svg class="sigil" width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="15" stroke="currentColor" stroke-width="1"/>
+      <circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width=".7" opacity=".7"/>
+      <circle cx="20" cy="20" r="3" stroke="currentColor" stroke-width="1"/>
+      <path d="M20 5V1 M20 35v4 M5 20H1 M35 20h4" stroke="currentColor" stroke-width=".8"/>
+      <path d="M9.5 9.5 7 7 M30.5 9.5 33 7 M9.5 30.5 7 33 M30.5 30.5 33 33" stroke="currentColor" stroke-width=".6" opacity=".6"/>
+    </svg>
+  </div>
+
+  <div class="chapter" id="ch3">
+    <span class="chnum">Chapter III</span>
+    <h2>Track 3 — Animation fundamentals</h2>
+    <p class="chgoal">The classic milestone sequence from the Disney tradition — Thomas &amp;
+      Johnston’s twelve principles, Williams’ <em>Survival Kit</em> — worked here as ball, sack,
+      walk, scene.</p>
+
+    <h3>Frame rate is the grid; cadence is what you do on it</h3>
+    <p><b>Question asked:</b> “Was I supposed to do this at 12fps? I don’t understand where fps
+      determines whether I draw in twos or threes, or how I’d choose my fps.”</p>
+    <p>These are <em>two different numbers</em>, and untangling them is most of what timing is:</p>
+    <ul>
+      <li><b>Frame rate</b> is the <b>grid</b> — how finely the second is divided. At 24fps there
+        are 24 slots per second, each ≈42ms. It is a property of the <em>document</em>, set once.</li>
+      <li><b>Ones / twos / threes</b> is the <b>cadence</b> — how many of those slots each
+        <em>drawing</em> occupies. It is <b>not a setting anywhere.</b> It is purely where you place
+        your keyframes. That is the entire mechanism.</li>
+    </ul>
+    <ul>
+      <li>24fps, a drawing every <b>1</b> slot → 24 drawings/sec — <b>on ones</b></li>
+      <li>24fps, a drawing every <b>2</b> slots → 12 drawings/sec — <b>on twos</b> (the standard)</li>
+      <li>24fps, a drawing every <b>3</b> slots → 8 drawings/sec — <b>on threes</b></li>
+    </ul>
+    <p>So “12fps” as a working rate means <b>12 drawings per second</b>, achieved by spacing
+      keyframes 2 apart on a <em>24fps</em> timeline — <em>not</em> by setting the document to 12.
+      Setting the document to 12 would make 12 drawings/sec a <b>ceiling</b>: a fast action needing
+      ones becomes impossible. Keeping the fine grid lets you choose cadence per shot — dialogue on
+      twos, a slash on ones, a held gaze on a long hold.</p>
+    <p><b>The rule:</b> <b>fps is the grid, cadence is what you do on it.</b> Set the grid once
+      (24 — film and anime standard), then vary cadence constantly. Choose 30 or 60 only for video
+      and game work, never for traditional 2D.</p>
+    <p><b>Where to read it in Krita:</b> Animation Timeline docker, bottom bar, right-hand end — a
+      small box reading <code>24</code> (tooltip <em>Frame rate</em>). The <em>percentage</em> box
+      beside it is <b>play speed</b>, a preview-only slow-motion that changes nothing in the file —
+      do not confuse them. Definitive fallback: a <code>.kra</code> is a zip; inside
+      <code>maindoc.xml</code> sits <code>&lt;framerate value="24"&gt;</code>.</p>
+
+    <h3>Changing cadence <em>within</em> a single action</h3>
+    <p>Cadence is not one choice per shot — it can shift inside one movement, and that shift is what
+      makes motion feel alive. The re-timed blink:</p>
+    <ul>
+      <li>open @0 → half @2 — <b>twos</b></li>
+      <li>half @2 → shut @3 — <b>ones</b> (the lids slamming shut: the fastest instant)</li>
+      <li>shut @3 → half @5 — <b>twos</b></li>
+      <li>half @5 → open @8 — <b>threes</b> (the eye lazily reopening)</li>
+    </ul>
+    <p>Contrast the first attempt, which used <b>threes for all four gaps</b>. The eye travelled at
+      the same rate for the whole blink — and real things do not. <b>Uniform cadence is the signature
+      of mechanical motion.</b> Fast in, slow out, is the signature of a living one.</p>
+    <p><b>Note:</b> those numbers were later <em>corrected</em> against measured physiology to
+      <b>0 / 1 / 2 / 4 / 8</b> — see <i>Deriving frame counts from measurement</i> below. The
+      principle is unchanged; the arithmetic was off.</p>
+
+    <h3>Deriving frame counts from measurement — the five steps</h3>
+    <p><b>Question asked:</b> “Why <em>those</em> keyframes? I don’t want to be told how to make
+      something look right — I want the toolset to control it myself.” The correct answer to
+      “why these numbers” is never <em>taste</em>; it is an arithmetic chain that can be re-run on
+      any action:</p>
+    <ol>
+      <li><b>What does the real thing take, in milliseconds?</b> Measure it, film yourself, or find
+        a study.</li>
+      <li><b>Divide by the frame duration</b> — at 24fps one frame is <b>41.67 ms</b> — to get a
+        frame count.</li>
+      <li><b>Find the asymmetry.</b> Nearly every action has a fast phase and a slow phase. Split
+        the frame budget by the measured ratio, not by halves.</li>
+      <li><b>Within each phase, is it accelerating or decelerating?</b> Accelerating → the time gaps
+        <em>shrink</em>. Decelerating → the gaps <em>grow</em>.</li>
+      <li><b>Then stylise.</b> Usually compress for snap. <b>This is the only step where taste
+        enters</b> — steps 1–4 can be objectively wrong; step 5 cannot.</li>
+    </ol>
+
+    <h3>The blink, derived properly (and an instructor error corrected)</h3>
+    <p>Claude first asserted from memory that a blink closes twice as fast as it reopens
+      (<b>1:2</b>). Checked against measurement, that was <b>wrong</b>. VanderWerf et al. (2003),
+      using a magnetic search coil on the lid with EMG of the orbicularis oculi, measured the
+      spontaneous blink as:</p>
+    <ul>
+      <li><b>total 334 ± 67 ms</b></li>
+      <li><b>closing (down) phase 92 ± 17 ms</b></li>
+      <li><b>opening (up) phase 242 ± 55 ms</b> — nearly <b>three</b> times the close, a ratio of
+        about <b>1 : 2.6</b></li>
+    </ul>
+    <p>Re-running the five steps at 24fps: total 334 ÷ 41.67 = <b>8 frames</b>; close 92 ÷ 41.67 =
+      <b>2 frames</b>; open 242 ÷ 41.67 = <b>6 frames</b>. Distributing the reopen with widening gaps
+      (2, then 4) gives:</p>
+    <p><b>open @0 · half @1 · shut @2 · half @4 · open @8</b> — 333 ms against a measured 334 ms.</p>
+    <p>The first attempt (0/2/3/5/8) closed one frame too slowly and reopened one frame too briefly.
+      <b>The lesson is not the numbers but the method:</b> a claim from memory produced plausible
+      keyframes that were quietly wrong, and only the measurement exposed it.</p>
+    <p><b>A limit worth knowing:</b> at 24fps the entire closing phase is <b>2 frames</b> — the grid
+      barely resolves it, leaving no room to show the lids accelerating. This is precisely why
+      animators frequently cut straight from open to shut with no in-between: the physiology was
+      never available at this resolution to begin with.</p>
+
+    <h3>Timing as expression — is there a right and a wrong?</h3>
+    <p><b>Question asked:</b> “Is timing what gives a film its signature? Do Ghibli and <em>Frieren</em>
+      each have their own cadence? Is there a right and wrong timing, or is it whatever I want to
+      express — and how would I translate a thought like <em>nervous</em>, or <em>drowsy</em>, or
+      <em>excited</em>, into timing?”</p>
+    <p>Asked immediately after re-timing the blink, on noticing it suddenly “looked like a Ghibli
+      film.” The observation that prompted it is the thesis of this whole track:
+      <b>the meaning of a shot changed without a single pixel being redrawn.</b> Same five drawings,
+      different distribution of time. <b>Emotion lives in the timing, not in the drawings.</b>
+      (Norman McLaren: <i>“Animation is not the art of drawings that move, but the art of movements
+      that are drawn.”</i>)</p>
+
+    <h3>Two levels: the physics floor, and authorship above it</h3>
+    <ul>
+      <li><b>The physics floor — here there is genuine right and wrong.</b> A heavy object that stops
+        instantly is <em>wrong</em>. A falling thing that does not accelerate is <em>wrong</em>. Mass,
+        gravity, inertia and follow-through are not stylistic opinions; violate them and the shot
+        reads as amateur regardless of intent. This floor is what <b>T3-02, the bouncing prop</b>,
+        exists to build.</li>
+      <li><b>Above the floor — everything is authorship.</b> Once the physics reads, hold length,
+        snap, and anticipation are voice.</li>
+    </ul>
+    <p><b>The rule:</b> <b>physics is the grammar; timing is the prose style.</b> One cannot write
+      beautifully in broken grammar — but correct grammar alone is not a voice either.</p>
+
+    <h3>The seven dials of timing</h3>
+    <p>Timing is not one control. Naming the dials is what makes it usable deliberately rather than
+      by feel:</p>
+    <ul>
+      <li><b>Speed</b> — frames per move</li>
+      <li><b>Cadence</b> — ones / twos / threes</li>
+      <li><b>Hold length</b> — how long stillness lasts</li>
+      <li><b>Easing</b> — how bunched the spacing is at the start and end of a move</li>
+      <li><b>Anticipation</b> — the counter-move before the action</li>
+      <li><b>Overshoot &amp; settle</b> — whether motion passes its target and returns</li>
+      <li><b>Regularity</b> — whether the rhythm is even or irregular</li>
+    </ul>
+
+    <h3>Translating a feeling into timing</h3>
+    <ul>
+      <li><b>Nervous</b> — small amplitude, fast, <b>irregular</b> rhythm, short jittery holds,
+        <em>little</em> easing (abrupt starts and stops), frequent changes of direction. The key is
+        <b>unpredictability</b>: nervousness is timing that cannot be anticipated.</li>
+      <li><b>Drowsy</b> — long holds, slow moves, <b>heavy easing</b> at both ends, low amplitude, a
+        downward drift with a small catch-and-recover. On threes or fours.</li>
+      <li><b>Excited</b> — fast, large amplitude, <em>short</em> anticipation, big <b>overshoots</b>
+        past the target, quick recovery, bursts on ones, almost no holds.</li>
+      <li><b>Sad / heavy</b> — slow, long ease-in, <b>no overshoot</b> (the energy simply dies), very
+        long holds, everything settling downward.</li>
+      <li><b>Confident</b> — moderate speed, clear anticipation, a decisive snap, and
+        <b>perfectly still</b> holds; stillness without jitter reads as control.</li>
+    </ul>
+    <p><b>Worth noticing:</b> <em>nervous</em> and <em>excited</em> share high speed, and are
+      separated almost entirely by <b>regularity</b> and <b>overshoot</b>. That is the precision this
+      vocabulary affords.</p>
+
+    <h3>The signatures of Ghibli and <em>Frieren</em></h3>
+    <ul>
+      <li><b>Ghibli — <em>ma</em> (間), the pause.</b> Documented first-hand: at Toronto in 2002
+        Roger Ebert told Miyazaki he loved the “gratuitous motion” in his films — characters sitting,
+        sighing, gazing at a running stream, doing something <em>extra</em> that does not advance the
+        plot. Miyazaki replied: <i>“We have a word for that in Japanese. It’s called ‘ma.’ Emptiness.
+        It’s there intentionally.”</i> He clapped three or four times: <i>“The time in between my
+        clapping is ‘ma.’ If you just have non-stop action with no breathing space at all, it’s just
+        busyness.”</i> And: <i>“The people who make the movies are scared of silence.”</i> Ghibli
+        also spends real drawings on <b>mundane physical effort</b> — cooking, hauling, walking
+        uphill — which is why their worlds feel weighted.</li>
+      <li><b><em>Frieren</em> — stillness against burst.</b> Long, near-static holds on faces, then
+        sudden explosive fluidity in combat. The contrast <em>is</em> the signature. And it is
+        thematically loaded: the series concerns an elf’s relationship to time, so the slowness is an
+        argument, not merely a budget.</li>
+    </ul>
+    <p>Style is timing <em>plus</em> design, colour, staging, and the choice of what to animate at
+      all — but timing is the layer an audience feels and cannot name.</p>
+
+    <h3>Provenance — what in this chapter is sourced, and what is not</h3>
+    <p>Kept because the point of this book is a toolset you can operate yourself, and that requires
+      knowing which scaffolding is load-bearing tradition and which is one instructor’s convenient
+      framing. Full citations live in <code>references.md</code>.</p>
+    <ul>
+      <li><b>Checked against primary sources (2026-08-11):</b> the blink kinematics
+        (VanderWerf et al. 2003, <i>J Neurophysiol</i> 89:2784–2796); the <em>ma</em> quotation
+        (Roger Ebert, “Drawing on ‘Spirited’ world,” 2002); the timing-vs-spacing distinction and the
+        spacing-chart method (Williams, <i>The Animator’s Survival Kit</i>); “on twos” = 12
+        drawings/second.</li>
+      <li><b>Real ideas, in Claude’s paraphrase:</b> that timing carries emotion, and that the
+        physics must be learned before it is broken. Both are central to Williams; the wording here
+        is not his.</li>
+      <li><b>Claude’s own synthesis — no source, and named nowhere else:</b> the
+        <em>“seven dials of timing”</em>; the feeling→timing table above; the formulation
+        <em>“physics is the grammar, timing is the prose style.”</em> Useful scaffolds. Keep them if
+        they work; discard them without ceremony if something better is found.</li>
+      <li><b>Asserted from memory and <span style="color:var(--accent2)">never verified</span>:</b>
+        that a typical anime blink runs 4–6 frames. Treat as unconfirmed.</li>
+      <li><b>Asserted from memory and then <span style="color:var(--accent2)">refuted</span>:</b>
+        that a blink closes twice as fast as it reopens. The measured ratio is ≈1:2.6, and the
+        correction changed the keyframes. Recorded rather than quietly patched, because the failure
+        is the more useful half of the lesson.</li>
+    </ul>
+  </div>
+
+  <p class="unwritten" style="text-align:center">
+    Chapters II and IV are pages yet unwritten — they fill in as the lessons are lived,
+    including every question asked along the way.
   </p>
   <p class="footnote">
     Ask Claude to explain any entry further, or to quiz you on a chapter whenever you want a
@@ -242,8 +587,8 @@
    status per lesson: "done" | "current" | "todo"
    ==========================================================================*/
 const LEDGER = {
-  updated: "2026-08-09",
-  now: "Setup & orientation",
+  updated: "2026-08-11",
+  now: "T3-01 — animation principles primer (blink re-time done; timing-as-expression next)",
   milestones: [
     {
       id: "T1",
@@ -253,15 +598,42 @@ const LEDGER = {
         {
           id: "t1-01",
           title: "Setup & orientation",
-          status: "current",
+          status: "done",
           lesson: "curriculum/track-1-tools/01-setup-krita.md"
         },
         {
           id: "t1-02",
           title: "Universal animation tool concepts",
-          status: "locked",
+          status: "done",
           lesson: "curriculum/track-1-tools/02-animation-tool-concepts.md",
-          note: "after T4-01"
+          work: {
+            folder: "track-1",
+            image: "t1-02-frame0000.png",
+            caption: "First pose of the blink (eyes open). Full sequence — frames 0 / 3 / 6 / 9 / 12 = open → half → nearly shut → half → open, each drawing held 3 frames."
+          },
+          review: {
+            date: "2026-08-09",
+            measures: [
+              { what: "Tools used", got: "onion skin, holds, duplicate-frame, in-betweens", target: "onion skin + holds", ok: true, note: "exceeded the brief" },
+              { what: "Body registration", got: "steady across all frames", target: "no wobble", ok: true, note: "fuzzy body holds still — clean" },
+              { what: "Blink length", got: "12 frames @24fps (0.5s)", target: "~6–8 frames (0.25–0.33s)", ok: false, note: "corrected 2026-08-11 — first graded as 1.0s against a 12fps clock; the file is 24fps, so it was half that. Still long, but not sleepy" },
+              { what: "Spacing", got: "even — a drawing every 3 frames (on threes)", target: "uneven — fast close, slower open", ok: false, note: "even spacing reads mechanical; this is the real finding" }
+            ],
+            working: [
+              "You discovered <b>in-betweening</b> on your own — open → half → nearly-shut → half → open, instead of a hard open/shut cut. That's a real animator's instinct and it's the reason the blink has any smoothness at all.",
+              "The fuzzy body stays <b>perfectly registered</b> across every frame — no wobble or 'boil'. The duplicate-frame method did its job."
+            ],
+            fix: {
+              title: "cadence — break it up instead of running on threes",
+              body: "Every stage holds exactly 3 frames — the blink runs on <em>threes</em> from end to end, ~0.5s at 24fps. <b>The problem is less the length than the uniformity:</b> the eye travels at one constant rate the whole way through, and real things don't. Real blinks are <em>asymmetric</em> — the lids snap shut fast, then reopen a touch slower. <i>(Originally graded here as \"1.0s, reads sleepy\" against a 12fps clock; the file is 24fps. Corrected 2026-08-11.)</i>",
+              drill: "Re-time to open @0, half @2, shut @3, half @5, fully open @8 — no new drawing, only keyframes moved. Watch what that does to cadence: twos, then <b>ones</b> at the instant the lids slam shut, then twos, then <b>threes</b> as the eye lazily reopens. Changing cadence <em>inside</em> a single action is the whole trick. Total 8 frames ≈ 0.33s — a real human blink."
+            },
+            forward: [
+              "<b>Fix completed 2026-08-11</b> — re-timed to <b>0 / 2 / 3 / 5 / 8</b>, verified exact from the keyframe XML. Cadence now runs <b>twos → ones → twos → threes</b> instead of threes throughout. Saved as <code>t1-02-blink-retimed.kra</code> beside the untouched original. Your own read on playback: <i>“far more in line with what I'd expect to see in a Ghibli film.”</i> Four keyframes moved, nothing redrawn.",
+              "timing &amp; spacing (even vs. uneven) → rechecked in T3-01 (principles) and T3-02 (bouncing prop), where it's the entire lesson",
+              "<b>ffmpeg is absent on this machine</b>, so Krita cannot render video and motion can only be exported as a PNG sequence. Fine for a pure re-time (the .kra carries the timing), but must be solved before T3-02, where new motion needs playable video for review."
+            ]
+          }
         },
         {
           id: "t1-03",
@@ -311,7 +683,7 @@ const LEDGER = {
         {
           id: "t3-01",
           title: "Animation principles primer",
-          status: "locked",
+          status: "current",
           lesson: "curriculum/track-3-animation/01-principles.md"
         },
         {
@@ -361,16 +733,16 @@ const LEDGER = {
         {
           id: "t4-01",
           title: "Grip, buttons & the misfire problem",
-          status: "parallel",
+          status: "done",
           lesson: "curriculum/track-4-pen-tablet/01-grip-and-buttons.md",
-          note: "start right after T1-01"
+          note: "solved: X11/XFCE + forced wacom driver"
         },
         {
           id: "t4-02",
           title: "Shortcuts & two-handed flow",
-          status: "locked",
+          status: "done",
           lesson: "curriculum/track-4-pen-tablet/02-shortcuts-and-flow.md",
-          note: "once drawing regularly"
+          note: "built your own tablet-tool app"
         }
       ]
     }

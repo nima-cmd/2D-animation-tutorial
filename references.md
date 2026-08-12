@@ -17,6 +17,50 @@ What each track draws from, adapts, or points to. Nothing here is paywalled unle
 - **The flour sack** specifically is a Disney training-program classic — the simplest possible "character" (weight + attitude, no anatomy) and the traditional bridge from physics exercises to character animation.
 - Free video treatments: search "bouncing ball animation principles", "flour sack animation exercise", and "12 frame walk cycle tutorial" — AlanBecker, Bloop Animation, AnimatorIsland, and various animation-school channels have solid free walkthroughs of all three.
 
+### Timing & spacing — primary sources (checked 2026-08-11)
+
+Gathered when the question came up of *why* a particular set of keyframes is correct, rather than
+taking an instructor's numbers on trust. Each is marked with what it actually establishes.
+
+- **Richard Williams, *The Animator's Survival Kit*** — the source for the timing/spacing
+  distinction itself. Williams' worked example: a coin moved across a page in one second (24
+  frames); **timing** is the one second, **spacing** is how the drawings are distributed across it.
+  Identical timing with different spacing — easing out of one pose and into the next — produces
+  visibly different movement though both start and finish together. Also the source of the
+  **spacing chart** method (place the middle inbetween first, then halve each side). A
+  [full text is readable on archive.org](https://archive.org/stream/TheAnimatorsSurvivalKitRichardWilliams/The%20Animator's%20Survival%20Kit%20-%20Richard%20Williams_djvu.txt),
+  though this is the one book in the field worth owning on paper — the flipbook margins don't
+  survive digitisation.
+- **VanderWerf, Brassinga, Reits, Aramideh & Ongerboer de Visser (2003), "Eyelid movements:
+  behavioral studies of blinking in humans under different stimulus conditions," *J Neurophysiol*
+  89(5):2784–2796** — [PubMed](https://pubmed.ncbi.nlm.nih.gov/12612018/) ·
+  [free PDF](http://wexler.free.fr/library/files/vanderwerf%20(2003)%20behavioral%20studies%20of%20blinking%20in%20humans%20under%20different%20conditions.pdf).
+  Measured with a magnetic search coil on the lid plus EMG of the orbicularis oculi. **Spontaneous
+  blink: total 334 ± 67 ms; closing (down) phase 92 ± 17 ms; opening (up) phase 242 ± 55 ms** — the
+  reopening is nearly *three* times the close, not twice. This is the measurement the T1-02 blink
+  re-time is derived from; it corrected an instructor claim of a 1:2 ratio down to 1:2.6, which
+  moved the keyframes from 0/2/3/5/8 to **0/1/2/4/8**. Use it as the worked example of deriving
+  frame counts from a real measurement rather than from feel.
+- **Miyazaki on *ma*** — Roger Ebert, ["Drawing on 'Spirited' world"](https://www.rogerebert.com/interviews/drawing-on-spirited-world)
+  (Toronto, 2002). Ebert praised the "gratuitous motion" in the films — characters sitting, sighing,
+  gazing at a stream, doing something *extra* that doesn't advance the plot. Miyazaki: *"We have a
+  word for that in Japanese. It's called 'ma.' Emptiness. It's there intentionally."* He clapped
+  three or four times: *"The time in between my clapping is 'ma.' If you just have non-stop action
+  with no breathing space at all, it's just busyness."* And: *"The people who make the movies are
+  scared of silence."* Primary-source confirmation that Ghibli's pacing is a deliberate doctrine.
+- **"On twos" / limited animation** — widely documented: on twos = 12 drawings/second (each drawing
+  held 2 frames of 24); on threes = 8 drawings/second. Anime characteristically works at 8–12
+  drawings/second and *modulates* the rate within a scene rather than holding one cadence. Good
+  free treatments: [Wave Motion Cannon, "An Introduction to Framerate Modulation"](https://wavemotioncannon.com/2016/12/31/an-introduction-to-framerate-modulation/)
+  and [Animétudes, "Animation and subjectivity: towards a theory of framerate modulation"](https://animetudes.com/2020/05/17/animation-and-subjectivity-towards-a-theory-of-framerate-modulation/) —
+  both treat cadence as an expressive choice, which is exactly the Grimoire's Chapter III argument.
+
+**Not sourced — flagged honestly.** The Grimoire's *"seven dials of timing"* and its feeling→timing
+table (nervous / drowsy / excited / sad / confident) are **Claude's own synthesis**, not established
+doctrine, and appear under that name in no text. The claim that *"a typical anime blink is 4–6
+frames"* was asserted from memory and has **not** been verified. Treat all of these as working
+scaffolds to be tested against the exercises, not as citations.
+
 ## Ghibli & Frieren specific
 
 - **Ghibli's multiplane/parallax background technique** — Miyazaki films are famous for layered backgrounds with independent camera movement per layer (foreground/midground/sky), inherited from traditional multiplane camera work. T3-05 teaches a simplified digital version in Krita.
