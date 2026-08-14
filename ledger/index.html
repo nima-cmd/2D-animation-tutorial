@@ -515,6 +515,32 @@
       animation. Corollary: <b>a jolt reads as frantic only in proportion to the stillness it
       interrupts</b>, so lengthening the hold buys a sharper recovery for free.</p>
 
+    <h3>A gap is a hold, not a movement — where the time lever runs out</h3>
+    <p>The single hardest thing to internalise about a timeline: <b>the frames between two keyframes
+      do not show motion.</b> They show the <em>earlier drawing, held still.</em> Motion is an
+      illusion assembled from the <em>cuts</em> between drawings, not from the gaps.</p>
+    <p><b>How this bites (found in the drowsy blink, 2026-08-14):</b> with only <code>open</code>,
+      <code>half</code> and <code>shut</code> available, the intent “each droop is slower and heavier
+      than the last” was expressed by lengthening the gaps between <code>open</code> and
+      <code>half</code> — 6, 8, then 10 frames. But with no drawing <em>between</em> those two
+      positions, the eye does not descend; it <b>cuts</b>. So the gap does not render as “a slow
+      droop.” It renders as <b>“the eye sat fully open for 10 frames.”</b></p>
+    <p><b>The result was the exact opposite of the intent:</b> lengthening open-exposures reads as a
+      man holding his eyes open <em>longer</em> each round — winning the fight, not losing it.</p>
+    <p><b>Two remedies, priced differently:</b></p>
+    <ul>
+      <li><b>Re-time within the drawings you have (free).</b> <em>Shorten</em> the open exposures —
+        6, 4, 2 — so each recovery buys less waking time than the last. That <em>is</em> the losing
+        arc, and it is expressible without new artwork.</li>
+      <li><b>Draw the in-between (the real answer).</b> Add a <em>three-quarters open</em> lid so the
+        descent has a middle: <code>open → ¾ → half</code>. Only then can a long gap genuinely read
+        as slow sinking.</li>
+    </ul>
+    <p><b>The general law:</b> <b>timing can only redistribute the drawings you have; it cannot
+      invent positions between them.</b> When an intent needs a <em>quality</em> of movement rather
+      than a duration, the time lever has run out and the answer is a new drawing. Recognising that
+      boundary is what stops re-timing from becoming a substitute for animating.</p>
+
     <h3>Timing is read relatively, not absolutely</h3>
     <p><b>Found by the user</b> on lengthening the drowsy blink’s hold: <i>“when I increased the
       length of the shut, I needed to further slow down the shutting of the eyes at the beginning,
@@ -655,8 +681,8 @@
    status per lesson: "done" | "current" | "todo"
    ==========================================================================*/
 const LEDGER = {
-  updated: "2026-08-11",
-  now: "T3-01 — principles primer: drowsy blink reviewed; nervous + excited next",
+  updated: "2026-08-14",
+  now: "T3-01 — drowsy blink: catch structure designed, not yet placed. Build collapse + sink, compare.",
   milestones: [
     {
       id: "T1",
@@ -754,7 +780,7 @@ const LEDGER = {
           title: "Animation principles primer",
           status: "current",
           lesson: "curriculum/track-3-animation/01-principles.md",
-          note: "drowsy done; nervous + excited remain",
+          note: "drowsy in progress — catch structure designed, not yet placed; nervous + excited remain",
           review: {
             date: "2026-08-11",
             measures: [
@@ -776,6 +802,10 @@ const LEDGER = {
               drill: "A fight means the lid comes back <em>up</em>. Do it with <b>zero new drawings</b> — a keyframe can re-use a drawing already made, out of order: <code>open → half → (open again, briefly — the catch) → half → shut</code>. That momentary return is winning before losing. <b>Re-using drawings non-monotonically</b> is the technique the <em>nervous</em> blink will depend on entirely, so it is worth meeting here."
             },
             forward: [
+              "<b>PICK UP HERE (2026-08-14).</b> The <em>catch</em> structure was designed but <b>never placed in Krita</b> — both <code>t1-02-blink-drowsy.kra</code> and <code>t1-02-blink-drowsy-collapse.kra</code> still hold the original 5 keyframes at 0/5/9/30/32. The collapse file is a correctly-named but unedited copy, ready to work in.",
+              "<b>The designed sheet, preserved</b> (3 droops, 2 catches — the third droop has no recovery, and that absence <em>is</em> the surrender): <code>0 open · 6 half · 9 open (catch 1) · 17 half · 19 open (catch 2) · 29 half · 30 shut · 50 half · 52 open</code>. The <code>half</code> exposures decay <b>3, 2, 1</b> — deliberate, and it survived a restructure.",
+              "<b>The diagnosis blocking it:</b> the open exposures run <b>6, 8, 10</b>, intended as “each droop heavier than the last.” But with no drawing between <code>open</code> and <code>half</code> the eye <em>cuts</em> rather than descends, so those gaps render as “the eye sat fully open for 10 frames” — a man <em>winning</em> the fight. See <i>A gap is a hold, not a movement</i> in Grimoire III.",
+              "<b>Next, both versions, then compare:</b> (a) <b>collapse</b> — shrink the open exposures (6/4/2, or 10/6/2 to preserve total length) so each recovery buys less waking time; free, no new artwork. (b) <b>sink</b> — draw one <em>three-quarters-open</em> lid so the descent has a middle (<code>open → ¾ → half</code>), after which 6/8/10 finally means what it was meant to. Play them back to back to test whether a gap really is a hold.",
               "<b>Non-monotonic reuse of drawings</b> → the core technique for the <em>nervous</em> blink, where irregularity and repetition are the whole read",
               "<b>The wall to expect:</b> catching yourself falling asleep really wants an <em>overshoot</em> — eyes flying wider than normal, then settling. That needs a drawing that doesn't exist yet. Finding the point where the time lever runs out and new artwork is required is the intended lesson of this exercise."
             ]
