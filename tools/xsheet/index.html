@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>X-Sheet</title>
+</head>
+<body>
+  <h1>X-Sheet</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Frame</th>
+          <th>Drawing</th>
+        </tr>
+      </thead>
+      <tbody id="sheet"></tbody>
+    </table>
+
+  <p id="out">nothing yet</p>
+
+    <script>
+    const sheet = [
+      { drawing: "open", hold: 6 },
+      { drawing: "half", hold: 3 },
+      { drawing: "open", hold: 4 }
+    ];
+
+    let frame = 0;
+    let rows = "";
+
+    for (const step of sheet) {
+      rows = rows + "<tr><td>" + frame + "</td><td>" + step.drawing + "</td></tr>";
+      frame = frame + step.hold;
+    }
+
+    document.getElementById("sheet").innerHTML = rows;
+  </script>
+</body>
+</html>
