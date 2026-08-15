@@ -55,6 +55,31 @@ Each frame number is the previous number plus the previous duration. The creativ
 in the duration column; converting to frame numbers is bookkeeping — which is precisely the part
 worth automating.
 
+## A correction, recorded 2026-08-15
+
+The friction that motivated this tool had a **zero-build fix that was never offered**: a shorter
+notation for chat.
+
+```
+open 6 / half 3 / open 4
+```
+
+Drawing name, hold duration, slash-separated. **No frame numbers are ever typed** — Claude does the
+addition and renders the sheet back, formatted, with hold lines. The formatting burden existed only
+because Claude kept asking for *frame numbers* rather than *durations*; the asymmetry was Claude's to
+remove and could have been removed in one sentence.
+
+Instead the proposal was "build an app," and across two sessions the app became the blocker while the
+animation lesson it was meant to unblock went untouched.
+
+**Two rules carried forward** (also in `~/.claude/CLAUDE.md`):
+1. **When friction is reported, find the zero-build fix first.** Build afterwards, on its own merits,
+   as a parallel thread — never as a gate on the work it was meant to serve.
+2. **"Type this block" is still being handed the answer.** Anything containing logic: state the
+   problem, let the user write it, then review. Boilerplate should be named as boilerplate. The loop
+   in this tool is the clearest miss — the user had already described the record-then-advance rule in
+   his own words and could have written it unaided.
+
 ## Status
 
 | | |
