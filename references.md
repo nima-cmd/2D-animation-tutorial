@@ -55,6 +55,38 @@ taking an instructor's numbers on trust. Each is marked with what it actually es
   and [Animétudes, "Animation and subjectivity: towards a theory of framerate modulation"](https://animetudes.com/2020/05/17/animation-and-subjectivity-towards-a-theory-of-framerate-modulation/) —
   both treat cadence as an expressive choice, which is exactly the Grimoire's Chapter III argument.
 
+### The exposure sheet / X-sheet / time sheet (checked 2026-08-14)
+
+Looked up after the question "is this actually used, and what does one look like?" — having twice
+been asserted as standard practice without checking.
+
+- **[How to Read a Timing Sheet — Animation Art Wiki](https://animationart.wiki/books/faqs/page/how-to-read-a-timing-sheet)**
+  — the best starting point: **photographs of real anime time sheets** shown beside the *genga* and
+  *douga* they produced. Establishes the notation — rows are frames at 24fps, a heavy rule every 24
+  rows marks a second, columns `A`/`B`/`C` are cel layers with A nearest the background, **circled
+  numbers are key drawings, dashes are in-betweens, and a vertical line ruled down the column is a
+  hold.**
+- **[Timesheet — Sakuga Wiki](https://sakuga.fandom.com/wiki/Timesheet)** and
+  **[Anime GO — Timesheet](https://animego.erosakuga.com/benkyou/timesheet/)** — the Japanese
+  convention (タイムシート): 144 rows to a sheet, i.e. exactly **6 seconds**. Key animators fill the
+  action column; in-between staff translate it into the cel columns.
+- **[Toon Boom — Exposure Sheet, Timeline and Timing](https://learn.toonboom.com/modules/basic-concepts2/topic/exposure-sheet-timeline-and-timing2)**
+  — the modern digital treatment; confirms X-sheets persist in current software rather than being
+  historical.
+- **[D'source — basic X-sheet template](https://www.dsource.in/course/exposure-sheet/basic-x-sheet-template)**
+  — a printable blank, if working on paper appeals.
+- **[OpenToonz — Working in Xsheet](https://opentoonz.readthedocs.io/en/latest/working_in_xsheet.html)**
+  — the Xsheet is one of OpenToonz's **main rooms**, not a legacy view. The notation learned now is
+  literally the interface at the end of Track 1 (T1-03).
+- **[Wikipedia — Exposure sheet](https://en.wikipedia.org/wiki/Exposure_sheet)** — general overview,
+  column structure (action, dialogue, cel levels, background, camera).
+
+Worth noting *why* this matters beyond trivia: the hold-as-a-ruled-line convention makes it
+visually impossible to mistake a hold for a movement — the exact error committed in the drowsy
+blink, where lengthening gaps were intended as a heavier droop and instead read as the eye sitting
+open longer. A digital timeline hides holds behind empty space; paper made them a line you could
+see.
+
 **Not sourced — flagged honestly.** The Grimoire's *"seven dials of timing"* and its feeling→timing
 table (nervous / drowsy / excited / sad / confident) are **Claude's own synthesis**, not established
 doctrine, and appear under that name in no text. The claim that *"a typical anime blink is 4–6

@@ -356,6 +356,53 @@
         the frame without rendering anything.</li>
     </ul>
 
+    <h3>The exposure sheet — think in durations, not frame numbers</h3>
+    <p>The traditional planning document (also called an <b>X-sheet</b> or <b>dope sheet</b>): two
+      columns — the frame number, and <em>which drawing sits on it</em>. Krita’s timeline is the same
+      information turned on its side.</p>
+    <p><b>Question asked:</b> “What do you mean, <em>derive</em> the sheet?” The answer corrects a
+      natural misreading: <b>frame numbers are not a decision — they are a running total.</b> You
+      choose how long each drawing stays on screen; the frame column falls out by addition.</p>
+    <ul>
+      <li>A drawing lasting <b>4</b> frames starting at 0 → the next begins at <b>4</b>.</li>
+      <li>That one lasting <b>2</b> → the next begins at <b>6</b>.</li>
+      <li>Each frame number is <em>the previous number plus the previous duration.</em></li>
+    </ul>
+    <p>This is precisely why a physical exposure sheet is ruled as a long column of frames: you read
+      down it and the arithmetic is already done. <b>The creative work is entirely in the duration
+      column</b>; converting to frame numbers is bookkeeping.</p>
+    <p><b>Why bother when the timeline shows it anyway:</b> a list of frame numbers alone is
+      ambiguous, and the ambiguity hides <em>dropped in-betweens</em>. Writing the drawing name
+      beside each frame is what exposed a missing <code>half</code> in the drowsy blink — the eye
+      would have cut straight from open to shut. Name the drawings and the gap announces itself.</p>
+
+    <p><b>Question asked:</b> “Is the exposure sheet still used? What does one actually look like?”
+      <b>Checked 2026-08-14</b> — sources in <code>references.md</code>.</p>
+    <ul>
+      <li><b>It is vertical.</b> Time runs <em>down</em> the page, not across. Krita’s timeline is
+        the same information rotated ninety degrees.</li>
+      <li><b>Rows are frames</b> — one row, one frame. Western sheets run 80–96 rows to a page;
+        Japanese <em>time sheets</em> (タイムシート) run <b>144 rows = exactly 6 seconds</b> at 24fps,
+        with a <b>heavy rule every 24 rows</b> marking off each second so duration reads at a glance.</li>
+      <li><b>Columns are layers</b>, lettered <code>A</code>, <code>B</code>, <code>C</code>… with
+        <b>A nearest the background</b> and later letters nearer the camera — the cel stack of
+        Chapter I, formalised. Further columns carry action notes, dialogue broken down
+        phonetically, background numbers, and camera instructions.</li>
+      <li><b>Notation:</b> a <b>circled number</b> is a key drawing (<em>genga</em>); a <b>dash</b>
+        is an in-between (<em>douga</em>); and <b>a vertical line ruled straight down the column is a
+        hold.</b></li>
+    </ul>
+    <p><b>That last convention is the whole of <i>“a gap is a hold, not a movement”</i>, solved on
+      paper.</b> Traditional animators drew a literal line through every frame where the drawing does
+      not change, making it visually impossible to mistake a hold for motion. The drowsy blink’s
+      6/8/10 error would have been unmissable on a sheet: three lines getting longer, and a line
+      means <em>nothing is happening</em>. The digital timeline, by hiding this behind empty space,
+      makes the mistake easy to commit.</p>
+    <p><b>Still current, and specifically where this course is heading:</b> digital X-sheets exist in
+      Toon Boom Harmony and Adobe Animate, and <b>OpenToonz’s Xsheet is one of its main rooms</b>,
+      not a legacy view — so this notation is the actual interface waiting at the end of Track 1
+      (T1-03).</p>
+
     <h3>In-betweens (met early, in the blink)</h3>
     <p>Between two key drawings you can add <em>in-between</em> drawings that ease from one to the
       next — a blink reads far smoother as open → half → shut → half → open than as a hard
