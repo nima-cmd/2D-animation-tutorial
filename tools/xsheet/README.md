@@ -85,8 +85,34 @@ animation lesson it was meant to unblock went untouched.
 | | |
 |---|---|
 | Started | 2026-08-14 |
-| Built so far | nothing — first file being written |
-| Next | minimal `index.html`, then durations in → frame numbers out |
+| Built so far | 39 lines. A `<table>` whose rows are generated from a list of `{drawing, hold}`; frame numbers computed as a running total and **appearing nowhere in the file**. Change a duration, the column recalculates. |
+| Not yet | one row per *frame* (currently one per keyframe), hold lines, second markers, cel-layer columns, looping. Durations still live in the source rather than an input. |
+
+### Why it is still worth building (reassessed 2026-08-15)
+
+**Not to remove tedium — that is already solved** by the durations-only chat notation. The two
+reasons that survive:
+
+1. **Learning HTML**, which is wanted independently, with `nima-cmd-work` waiting as project 2.
+2. **Seeing the sheet while designing it.** Holds drawn as ruled lines would have made the
+   `6/8/10` error obvious on sight. A *thinking* aid, not a communication one — and precisely what
+   Krita's timeline hides.
+
+**The curriculum keeps demanding sheets**, so this is not a one-exercise tool: T3-02 (keys at arc
+peaks and impacts, squash held 1–2 frames), **T3-03 (explicitly compares a 2-frame crouch against a
+6+ frame one — two sheets side by side)**, **T3-04 (8 key poses over 12–16 frames, and it *loops*)**,
+T3-06 (a timing pass over the whole short), T3-07 (re-timing). The walk cycle's loop is a real
+feature nothing here handles yet.
+
+### Next session
+
+1. **The animation goes first.** This advances alongside the lessons, never as a gate on them — see
+   the correction above.
+2. Then: **a text box** to paste `open 6 / half 3 / …` into, and **one row per frame with holds as
+   ruled lines.** That is the point at which it becomes genuinely useful; roughly two short sessions.
+3. **The user writes the code.** The problem to hand over is *"one row per frame instead of one per
+   keyframe"* — he already knows the record-then-advance algorithm and can derive the inner loop.
+   Everything after this is optional polish, added when a lesson actually demands it.
 
 ## HTML/CSS/JS learned here
 
