@@ -55,6 +55,24 @@ taking an instructor's numbers on trust. Each is marked with what it actually es
   and [Animétudes, "Animation and subjectivity: towards a theory of framerate modulation"](https://animetudes.com/2020/05/17/animation-and-subjectivity-towards-a-theory-of-framerate-modulation/) —
   both treat cadence as an expressive choice, which is exactly the Grimoire's Chapter III argument.
 
+### The moving hold (checked 2026-08-15)
+
+Looked up after the user diagnosed the effect unprompted — *"once we hit 24 all tension kind of
+stops, cause we just hold on the one image"* — to find out whether the tradition names it. It does.
+
+- **The moving hold**, developed by Frank Thomas and Ollie Johnston alongside the twelve principles.
+  A character held perfectly still from the instant the main pose is reached **reads as dead**; the
+  remedy is a pose held *without being static* — small, controlled secondary movement rather than a
+  total freeze. Even a character doing nothing breathes or shifts slightly.
+  Overviews: [Arlington Museum of Art on Thomas & Johnston](https://arlingtonmuseum.org/explore-more/the-twelve-principles-of-animation)
+  · [Pluralsight, "Understanding the 12 Principles of Animation"](https://www.pluralsight.com/resources/blog/software-development/understanding-12-principles-animation)
+  · [Simon Whatley's summary](https://www.simonwhatley.co.uk/writing/disney-12-basic-principles-of-animation/)
+- **Not sourced — Claude's formalisation** of what the user found next, and it should be treated as
+  one instructor's framing rather than doctrine: *stillness reads as dead only when the pose implies
+  effort.* A tense pose held motionless contradicts itself; a released pose held motionless is doing
+  what it should. This is why relocating a hold's static stretch — rather than shortening it —
+  fixed the shot.
+
 ### The exposure sheet / X-sheet / time sheet (checked 2026-08-14)
 
 Looked up after the question "is this actually used, and what does one look like?" — having twice

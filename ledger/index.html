@@ -588,6 +588,79 @@
       than a duration, the time lever has run out and the answer is a new drawing. Recognising that
       boundary is what stops re-timing from becoming a substitute for animating.</p>
 
+    <h3>The moving hold — why a long freeze reads as dead</h3>
+    <p><b>Diagnosed by the user</b>, unprompted, from watching his own drowsy blink: <i>“once we hit
+      24 all tension kind of stops, cause we just hold on the one image.”</i> This is a named
+      principle. Thomas &amp; Johnston developed the <b>moving hold</b>, and the canonical statement
+      is almost the same sentence: <b>freezing a character completely the moment the main pose is
+      reached reads as dead.</b> The remedy is not a shorter hold but a pose held <em>without being
+      static</em> — small controlled movement rather than a total freeze. Even a character doing
+      nothing breathes and settles.</p>
+    <p><b>A moving hold cannot be faked with timing.</b> No arrangement of existing drawings makes a
+      frozen stretch anything other than frozen; it requires <em>another drawing</em>. This was the
+      third time in one exercise the time lever ran out, and the first time the answer was
+      unavoidably new artwork — see <i>A gap is a hold, not a movement</i>.</p>
+    <p><b>What the missing drawing turned out to be:</b> the shot had <em>two states collapsed into
+      one</em>. A single <code>shut</code> was doing the work of both <b>“just closed — still tense,
+      still fighting”</b> and <b>“gone — everything released.”</b> Drawing the second turned twenty
+      dead frames into <em>the moment he actually goes under</em>: the tension no longer stops, it
+      <b>releases</b>, visibly. <b>When a hold feels dead, ask what two states it is being asked to
+      cover.</b></p>
+
+    <h3>Stillness reads as dead only when the pose implies effort</h3>
+    <p>Follow-on, and the more useful half. With one switch, a 20-frame hold splits into two static
+      stretches — either way one is long. Moving the switch does not remove the stillness; it
+      <em>relocates</em> it. Placing the change at frame 36 left 12 frames of the <em>tense</em>
+      drawing; at frame 31, 13 frames of the <em>released</em> one. The second reads far better, and
+      the difference is not duration:</p>
+    <ul>
+      <li><b>A clamped, tense eye motionless for 500ms contradicts itself</b> — the pose says
+        <em>something is happening</em>, the timing says <em>nothing is</em>.</li>
+      <li><b>A released eye motionless for 542ms is doing exactly what a sleeping face does.</b> The
+        pose earns the stillness.</li>
+    </ul>
+    <p><b>So a pose implying effort has a short shelf life; a pose implying rest can hold almost
+      indefinitely.</b> When a held drawing goes dead, the question is not only “how long” but
+      “does this pose deserve to be still?” The user's own summary: <i>“the longer hold after the new
+      frame leaves the deadness less visible, since it fits the narrative more than having it
+      before.”</i></p>
+
+    <h3>Does the state oscillate, or does it change?</h3>
+    <p>The first instinct for reviving a dead hold was to alternate between the two shut drawings —
+      A-B-A-B — for more life. A real technique, and the wrong shape here.</p>
+    <ul>
+      <li><b>Alternation means ongoing activity</b> — something repeating, therefore something still
+        happening. It is how breathing, hovering, shivering and idling are animated.</li>
+      <li><b>Going under is a one-way release.</b> It changes state and stays there.</li>
+      <li>A-B-A-B is also <em>perfectly uniform repetition</em> — the very thing that made the first
+        blink read mechanical. It would have replaced dead air with a buzz.</li>
+    </ul>
+    <p><b>Match the shape to the thing: breathing oscillates, collapse changes.</b> Ask which before
+      reaching for a cycle.</p>
+
+    <h3>The first exposure sets the baseline — and can imply off-screen history</h3>
+    <p><b>Found by the user</b> on comparing two drowsy blinks differing only in their opening
+      exposure — <code>4 / 8 / 2</code> against <code>8 / 8 / 2</code>: <i>“the length was too short
+      and the next one is long, so it does seem like you're walking in the middle of him dozing off,
+      as opposed to from the start.”</i></p>
+    <p><b>Claude's formalisation of it:</b> the opening exposure is the <em>reference</em> against
+      which every later one is judged. Consequences:</p>
+    <ul>
+      <li><b>Beat 1 shorter than beat 2</b> → the viewer infers earlier, <em>longer</em> beats they
+        did not see, and reads the shot as <b>joined late</b>, already in progress.</li>
+      <li><b>Beat 1 longest, or equal to what follows</b> → the shot reads as <b>beginning</b>.</li>
+    </ul>
+    <p>So <b>implied off-screen history is available for free</b>, purely from where the first number
+      sits relative to the second — no extra drawings, no extra frames. This is the deliberate way to
+      open a shot mid-action.</p>
+    <p><b>The related distinction between the two versions</b>, which is not visible in “167ms versus
+      333ms”: compare the first open exposure with the one after the first catch.
+      <code>4 → 8</code> means the catch <b>won</b> — he recovers to <em>better</em> than he started,
+      so the eventual collapse is a surprise. <code>8 → 8</code> means the catch merely
+      <b>restored</b> him to baseline — nothing improves, it holds and then fails.
+      <b>One is a fight with a victory in it; the other is a wall that does not crack until it
+      does.</b> Neither is more correct; that is the actual choice.</p>
+
     <h3>Timing is read relatively, not absolutely</h3>
     <p><b>Found by the user</b> on lengthening the drowsy blink’s hold: <i>“when I increased the
       length of the shut, I needed to further slow down the shutting of the eyes at the beginning,
@@ -827,28 +900,35 @@ const LEDGER = {
           title: "Animation principles primer",
           status: "current",
           lesson: "curriculum/track-3-animation/01-principles.md",
-          note: "drowsy in progress — catch structure designed, not yet placed; nervous + excited remain",
+          note: "drowsy blink complete — 10 keyframes, 6 drawings; nervous + excited remain",
           review: {
-            date: "2026-08-11",
+            date: "2026-08-15",
             measures: [
               { what: "Derivation given before animating", got: "full reasoning, unprompted", target: "state the intent first", ok: true, note: "invented a narrative arc — fight, lose, doze, jolt" },
-              { what: "Shut hold (the doze)", got: "875ms (21 frames)", target: "500–1000ms", ok: true, note: "was 208ms; now genuinely reads as dozing" },
-              { what: "Close : reopen ratio", got: "375ms : 83ms ≈ 4.5 : 1", target: "inverted from waking (1 : 2.6)", ok: true, note: "the inversion is what makes it drowsy" },
-              { what: "Frame 0", got: "keyframe present at 0", target: "no blank first frame", ok: true, note: "found and fixed the flash independently" },
-              { what: "The struggle", got: "lid descends monotonically", target: "non-monotonic — a catch", ok: false, note: "the fight is described but not on the timeline" }
+              { what: "The struggle", got: "3 droops, 2 catches, non-monotonic", target: "the lid must come back up", ok: true, note: "third droop has no catch — its absence IS the surrender" },
+              { what: "Close : reopen ratio", got: "1000ms : 83ms ≈ 12 : 1", target: "inverted from waking (1 : 2.6)", ok: true, note: "the inversion is what makes it drowsy" },
+              { what: "The doze", got: "20 frames, split 7 tense / 13 released", target: "not a single frozen drawing", ok: true, note: "a moving hold — diagnosed unprompted from playback" },
+              { what: "Drawings labelled", got: "6 drawings, colour-labelled in the .kra", target: "identifiable without opening Krita", ok: true, note: "Krita renumbers frame files on save; labels are the only stable identity" },
+              { what: "The wake", got: "snaps to normal open, then stops", target: "overshoot, then settle", ok: false, note: "a return, not a startle — needs one more drawing" }
             ],
             working: [
               "You <b>derived before you animated</b> and the derivation was a <em>story</em> — fighting to stay awake, losing, dozing, jolting back. Nothing in the brief asked for narrative; you brought it.",
               "<b>You inverted the physiological asymmetry.</b> A waking blink is fast-close/slow-open (92ms / 242ms). Yours is slow-close/fast-open. Stretching every gap uniformly would only have made a slow blink — flipping <em>which phase is fast</em> is what produces the characterisation. This was not in Claude's drowsy recipe; it is a better idea and is now in the Grimoire under your name.",
               "<b>You discovered that timing is read relatively, not absolutely.</b> On lengthening the hold you felt the close had become too fast — though you had not touched it — and rescaled it. 208ms beside a 208ms hold reads measured; the same 208ms beside an 875ms hold reads hurried. Correcting for that unprompted is the instinct this whole lesson exists to build.",
-              "<b>The expressive weight sits on a hold</b> — the most meaningful moment in the shot is the one where nothing moves. That is <em>ma</em>, reached from the opposite direction."
+              "<b>The expressive weight sits on a hold</b> — the most meaningful moment in the shot is the one where nothing moves. That is <em>ma</em>, reached from the opposite direction.",
+              "<b>You diagnosed the moving hold from playback, unprompted</b> — <i>“once we hit 24 all tension kind of stops, cause we just hold on the one image.”</i> That is one of the twelve principles, and the canonical wording is nearly your sentence. Finding a named principle by watching your own work is the result this whole exercise exists to produce.",
+              "<b>You overrode Claude's recommendation from your own eye, and were right.</b> Claude argued for the release at frame 36 on story grounds — he fights past his own eyelids, gets denied his rest. You watched it and moved it to 31. The reason turns out to be that a <em>tense</em> pose held motionless contradicts itself, while a <em>released</em> one earns its stillness; the fix was relocating the dead air, not shortening it. <b>Playback beat theory.</b>",
+              "<b>You drew a new drawing when timing genuinely ran out.</b> Three times across this exercise the time lever hit its limit; this was the first time the answer was unavoidably new artwork, and you recognised it rather than trying to re-time around it.",
+              "<b>You labelled the drawings.</b> Asked for it unprompted after being confused twice — which is exactly the reasoning that produced exposure sheets. It paid off immediately: Krita renamed every frame file on the next save, and the labels were the only thing that survived."
             ],
             fix: {
-              title: "animate the fight, not just the fall",
-              body: "Your stated intent was <i>“you're actually trying to stay awake.”</i> But the timeline runs <b>open → half → shut</b>: monotonic, a smooth descent. <b>A smooth descent is a surrender, not a struggle.</b> The fight exists only in the description.",
-              drill: "A fight means the lid comes back <em>up</em>. Do it with <b>zero new drawings</b> — a keyframe can re-use a drawing already made, out of order: <code>open → half → (open again, briefly — the catch) → half → shut</code>. That momentary return is winning before losing. <b>Re-using drawings non-monotonically</b> is the technique the <em>nervous</em> blink will depend on entirely, so it is worth meeting here."
+              title: "the wake is a return, not a startle — it needs an overshoot",
+              body: "The jolt runs <code>4×2 / 5</code> — half-opening for two frames, then open, and it <b>stops there</b>. He wakes to exactly the eye he started with. But catching yourself falling asleep does not return you to normal; it <b>overshoots</b> — the eyes fly <em>wider</em> than baseline for an instant, then settle back. Without that, the ending is a rewind rather than a shock, and it is the one place left where the shot under-delivers on its own story.",
+              drill: "One more drawing: <b>eyes wide</b>, past your normal open. Then <code>4×2 / wide×2 / 5</code> — snap past the target, hold it a beat, settle back to normal. Same lesson as the moving hold: <b>a quality of movement that timing cannot fake needs a drawing.</b> Note also that this makes the settle a <em>third</em> use of the overshoot-and-settle dial, which is the one dial from the seven still untouched."
             },
             forward: [
+              "<b>DROWSY IS DONE (2026-08-15).</b> <code>t1-02-blink-drowsy-catches.kra</code> — 10 keyframes, 6 drawings, 46 frames (1.92s). Sheet: <code>1×8 / 2×3 / 1×8 / 2×2 / 1×2 / 2×1 / 3×7 / 6×13 / 4×2 / 5</code>. Label legend in the .kra: <b>2</b>=open, <b>3</b>=half, <b>6</b>=shut-tense, <b>7</b>=shut-released, <b>4</b>=half-opening, <b>1</b>=open-end.",
+              "<b>Next: nervous, then excited.</b> Nervous will lean entirely on irregularity and non-monotonic reuse — both now practised. Expect <em>excited</em> to demand the overshoot drawing above, so drawing it now serves two lessons.",
               "<b>THE OPEN DECISION (2026-08-15) — three numbers, still unmade.</b> How long the eye sits <em>fully open</em> before each of the three droops. <b>These control how long the open drawing is on screen — not droop speed</b>, because with three drawings there is no droop speed; the eye cuts from open to half. Claude's rule <i>“each must be shorter than the last”</i> was <b>too rigid and was pushing against the user's own stated intent</b>: <i>“I wanted the halfway to be slow and a quick jerk at the end”</i> — which means a <b>large middle</b> and a <b>small last</b>, i.e. his first instinct of <code>4 / 8 / 2</code>. That reads as a <em>rally</em> — already fading, a genuine second wind, then a fast collapse — and is truer than a monotonic decay, which telegraphs its ending from the first beat. Open question he wants to think on: whether to join the scene with the man already half-gone (opening <code>4</code> = 167ms) or establish him awake first (e.g. <code>8 / 8 / 2</code>).",
               "<b>Notation now in use, replacing hand-formatted tables:</b> <code>open 6 / half 3 / open 4 …</code> — drawing name and hold duration only. <b>The user never types a frame number</b>; Claude does the arithmetic and returns the full sheet with holds marked. This was the zero-build fix to the tedium that should have been offered before building any tool.",
               "<b>PICK UP HERE (2026-08-14).</b> The <em>catch</em> structure was designed but <b>never placed in Krita</b> — both <code>t1-02-blink-drowsy.kra</code> and <code>t1-02-blink-drowsy-collapse.kra</code> still hold the original 5 keyframes at 0/5/9/30/32. The collapse file is a correctly-named but unedited copy, ready to work in.",
