@@ -356,6 +356,54 @@
         the frame without rendering anything.</li>
     </ul>
 
+    <h3>Building a rig — separating independent variables onto layers</h3>
+    <p>With everything on one paint layer, every keyframe is a copy of the <em>whole</em> drawing —
+      which is why the first soot sprite needed six near-identical copies of a laborious fuzzy body.
+      Splitting the parts that move <em>independently</em> onto their own layers changes the
+      arithmetic:</p>
+    <p><b>3 lid states × 3 gaze states = 9 combinations, from 6 drawings rather than 9.</b> Add a
+      fourth lid state and you get 12 combinations for the price of one drawing.
+      <b>Independent variables on separate layers cost addition; on one layer they cost
+      multiplication.</b></p>
+    <p>This is also the real answer to <em>“six drawings, one axis”</em> — every drawing of the first
+      sprite moved the lid vertically, so a horizontal idea like gaze was impossible. Layers are how
+      a second axis gets bought cheaply. <b>When planning, count your axes, not your drawings.</b></p>
+    <p><b>The layer order that works</b> (and the obvious one is wrong) — bottom to top:</p>
+    <ul>
+      <li><b>body / fuzz</b> — static, never redrawn. Keep the eye area solid; the whites paint over
+        it.</li>
+      <li><b>eye white</b> — static, never redrawn.</li>
+      <li><b>pupil</b> — animates the gaze.</li>
+      <li><b>lid</b> — animates the blink, and must be an <b>opaque shape that covers</b>.</li>
+    </ul>
+    <p><b>The gotcha:</b> if the pupil sits <em>above</em> the lid, a closed eye shows two black dots
+      floating on the lid. A real eyelid is opaque and covers — so the lid goes on top, and the eye
+      white becomes a single static drawing while the lid does all the blinking.</p>
+    <p><b>Draw the neutral pose more open than you need.</b> A rest pose you can move away from in
+      <em>both</em> directions gives room to close <em>and</em> to widen later for a startle; one
+      drawn already half-lidded can only close.</p>
+    <p><b>Rig file as a drawing library.</b> Park each drawing on its own early frame — pupils centre
+      / left / right at frames 0, 1, 2 — and keep the rig separate from the shots that use it
+      (<code>Save As</code> per shot). The rig stays pristine, a botched shot never costs the
+      character, and it approximates how production separates a model from its scenes. It is also the
+      nearest thing Krita offers to OpenToonz's numbered drawings in a level.</p>
+
+    <h3>Keyframe colour labels — and a save trap</h3>
+    <p>Krita <b>cannot name a keyframe</b>. Layers have names; individual drawings do not. The only
+      per-keyframe marker is a <b>colour label</b>, so the legend has to live outside the file — the
+      way an exposure sheet's legend sits at the top of the page rather than on each drawing.</p>
+    <p><b>Why bother:</b> Krita <em>renumbers the underlying frame files on save</em>. A drawing that
+      was <code>layer2.f4</code> becomes <code>layer2.f8</code> after an unrelated edit, so filenames
+      are not stable identity. Colour labels are the only thing that survives, and they travel with a
+      drawing when it is copied into a shot — where position no longer identifies it.</p>
+    <p><b>The trap (hit twice, 2026-08-19):</b> <b>colour-labelling a keyframe does not mark the
+      document as modified.</b> Krita therefore has nothing to save, <code>Ctrl+S</code> silently
+      does nothing, and the labels are gone on reopen. Workaround: make a real change as well, or
+      close and reopen to verify the labels actually persisted.</p>
+    <p><b>Colour → stored integer</b>, confirmed by inspecting saved files:
+      <code>1 = blue</code>, <code>2 = green</code>, <code>3 = yellow</code>. Others not yet
+      identified.</p>
+
     <h3>The exposure sheet — think in durations, not frame numbers</h3>
     <p>The traditional planning document (also called an <b>X-sheet</b> or <b>dope sheet</b>): two
       columns — the frame number, and <em>which drawing sits on it</em>. Krita’s timeline is the same
@@ -587,6 +635,41 @@
       invent positions between them.</b> When an intent needs a <em>quality</em> of movement rather
       than a duration, the time lever has run out and the answer is a new drawing. Recognising that
       boundary is what stops re-timing from becoming a substitute for animating.</p>
+
+    <h3>A second animated layer <em>is</em> a moving hold</h3>
+    <p><b>Found by the user</b> while planning the nervous blink: <i>“we don't want the animation to
+      ever feel dead, so if we hold on a left too long we risk that — but it also adds the ability to
+      add blinking, and another whole layer of showing nervousness.”</i></p>
+    <p>With every part on one layer, a long fixation is a <b>frozen drawing</b>. Split gaze and lid
+      onto separate layers and the lid can move <em>during</em> a gaze hold — so the look-away is
+      never dead. <b>The second layer is the moving hold, and it comes free.</b> That is the payoff of
+      the rig beyond its drawing-count arithmetic: independent channels mean one can carry stillness
+      while the other carries life.</p>
+    <p><b>The general form:</b> when a hold goes dead, the fix need not be a new drawing on the
+      <em>same</em> part — it can be movement on a <em>different</em> one. Breath, hair, a blink, a
+      background element. This is why studios animate secondary elements at all.</p>
+
+    <h3>Blinks are part of gaze shifts, not separate from them</h3>
+    <p><b>Checked 2026-08-20</b>, because a design decision rested on it. The user's instinct was to
+      blink <em>before</em> changing gaze direction. The physiology says something slightly
+      different:</p>
+    <ul>
+      <li>Many vertebrates generate blinks <b>as a component of saccadic gaze shifts</b> — blinks are
+        integrated into the motor command for a gaze shift rather than being independent reflexes.</li>
+      <li>Lid-closing muscle activity accompanies <b>97% of gaze shifts larger than 33°</b>; in
+        humans, large shifts raise blink likelihood to roughly <b>20%</b>.</li>
+      <li><b>Blink probability increases with gaze amplitude</b> — bigger darts want blinks, small
+        ones often do not.</li>
+      <li>The blink <b>begins simultaneously with the eye movement</b>, not before it. Saccades
+        accompanying blinks are also measurably slower.</li>
+    </ul>
+    <p><b>Design rules that follow:</b> put the blink <em>on</em> the dart rather than ahead of it,
+      and reserve blinks for the larger direction changes rather than every one.</p>
+    <p><b>Claude's inference, not sourced:</b> since a saccade is <em>sub-frame</em> and therefore a
+      cut, a blink landing on the same frame would <em>mask</em> that cut — the lid covers the eye
+      exactly as the pupil jumps. Real vision works this way, and it suggests blinks could be used
+      deliberately to hide the pop on the largest darts. Untested; worth trying against a version
+      without it.</p>
 
     <h3>The moving hold — why a long freeze reads as dead</h3>
     <p><b>Diagnosed by the user</b>, unprompted, from watching his own drowsy blink: <i>“once we hit
@@ -927,6 +1010,10 @@ const LEDGER = {
               drill: "One more drawing: <b>eyes wide</b>, past your normal open. Then <code>4×2 / wide×2 / 5</code> — snap past the target, hold it a beat, settle back to normal. Same lesson as the moving hold: <b>a quality of movement that timing cannot fake needs a drawing.</b> Note also that this makes the settle a <em>third</em> use of the overshoot-and-settle dial, which is the one dial from the seven still untouched."
             },
             forward: [
+              "<b>NERVOUS — PICK UP HERE (2026-08-20).</b> The rig is built: <code>progress/track-1/soot-sprite-rig.kra</code>, four layers — <code>lid</code> (1 drawing, open/neutral) over <code>pupil</code> (3 drawings: <b>green=centre, blue=left, yellow=right</b> parked at frames 0/1/2) over static <code>eye white</code> and <code>body/fuzz</code>. Nothing animated yet. Colour→integer, confirmed: 1=blue, 2=green, 3=yellow.",
+              "<b>The itinerary he designed</b> (route only, no durations yet): <code>centre · left · right · left · centre · left · centre · left · right · centre · left · right</code>. Left appears 5×, right 3× — asymmetric on purpose, so it reads as a person rather than a mechanism. Centre-gaps are irregular (4, 2, 3). His reading: positions 1–4 scan, 5–8 are two attempts at eye contact that both bail, 10 is a last try, 11–12 give up.",
+              "<b>Two things flagged and unresolved.</b> (a) Positions 5–8 are <code>centre·left·centre·left</code> — an <em>alternation</em>, which he himself diagnosed as mechanical on the drowsy hold. Two repeats reads as “he tried twice” <em>only if the two attempts differ in length</em>; the second should be shorter, as he gives up faster. (b) <b>The ending is undecided and he asked for suggestions.</b> Two candidates: end on a long away-fixation kept alive by a blink (resignation, the darting simply stops), or <em>end back at centre with rapid blinking</em> — he forces eye contact and the blinks betray him, relocating the nervousness from gaze to lid and using both channels. Claude leans to the second as the stronger turn.",
+              "<b>Still to draw:</b> <code>lid</code> needs <b>half</b> and <b>shut</b>. Deliberately deferred so setup would not swallow the exercise, but the blink channel is now part of the plan rather than optional — see the two Grimoire entries on the second layer as moving hold, and on blinks being part of gaze shifts.",
               "<b>DROWSY IS DONE (2026-08-15).</b> <code>t1-02-blink-drowsy-catches.kra</code> — 10 keyframes, 6 drawings, 46 frames (1.92s). Sheet: <code>1×8 / 2×3 / 1×8 / 2×2 / 1×2 / 2×1 / 3×7 / 6×13 / 4×2 / 5</code>. Label legend in the .kra: <b>2</b>=open, <b>3</b>=half, <b>6</b>=shut-tense, <b>7</b>=shut-released, <b>4</b>=half-opening, <b>1</b>=open-end.",
               "<b>Next: nervous, then excited.</b> Nervous will lean entirely on irregularity and non-monotonic reuse — both now practised. Expect <em>excited</em> to demand the overshoot drawing above, so drawing it now serves two lessons.",
               "<b>THE OPEN DECISION (2026-08-15) — three numbers, still unmade.</b> How long the eye sits <em>fully open</em> before each of the three droops. <b>These control how long the open drawing is on screen — not droop speed</b>, because with three drawings there is no droop speed; the eye cuts from open to half. Claude's rule <i>“each must be shorter than the last”</i> was <b>too rigid and was pushing against the user's own stated intent</b>: <i>“I wanted the halfway to be slow and a quick jerk at the end”</i> — which means a <b>large middle</b> and a <b>small last</b>, i.e. his first instinct of <code>4 / 8 / 2</code>. That reads as a <em>rally</em> — already fading, a genuine second wind, then a fast collapse — and is truer than a monotonic decay, which telegraphs its ending from the first beat. Open question he wants to think on: whether to join the scene with the man already half-gone (opening <code>4</code> = 167ms) or establish him awake first (e.g. <code>8 / 8 / 2</code>).",

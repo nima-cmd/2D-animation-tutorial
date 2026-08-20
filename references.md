@@ -55,6 +55,34 @@ taking an instructor's numbers on trust. Each is marked with what it actually es
   and [Animétudes, "Animation and subjectivity: towards a theory of framerate modulation"](https://animetudes.com/2020/05/17/animation-and-subjectivity-towards-a-theory-of-framerate-modulation/) —
   both treat cadence as an expressive choice, which is exactly the Grimoire's Chapter III argument.
 
+### Saccades and blink-saccade coupling (checked 2026-08-20)
+
+Looked up because the nervous-blink exercise rests on both: gaze aversion is the behaviour being
+animated, and the frame counts depend on how fast a dart actually is.
+
+- **Saccade duration and speed** — saccades last **20–200 ms**, typically **30–100 ms**, with the
+  *smallest* movements the fastest (~20 ms); peak angular speed reaches **1000°/s**, making the
+  saccade **the fastest movement of any external part of the human body**.
+  [Scholarpedia, "Human saccadic eye movements"](http://www.scholarpedia.org/article/Human_saccadic_eye_movements)
+  · [ScienceDirect overview](https://www.sciencedirect.com/topics/neuroscience/saccade).
+  **Consequence for animation:** at 24fps one frame is 41.67 ms, so a small dart is *shorter than a
+  single frame*. A saccade cannot be animated as movement — **it is a cut**, no in-betweens exist and
+  drawing them would be wrong. Only the end positions are needed. Because nothing intermediate helps
+  the eye track it, the positional change must be large enough to read instantly.
+- **Blinks are a component of gaze shifts, not separate from them** — lid-closing muscle activity
+  accompanies **97% of gaze shifts larger than 33°**; blink probability rises with gaze amplitude
+  (~20% for large shifts in humans); and the blink **begins simultaneously with the eye movement**
+  rather than preceding it. Saccades accompanied by blinks are measurably slower.
+  [Exp Brain Res, "Not looking while leaping"](https://link.springer.com/article/10.1007/BF00227203)
+  · [Gaze-evoked blinks and gaze shifts](https://pmc.ncbi.nlm.nih.gov/articles/PMC3262917/)
+  · [Properties of horizontal saccades accompanied by blinks](https://journals.physiology.org/doi/full/10.1152/jn.1998.79.6.2895).
+  **Consequence:** put the blink *on* the dart, not before it, and reserve blinks for the larger
+  direction changes.
+- **Not sourced — Claude's inference**, flagged as such: since the saccade is sub-frame and therefore
+  a cut, a blink on the same frame would *mask* that cut. Worth testing against a version without it.
+- **Not checked:** typical *fixation* durations. Deliberately left unverified so the user derives
+  fixation lengths from observation rather than from a handed number.
+
 ### The moving hold (checked 2026-08-15)
 
 Looked up after the user diagnosed the effect unprompted — *"once we hit 24 all tension kind of
