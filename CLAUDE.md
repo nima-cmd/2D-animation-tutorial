@@ -32,6 +32,14 @@ projects — the `tablet-tool` repo and, planned, Blender/Henwick and the Godot 
 
 - **Live instructor, one small step at a time.** Walk through lessons hands-on; wait for the user at
   each step; don't dump whole lessons.
+- **End every session with something on screen.** Learned 2026-08-21 after two consecutive sessions
+  of good design and no playback: *"I get burnt out faster this way, and every time I quit I feel like
+  I haven't gotten much done."* Slice the work so each sitting yields a **playable increment** — one
+  phrase of a shot, one bounce, one beat — not "finish the plan." Shape it: **derivation first while
+  he's fresh, placing keyframes second, playback last**, because thinking costs him more energy than
+  drawing does. Derivation before instruction never meant derivation *instead of* doing; the drowsy
+  blink worked precisely because it alternated reason → place → watch → react, and he corrected
+  Claude twice from playback in that session.
 - **Derivation before instruction — this user refuses to do what he doesn't understand.** Stated
   2026-08-11: *"I don't want to just be told how to make something look the way it should — I want
   the toolset to control it myself."* So never hand over a number (frame counts, keyframe positions,
