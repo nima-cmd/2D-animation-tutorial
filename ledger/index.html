@@ -636,6 +636,52 @@
       than a duration, the time lever has run out and the answer is a new drawing. Recognising that
       boundary is what stops re-timing from becoming a substitute for animating.</p>
 
+    <h3>Gaze: drift in, dart out — and why you cannot drift across centre</h3>
+    <p>Real gaze has <b>two physiologically distinct movement types</b>, and they cost different
+      things to animate:</p>
+    <ul>
+      <li><b>Saccade</b> — fast, jerk-like, 20–200ms. At 24fps that is <em>sub-frame</em>, so it is
+        <b>a cut</b>: no in-betweens exist, and drawing them would be wrong.</li>
+      <li><b>Drift</b> — slow, smooth, irregular and <b>involuntary</b>, occurring during attempted
+        fixation. This one <b>needs in-betweens</b>.</li>
+    </ul>
+    <p>And the fact that makes them a story: holding an off-centre gaze produces <b>slow centripetal
+      drift</b> — the eye slides back toward straight-ahead and needs a corrective saccade to stay
+      put. So <i>“the more you try not to look at it, the more you are drawn to it”</i> is not merely
+      psychological; <b>the eye is mechanically pulled toward the thing being avoided.</b></p>
+    <p><b>Three rules follow, and between them they type every transition automatically</b> — no need
+      to mark drift or dart by hand:</p>
+    <ul>
+      <li><b>Toward centre, same side → DRIFT.</b> Involuntary; the eye slides.</li>
+      <li><b>Away from centre, same side → DART.</b> Deliberate effort; a cut.</li>
+      <li><b>Crossing centre → DART, necessarily.</b> A drift would <em>pass through</em> centre — and
+        passing through centre means making eye contact. <b>This is why nervous eyes flick rather than
+        sweep: the flick exists to skip the thing being avoided.</b></li>
+    </ul>
+    <p>Consequence for design: a character can <em>circle</em> near centre indefinitely using
+      crossing darts, and only falls in when a move toward centre is allowed to drift. Capture is a
+      change of movement type, not of position.</p>
+
+    <h3>Compose in phrases, not positions</h3>
+    <p><b>Found by the user</b> after listing his options — <code>left→right</code>,
+      <code>left→centre</code>, <code>left→slight-left→centre</code>,
+      <code>left→slight-left→left→centre</code> — which is not a list of transitions but a
+      <b>grammar</b>. Each is a small complete event with its own shape. The best of them,
+      <code>left ~ slight-left → left ~ centre</code>, reads as <em>resistance failing</em>: he drifts
+      toward the camera, catches himself and pulls back, then goes anyway.</p>
+    <p><b>Why the altitude matters:</b> planning twenty-one individual positions is unmanageable, which
+      is why a long route feels arbitrary while you write it. <b>Four or five phrases, each a complete
+      approach-and-escape, is a shot that can actually be reasoned about</b> — the same reason music
+      is composed in bars rather than note by note.</p>
+    <p><b>And phrases take an arc, exactly as frames do.</b> If every phrase arrives at centre it is
+      one failure repeated — the metronome problem one level up. If the arrivals escalate (near-miss,
+      longer near-miss, arrival, arrival that lingers) you get a man losing a fight. The decaying
+      catches of the drowsy blink, applied to phrases instead of frames.</p>
+    <p><b>Structure can be spatial, too.</b> The nervous shot's five phrases contract: P1 uses only the
+      extremes, and by P4 the eye is confined to the near-centre positions before falling in — a
+      <b>decaying orbit</b>. Tracking distance-from-centre per phrase revealed a shape the position
+      list alone did not show. <b>Plot the amplitude of a route and see whether it means anything.</b></p>
+
     <h3>Animate the channel that carries the story first</h3>
     <p><b>The user's own working rule</b>, stated while planning the nervous shot: <i>“the pupil
       animation should happen first — the pupils tell the story, the lids then contribute. It's easier
@@ -1026,7 +1072,12 @@ const LEDGER = {
               drill: "One more drawing: <b>eyes wide</b>, past your normal open. Then <code>4×2 / wide×2 / 5</code> — snap past the target, hold it a beat, settle back to normal. Same lesson as the moving hold: <b>a quality of movement that timing cannot fake needs a drawing.</b> Note also that this makes the settle a <em>third</em> use of the overshoot-and-settle dial, which is the one dial from the seven still untouched."
             },
             forward: [
-              "<b>NERVOUS — PICK UP HERE (2026-08-20).</b> The rig is built: <code>progress/track-1/soot-sprite-rig.kra</code>, four layers — <code>lid</code> (1 drawing, open/neutral) over <code>pupil</code> (3 drawings: <b>green=centre, blue=left, yellow=right</b> parked at frames 0/1/2) over static <code>eye white</code> and <code>body/fuzz</code>. Nothing animated yet. Colour→integer, confirmed: 1=blue, 2=green, 3=yellow.",
+              "<b>NERVOUS — PICK UP HERE (2026-08-21). Next step: durations, given as <em>relationships between the five phrases</em></b> — which is faster, which drags, where the beat sits — then the shape inside each. Twenty-one positions; do not ask for twenty-one numbers. He cannot yet think in absolute frame counts and does not need to: <b>every good call he has made this week was relational.</b> Claude converts.",
+              "<b>The five-phrase structure he designed</b>, in his own words: <b>P1</b> <code>L·R·L·R</code> “quick darting nervous erratic”. <b>P2</b> <code>R·sR·R·sR</code> “fighting the pull away from centre”. <b>P3</b> <code>sR·L·sL·L</code> “the pull to centre too strong, so use the pull and overshoot to the left to fight it, then drift back magnetically”. <b>P4</b> <code>sL·sR·sL·sR·CENTRE</code> “circling the magnetic pool as it gets sucked in — a beat on centre, we hold as if he's caught and he knows it”. <b>P5</b> <code>L·sR·sL·R</code> “slowly trying to pull away from the pull of centre”.",
+              "<b>The structure is a decaying orbit</b> — amplitude contracts from all-extremes in P1 to near-centre-only in P4, falls into centre, then flings back out in P5. Movement types need no marking: the three rules (toward=drift, away=dart, crossing=dart-necessarily) type every transition. P4 circles safely <em>because</em> its crossings are darts; the capture is the one move toward centre allowed to drift.",
+              "<b>The blink's place is decided:</b> P4's hold on centre is the one moment nothing moves and will go dead — that is where the lid channel earns its keep, rather than blinks sprinkled throughout. The escape out of centre, being the largest gaze shift in the shot, is the other natural candidate. Still to draw: <code>half</code> and <code>shut</code> on the <code>lid</code> layer. <b>Pupils are animated first regardless</b> — they carry the story.",
+              "<b>Files (2026-08-21):</b> <code>soot-sprite-rig.kra</code> and <code>t3-01-nervous.kra</code> both hold five pupil drawings parked at frames 0–4, <b>no timing yet</b>. Legend: <b>1=blue left · 2=green centre · 3=yellow right · 4=orange slightly-left · 5=brown slightly-right</b>. Krita's colour→integer order now fully mapped for 1–5.",
+              "<b>NERVOUS — earlier setup (2026-08-20).</b> The rig is built: <code>progress/track-1/soot-sprite-rig.kra</code>, four layers — <code>lid</code> (1 drawing, open/neutral) over <code>pupil</code> (3 drawings: <b>green=centre, blue=left, yellow=right</b> parked at frames 0/1/2) over static <code>eye white</code> and <code>body/fuzz</code>. Nothing animated yet. Colour→integer, confirmed: 1=blue, 2=green, 3=yellow.",
               "<b>The itinerary he designed</b> (route only, no durations yet): <code>centre · left · right · left · centre · left · centre · left · right · centre · left · right</code>. Left appears 5×, right 3× — asymmetric on purpose, so it reads as a person rather than a mechanism. Centre-gaps are irregular (4, 2, 3). His reading: positions 1–4 scan, 5–8 are two attempts at eye contact that both bail, 10 is a last try, 11–12 give up.",
               "<b>Two things flagged and unresolved.</b> (a) Positions 5–8 are <code>centre·left·centre·left</code> — an <em>alternation</em>, which he himself diagnosed as mechanical on the drowsy hold. Two repeats reads as “he tried twice” <em>only if the two attempts differ in length</em>; the second should be shorter, as he gives up faster. (b) <b>The ending is undecided and he asked for suggestions.</b> Two candidates: end on a long away-fixation kept alive by a blink (resignation, the darting simply stops), or <em>end back at centre with rapid blinking</em> — he forces eye contact and the blinks betray him, relocating the nervousness from gaze to lid and using both channels. Claude leans to the second as the stronger turn.",
               "<b>Still to draw:</b> <code>lid</code> needs <b>half</b> and <b>shut</b>. Deliberately deferred so setup would not swallow the exercise, but the blink channel is now part of the plan rather than optional — see the two Grimoire entries on the second layer as moving hold, and on blinks being part of gaze shifts.",
