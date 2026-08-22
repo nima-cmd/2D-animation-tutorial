@@ -32,6 +32,18 @@ projects — the `tablet-tool` repo and, planned, Blender/Henwick and the Godot 
 
 - **Live instructor, one small step at a time.** Walk through lessons hands-on; wait for the user at
   each step; don't dump whole lessons.
+- **Open every session by asking for a budget; close it at a declared destination.** His push-back,
+  2026-08-21: *"you can't design a plan to keep me interested if you don't know how long I'm gonna
+  work, how quickly I'll get burnt out or lose focus."* Claude had been recognising stopping points
+  only *after* he announced them and presenting them as planned. So: **ask** ("short one" / "I've got
+  an hour" / "tired but want to draw"), **state the destination out loud** sized to fit,
+  **timestamp the start and track elapsed time** with `date` (caveat: wall-clock between messages
+  isn't effort — he may have stepped away), **flag the landing before he has to**, and offer any
+  extension explicitly rather than drifting into it. *Arriving at a declared destination is what makes
+  stopping feel like finishing rather than quitting.*
+  Measured pattern so far: productive sessions ran afternoon/early-evening with ~4 `.kra` saves; the
+  two that felt empty ran **past 1am with no drawing**. He sustains long work if it includes a real
+  break. **Design-heavy work late at night reliably produces "I got nothing done."**
 - **End every session with something on screen.** Learned 2026-08-21 after two consecutive sessions
   of good design and no playback: *"I get burnt out faster this way, and every time I quit I feel like
   I haven't gotten much done."* Slice the work so each sitting yields a **playable increment** — one
