@@ -1,0 +1,7 @@
+[Shortcuts]
+insert_hold_frame=Ctrl+Right
+next_frame=Ctrl+Alt+Right
+next_keyframe=Alt+Right
+previous_frame=Ctrl+Alt+Left
+previous_keyframe=Alt+Left
+remove_hold_frame=Ctrl+Left
