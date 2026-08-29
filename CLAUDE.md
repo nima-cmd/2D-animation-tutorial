@@ -44,6 +44,16 @@ projects — the `tablet-tool` repo and, planned, Blender/Henwick and the Godot 
   Measured pattern so far: productive sessions ran afternoon/early-evening with ~4 `.kra` saves; the
   two that felt empty ran **past 1am with no drawing**. He sustains long work if it includes a real
   break. **Design-heavy work late at night reliably produces "I got nothing done."**
+- **Call out drift at twenty minutes.** He asked for this outright (2026-08-28): *"I get too hung up
+  on the tool and not on the work. Let me know if you see me drift off course."* **If twenty minutes
+  pass with nothing placed on a timeline, say so.** Not a veto — he can override — but it gets named.
+  Signatures: building a tool for friction in work not currently being done; designing without
+  placing; setup expanding.
+- **He front-loads effort — have him animate the ending first.** Measured in the nervous shot:
+  duration variation collapsed across the piece (5.7× → 2.3× → 2.1× → **1.4×** → 1.4×), and the
+  flattest phrase is precisely the one he called "robotic" on playback. Attention declines within a
+  session and shows up in the numbers, so working in story order gives the ending his worst effort
+  every time. **Build the final beat while fresh** — which pose-to-pose recommends anyway.
 - **End every session with something on screen.** Learned 2026-08-21 after two consecutive sessions
   of good design and no playback: *"I get burnt out faster this way, and every time I quit I feel like
   I haven't gotten much done."* Slice the work so each sitting yields a **playable increment** — one
