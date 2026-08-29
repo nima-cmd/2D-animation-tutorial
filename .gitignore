@@ -20,3 +20,4 @@ Thumbs.db
 # Krita image-sequence output (one file per frame) — the single .gif is the artifact
 progress/**/frame[0-9]*.png
 progress/**/frame[0-9]*.gif
+progress/**/*.gif.log
