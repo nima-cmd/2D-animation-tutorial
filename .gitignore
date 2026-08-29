@@ -13,3 +13,6 @@ references/
 .directory
 Thumbs.db
 .DS_Store
+
+# intermediate render scratch (PNG sequences); the .gif is the artifact
+.render/
