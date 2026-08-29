@@ -16,3 +16,7 @@ Thumbs.db
 
 # intermediate render scratch (PNG sequences); the .gif is the artifact
 .render/
+
+# Krita image-sequence output (one file per frame) — the single .gif is the artifact
+progress/**/frame[0-9]*.png
+progress/**/frame[0-9]*.gif
