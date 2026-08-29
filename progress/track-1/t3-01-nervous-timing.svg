@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 150" font-family="sans-serif">
+<rect width="980" height="150" fill="#171c21"/>
+<rect x="40.0" y="30" width="171.4" height="58" fill="none" stroke="#3a4650"/>
+<text x="125.7" y="24" fill="#a7b4bf" font-size="12" text-anchor="middle">P1</text>
+<rect x="211.4" y="30" width="72.9" height="58" fill="none" stroke="#3a4650"/>
+<text x="247.9" y="24" fill="#a7b4bf" font-size="12" text-anchor="middle">P2</text>
+<rect x="284.3" y="30" width="175.7" height="58" fill="none" stroke="#3a4650"/>
+<text x="372.1" y="24" fill="#a7b4bf" font-size="12" text-anchor="middle">P3</text>
+<rect x="460.0" y="30" width="368.6" height="58" fill="none" stroke="#3a4650"/>
+<text x="644.3" y="24" fill="#a7b4bf" font-size="12" text-anchor="middle">P4</text>
+<rect x="828.6" y="30" width="111.4" height="58" fill="none" stroke="#3a4650"/>
+<text x="884.3" y="24" fill="#a7b4bf" font-size="12" text-anchor="middle">P5</text>
+<rect x="40.0" y="36" width="71.7" height="46" fill="#4a7fbf" rx="2"/>
+<text x="76.4" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">17</text>
+<rect x="112.9" y="36" width="15.9" height="46" fill="#d4b93c" rx="2"/>
+<rect x="130.0" y="36" width="11.7" height="46" fill="#4a7fbf" rx="2"/>
+<rect x="142.9" y="36" width="67.4" height="46" fill="#d4b93c" rx="2"/>
+<text x="177.1" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">16</text>
+<rect x="211.4" y="36" width="28.8" height="46" fill="#8a6a4a" rx="2"/>
+<text x="226.4" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">7</text>
+<rect x="241.4" y="36" width="41.7" height="46" fill="#d4b93c" rx="2"/>
+<text x="262.9" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">10</text>
+<rect x="284.3" y="36" width="28.8" height="46" fill="#8a6a4a" rx="2"/>
+<text x="299.3" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">7</text>
+<rect x="314.3" y="36" width="33.1" height="46" fill="#4a7fbf" rx="2"/>
+<text x="331.4" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">8</text>
+<rect x="348.6" y="36" width="45.9" height="46" fill="#d4823c" rx="2"/>
+<text x="372.1" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">11</text>
+<rect x="395.7" y="36" width="63.1" height="46" fill="#4a7fbf" rx="2"/>
+<text x="427.9" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">15</text>
+<rect x="460.0" y="36" width="75.9" height="46" fill="#d4823c" rx="2"/>
+<text x="498.6" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">18</text>
+<rect x="537.1" y="36" width="58.8" height="46" fill="#8a6a4a" rx="2"/>
+<text x="567.1" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">14</text>
+<rect x="597.1" y="36" width="54.5" height="46" fill="#d4823c" rx="2"/>
+<text x="625.0" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">13</text>
+<rect x="652.9" y="36" width="67.4" height="46" fill="#8a6a4a" rx="2"/>
+<text x="687.1" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">16</text>
+<rect x="721.4" y="36" width="105.9" height="46" fill="#3fbf7f" rx="2"/>
+<text x="775.0" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">25</text>
+<rect x="828.6" y="36" width="28.8" height="46" fill="#4a7fbf" rx="2"/>
+<text x="843.6" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">7</text>
+<rect x="858.6" y="36" width="20.2" height="46" fill="#8a6a4a" rx="2"/>
+<rect x="880.0" y="36" width="28.8" height="46" fill="#d4823c" rx="2"/>
+<text x="895.0" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">7</text>
+<rect x="910.0" y="36" width="28.8" height="46" fill="#d4b93c" rx="2"/>
+<text x="925.0" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">7</text>
+<rect x="460.0" y="92" width="368.6" height="3" fill="#e0572e"/>
+<text x="644.3" y="112" fill="#e0572e" font-size="12" text-anchor="middle" font-weight="700">bars all the same width — 18·14·13·16, only 1.4x variation</text>
+<text x="644.3" y="128" fill="#e0572e" font-size="11" text-anchor="middle">this is where it goes robotic</text>
+<text x="40.0" y="112" fill="#75828e" font-size="11">P1–P3: 3 to 17 frames — 5.7x variation</text>
+</svg>
