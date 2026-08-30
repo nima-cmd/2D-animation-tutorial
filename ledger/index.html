@@ -878,6 +878,32 @@
       <b>One is a fight with a victory in it; the other is a wall that does not crack until it
       does.</b> Neither is more correct; that is the actual choice.</p>
 
+    <h3>Adjacent phrases with the same rhythm merge into one</h3>
+    <p><b>Found by the user</b> comparing two builds of the nervous shot's P4 that shared an
+      <em>identical</em> ending: <i>“even though the end is the same, I think it's affected by what
+      we do in the middle part… the strain at the end feels more robotic in the alternating pulse
+      and more fluid in the gravitational pull. I think it's the relationship between the two, but
+      I'm not sure why.”</i></p>
+    <p><b>The mechanism.</b> The ending is itself an alternation — short correction, long sag,
+      repeating: <code>2 · 9 · 2 · 18 · 1 · 12</code>.</p>
+    <ul>
+      <li><b>Version B</b> gave P4 the shape <code>10 · 21 · 10 · 20</code> — <em>also</em> short,
+        long, short, long. Adjacent, and the same shape. So the final six seconds became <b>one
+        continuous alternation</b>: nothing marked the ending's arrival, and it read as more of the
+        same. That is what “robotic” meant here.</li>
+      <li><b>Version A</b> gave P4 a monotonic collapse, <code>28 · 18 · 9 · 6</code> — a different
+        shape entirely. When the alternation begins, it is <b>new information</b>. The ending
+        announces itself because nothing before it was doing that.</li>
+    </ul>
+    <p><b>The rule:</b> <b>if a section must read as distinct, it has to differ in <em>shape</em> from
+      what precedes it</b> — not merely in content. Two neighbouring phrases built on the same rhythm
+      will fuse, however different their positions or durations.</p>
+    <p><b>And note the scale.</b> This is <i>timing is read relatively, not absolutely</i> — his own
+      earlier finding — operating on <em>phrases</em> rather than gaps. There, lengthening a hold made
+      an untouched close feel hurried. Here, <b>the ending was not edited at all and its character
+      changed</b>, because its neighbour did. <b>Nothing in a shot can be judged alone, at any
+      scale.</b></p>
+
     <h3>Timing is read relatively, not absolutely</h3>
     <p><b>Found by the user</b> on lengthening the drowsy blink’s hold: <i>“when I increased the
       length of the shut, I needed to further slow down the shutting of the eyes at the beginning,
@@ -1038,8 +1064,8 @@
    status per lesson: "done" | "current" | "todo"
    ==========================================================================*/
 const LEDGER = {
-  updated: "2026-08-28",
-  now: "T3-01 — GOAL: close it by 2026-09-07. 1) export pipeline · 2) nervous ending + P4 · 3) excited blocked · 4) excited done",
+  updated: "2026-08-30",
+  now: "T3-01 — nervous DONE (2026-08-30). Excited is the last drill, then the lesson closes.",
   milestones: [
     {
       id: "T1",
@@ -1137,10 +1163,10 @@ const LEDGER = {
           title: "Animation principles primer",
           status: "current",
           lesson: "curriculum/track-3-animation/01-principles.md",
-          note: "drowsy blink complete — 10 keyframes, 6 drawings; nervous + excited remain",
+          note: "drowsy + nervous complete; excited is the last drill",
           work: {
             folder: "track-1",
-            image: "t3-01-nervous-timing.svg",
+            image: "t3-01-nervous-timing-A.svg",
             caption: "The nervous shot's timing, drawn to scale. Each bar is one drawing; its width is how long it stays on screen; its colour is your own keyframe label — blue left, orange slightly-left, green centre, brown slightly-right, yellow right. Read the bar widths, not the colours: P1–P3 vary wildly (3 to 17 frames), then P4's four bars are nearly identical. That flat stretch is the section you called robotic before either of us had counted anything."
           },
           review: {
@@ -1169,6 +1195,8 @@ const LEDGER = {
               drill: "One more drawing: <b>eyes wide</b>, past your normal open. Then <code>4×2 / wide×2 / 5</code> — snap past the target, hold it a beat, settle back to normal. Same lesson as the moving hold: <b>a quality of movement that timing cannot fake needs a drawing.</b> Note also that this makes the settle a <em>third</em> use of the overshoot-and-settle dial, which is the one dial from the seven still untouched."
             },
             forward: [
+              "<b>NERVOUS IS DONE — 2026-08-30.</b> <code>t3-01-nervous-A-Well.kra</code> / <code>.gif</code> — 24 keyframes, 6 pupil positions, 251 frames (10.5s). P4 rebuilt as a <b>gravitational collapse</b>, <code>28 · 18 · 9 · 6</code>, chosen on playback against an alternating-pulse build sharing its drawings, span and ending. <b>Excited is the last drill</b>; then T3-01 closes and the syllabus gate is <b>T2-01→02 before T3-02</b> (paper-first, a week not a session).",
+              "<b>The finding that settled it, and it is his.</b> Both builds had an <em>identical</em> ending, yet the ending read robotic in one and fluid in the other. Because the ending is itself a short-long alternation, and B's P4 was <em>also</em> short-long — so B's final six seconds became one continuous alternation with nothing marking the ending's arrival. <b>Adjacent phrases sharing a rhythm fuse into one.</b> His own <i>timing is read relatively</i> law, operating on <em>phrases</em> rather than gaps: <b>the ending was never edited, and its character changed because its neighbour did.</b>",
               "<b>THE PLAN — T3-01 CLOSED BY 2026-09-07.</b> Four sessions, one deliverable each, agreed 2026-08-28 after he asked for a clear goal and timeline. <b>(1) Export pipeline</b> — solve <code>ffmpeg</code>, render the drowsy blink and the nervous block as gifs, embed them in this ledger. <b>(2) Nervous</b> — choose the ending pose, rebuild P4 toward it, export. <b>(3) Excited</b> — block all five phrases. <b>(4) Excited refined + T3-01 review written, lesson marked done.</b> Then the syllabus gate: <b>T2-01→02 before T3-02</b> (T2-01 is paper-first and takes about a week, not a session).",
               "<b>Export goes first on purpose.</b> It is a one-off unblock; it retroactively makes seventeen days of invisible work visible; after it <em>every</em> session ends with something watchable rather than a row of frame numbers; and it closes a real hole in the feedback loop — <b>Claude has never actually watched anything he has animated</b>, only read keyframe XML. Flagged 2026-08-11 and untouched since.",
               "<b>Two standing tripwires, both requested by him.</b> <b>(a) Drift:</b> if twenty minutes pass with nothing placed on a timeline, Claude says so out loud — not a veto, but named rather than drifted into. <b>(b) Output:</b> at the end of every session Claude states plainly whether it produced a new saved artifact — a <code>.kra</code> with new work, or an export. Yes or no, unsoftened. By that measure 2026-08-28 was a <b>yes</b>; the two sessions before it were <b>no</b>, and neither of us said so at the time.",
@@ -1382,17 +1410,22 @@ const GALLERY = [
     goal: "Gaze aversion built from five pupil positions on a four-layer rig. Five phrases, 20 positions. The ending was chosen last and rebuilt three times in one day.",
     takes: [
       {
-        file: "t3-01-nervous-A-Well.gif", label: "A — P4 as a gravitational well", verdict: "open",
-        meta: "251 frames · 10.5s · P4 holds 28 · 18 · 9 · 6",
-        note: "<b>Monotonic collapse.</b> Each circling hold roughly half the last — 18 to 9 exactly — so the orbit accelerates as it falls in, and the 25-frame capture at centre lands against a 6-frame approach. His own reasoning: <i>“like a gravitational well, it should get quicker the more it goes towards centre.”</i> Same drawings and same total span as B; only the distribution differs."
+        file: "t3-01-nervous-A-Well.gif", label: "A — the finished nervous shot", verdict: "keep",
+        meta: "251 frames · 10.5s · P4 holds 28 · 18 · 9 · 6 · WINNER",
+        note: "<b>Monotonic collapse — the orbit accelerates as it falls in</b>, each circling hold roughly half the last (18 to 9 exactly), so the 25-frame capture lands against a 6-frame approach. His reasoning: <i>“like a gravitational well, it should get quicker the more it goes towards centre.”</i> <b>Chosen on playback against B</b>, which shares its drawings, its span, and an identical ending. <b>This is the finished shot.</b>"
       },
       {
-        file: "t3-01-nervous-B-Pulse.gif", label: "B — P4 as alternating pulse", verdict: "open",
+        file: "t3-01-nervous-timing-A.svg", label: "the finished timing, drawn to scale", verdict: "keep",
+        meta: "compare against the diagnostic chart below",
+        note: "The same chart as the diagnosis, redrawn from the finished shot. <b>P4 now steps down 28 · 18 · 9 · 6</b> instead of sitting flat at 18·14·13·16, and the tremor at the right-hand end shows the corrections thinning to a single frame while the sags widen. Purple is the micro-offset drawn for the ending."
+      },
+      {
+        file: "t3-01-nervous-B-Pulse.gif", label: "B — P4 as alternating pulse", verdict: "sup",
         meta: "251 frames · 10.5s · P4 holds 10 · 21 · 10 · 20",
-        note: "<b>Short, long, short, long</b> — his other instinct, built to test it rather than argue about it. Claude's objection, on record before either was watched: a repeating two-beat cycle is <em>uniform one level up</em> — two identical pairs instead of four identical bars — so it should read as a heartbeat rather than a capture. Prediction logged so it can be wrong."
+        note: "<b>Short, long, short, long</b> — his other instinct, built to test rather than argue. <b>Rejected on playback, and the reason is the finding of the session.</b> The ending is <em>also</em> a short-long alternation (2·9·2·18·1·12), so B made the final six seconds one continuous alternation — nothing marked the ending's arrival and it read as more of the same. He spotted it unaided: <i>“the strain at the end feels more robotic in the alternating pulse… I think it's the relationship between the two, but I'm not sure why.”</i> See <i>Adjacent phrases with the same rhythm merge into one</i>. Claude's pre-registered prediction — B would read as a heartbeat — held."
       },
       {
-        file: "t3-01-nervous-v4.gif", label: "v4 — the decay, steepened", verdict: "keep",
+        file: "t3-01-nervous-v4.gif", label: "v4 — ending finished, P4 still flat", verdict: "sup",
         meta: "251 frames · 10.5s · 2026-08-29 21:12",
         note: "Corrections <b>2 · 2 · 1</b>, sags <b>9 · 18</b>. He doubled the sags rather than taking Claude's 5·9·12 — a steeper curve, saying he isn't merely tiring but failing at an accelerating rate. A <b>one-frame correction against an eighteen-frame sag</b> is the moment he stops being able to fight. His call, and the stronger one."
       },
@@ -1407,7 +1440,7 @@ const GALLERY = [
         note: "The escape ending, first placement. Two tremor cycles of <b>2·5</b> and <b>2·5</b> — <em>identical</em>, which is the metronome he had already diagnosed on the drowsy hold. Kept as the before."
       },
       {
-        file: "t3-01-nervous-timing.svg", label: "the timing, drawn to scale", verdict: "open",
+        file: "t3-01-nervous-timing.svg", label: "the diagnosis — P4 flat", verdict: "sup",
         meta: "diagnostic · P4 unresolved",
         note: "Each bar is one drawing, width = exposure, colour = his own keyframe label. <b>P1–P3 vary 5.7×; P4 varies 1.4×.</b> That flat red stretch is the section he called robotic from playback before either of us had counted anything — and it is the one job left on this shot."
       }

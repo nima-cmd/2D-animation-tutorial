@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 150" font-family="sans-serif">
+<rect width="980" height="150" fill="#171c21"/>
+<rect x="40.0" y="30" width="143.4" height="58" fill="none" stroke="#3a4650"/>
+<text x="111.7" y="24" fill="#a7b4bf" font-size="11" text-anchor="middle">P1</text>
+<rect x="183.4" y="30" width="61.0" height="58" fill="none" stroke="#3a4650"/>
+<text x="213.9" y="24" fill="#a7b4bf" font-size="11" text-anchor="middle">P2</text>
+<rect x="244.4" y="30" width="147.0" height="58" fill="none" stroke="#3a4650"/>
+<text x="317.9" y="24" fill="#a7b4bf" font-size="11" text-anchor="middle">P3</text>
+<rect x="391.4" y="30" width="308.4" height="58" fill="none" stroke="#3a4650"/>
+<text x="545.6" y="24" fill="#a7b4bf" font-size="11" text-anchor="middle">P4</text>
+<rect x="699.8" y="30" width="78.9" height="58" fill="none" stroke="#3a4650"/>
+<text x="739.2" y="24" fill="#a7b4bf" font-size="11" text-anchor="middle">P5</text>
+<rect x="778.6" y="30" width="161.4" height="58" fill="none" stroke="#3a4650"/>
+<text x="859.3" y="24" fill="#a7b4bf" font-size="11" text-anchor="middle">tremor</text>
+<rect x="40.0" y="36" width="59.8" height="46" fill="#4a7fbf" rx="2"/>
+<text x="70.5" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">17</text>
+<rect x="101.0" y="36" width="13.1" height="46" fill="#d4b93c" rx="2"/>
+<rect x="115.3" y="36" width="9.6" height="46" fill="#4a7fbf" rx="2"/>
+<rect x="126.1" y="36" width="56.2" height="46" fill="#d4b93c" rx="2"/>
+<text x="154.7" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">16</text>
+<rect x="183.4" y="36" width="23.9" height="46" fill="#8a6a4a" rx="2"/>
+<rect x="208.5" y="36" width="34.7" height="46" fill="#d4b93c" rx="2"/>
+<text x="226.5" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">10</text>
+<rect x="244.4" y="36" width="23.9" height="46" fill="#8a6a4a" rx="2"/>
+<rect x="269.5" y="36" width="27.5" height="46" fill="#4a7fbf" rx="2"/>
+<text x="283.8" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">8</text>
+<rect x="298.2" y="36" width="38.2" height="46" fill="#d4823c" rx="2"/>
+<text x="317.9" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">11</text>
+<rect x="337.6" y="36" width="52.6" height="46" fill="#4a7fbf" rx="2"/>
+<text x="364.5" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">15</text>
+<rect x="391.4" y="36" width="99.2" height="46" fill="#d4823c" rx="2"/>
+<text x="441.6" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">28</text>
+<rect x="491.8" y="36" width="63.3" height="46" fill="#8a6a4a" rx="2"/>
+<text x="524.1" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">18</text>
+<rect x="556.3" y="36" width="31.1" height="46" fill="#d4823c" rx="2"/>
+<text x="572.5" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">9</text>
+<rect x="588.6" y="36" width="20.3" height="46" fill="#8a6a4a" rx="2"/>
+<rect x="610.1" y="36" width="88.4" height="46" fill="#3fbf7f" rx="2"/>
+<text x="654.9" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">25</text>
+<rect x="699.8" y="36" width="23.9" height="46" fill="#4a7fbf" rx="2"/>
+<rect x="724.9" y="36" width="16.7" height="46" fill="#8a6a4a" rx="2"/>
+<rect x="742.8" y="36" width="23.9" height="46" fill="#d4823c" rx="2"/>
+<rect x="767.9" y="36" width="9.6" height="46" fill="#d4b93c" rx="2"/>
+<rect x="778.6" y="36" width="6.0" height="46" fill="#4a7fbf" rx="2"/>
+<rect x="785.8" y="36" width="31.1" height="46" fill="#8f6fbf" rx="2"/>
+<text x="802.0" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">9</text>
+<rect x="818.1" y="36" width="6.0" height="46" fill="#4a7fbf" rx="2"/>
+<rect x="825.3" y="36" width="63.3" height="46" fill="#8f6fbf" rx="2"/>
+<text x="857.5" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">18</text>
+<rect x="889.8" y="36" width="2.4" height="46" fill="#4a7fbf" rx="2"/>
+<rect x="893.4" y="36" width="41.8" height="46" fill="#8f6fbf" rx="2"/>
+<text x="914.9" y="64" fill="#101316" font-size="11" font-weight="700" text-anchor="middle">12</text>
+<rect x="391.4" y="92" width="218.7" height="3" fill="#3fbf7f"/>
+<text x="499.0" y="112" fill="#3fbf7f" font-size="12" text-anchor="middle" font-weight="700">28 · 18 · 9 · 6 — the orbit collapses</text>
+<text x="499.0" y="127" fill="#3fbf7f" font-size="11" text-anchor="middle">was 18·14·13·16, only 1.4x variation</text>
+</svg>
