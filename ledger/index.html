@@ -185,6 +185,51 @@
   .unwritten{font-style:italic;color:var(--ink2-soft);font-size:13.5px}
   .footnote{margin-top:36px;text-align:center;font-style:italic;color:var(--ink2-soft);font-size:13px;
     line-height:1.7}
+
+  /* ---------- Scrying Pool — the moving record ---------- */
+  #tab-scrying{
+    --deep:#0a1017; --deep2:#111c26; --edge3:#1f3444; --ink3:#dbe7ef;
+    --ink3-soft:#8fa7b8; --glow:#5fb3c9; --warn:#e0a72e;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(95,179,201,.16), transparent 60%),
+      radial-gradient(ellipse at 20% 110%, rgba(95,179,201,.07), transparent 55%),
+      var(--deep);
+    color:var(--ink3);
+    font-family:Georgia,"Palatino Linotype","Book Antiqua",serif;
+    padding:40px 16px 90px;min-height:100vh;
+  }
+  .pool{max-width:900px;margin:0 auto}
+  .orb{display:block;margin:0 auto 8px;color:var(--glow)}
+  .ptitle{font-size:26px;text-align:center;letter-spacing:.05em;margin:4px 0 4px;
+    color:var(--glow);font-variant:small-caps}
+  .psub{text-align:center;color:var(--ink3-soft);font-style:italic;margin:0 0 34px;font-size:14px}
+  .lot{margin:0 0 40px}
+  .lothead{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--edge3);
+    padding-bottom:7px;margin-bottom:6px}
+  .lotid{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--glow)}
+  .lothead h2{font-size:19px;margin:0;font-weight:600;color:var(--ink3)}
+  .lotgoal{color:var(--ink3-soft);font-style:italic;font-size:13.5px;margin:8px 0 16px}
+  .reel{display:grid;gap:18px;grid-template-columns:1fr}
+  @media (min-width:720px){ .reel.pair{grid-template-columns:1fr 1fr} }
+  .plate{background:var(--deep2);border:1px solid var(--edge3);border-radius:10px;overflow:hidden}
+  .plate figure{margin:0;background:#fff;line-height:0}
+  .plate img{width:100%;display:block}
+  .plate .cap{padding:12px 15px 14px}
+  .plate .vt{font-size:14px;font-weight:700;color:var(--ink3);letter-spacing:.01em}
+  .plate .vm{font-size:11.5px;color:var(--ink3-soft);font-variant-numeric:tabular-nums;
+    margin:3px 0 8px;letter-spacing:.02em}
+  .plate .vn{font-size:13px;line-height:1.6;color:var(--ink3-soft);margin:0}
+  .plate .vn b{color:var(--ink3)}
+  .plate.now{border-color:color-mix(in srgb,var(--glow) 55%,var(--edge3))}
+  .verdict{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;padding:2px 7px;border-radius:99px;margin-bottom:7px}
+  .verdict.keep{background:color-mix(in srgb,var(--glow) 20%,transparent);color:var(--glow)}
+  .verdict.sup{background:rgba(255,255,255,.06);color:var(--ink3-soft)}
+  .verdict.open{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+  .pfoot{margin-top:40px;text-align:center;font-style:italic;color:var(--ink3-soft);
+    font-size:12.5px;line-height:1.8}
+  #tab-scrying code{background:rgba(95,179,201,.10);border:1px solid var(--edge3);
+    border-radius:4px;padding:1px 5px;font-size:12px;color:var(--glow)}
 </style>
 </head>
 <body>
@@ -192,6 +237,7 @@
 <div class="tabbar">
   <button class="tabbtn active" data-tab="progress">🎨 Progress</button>
   <button class="tabbtn" data-tab="grimoire">📜 Grimoire</button>
+  <button class="tabbtn" data-tab="scrying">🔮 Scrying Pool</button>
 </div>
 
 <main id="tab-progress" class="tabpanel active">
@@ -965,6 +1011,26 @@
 </div>
 </main>
 
+<main id="tab-scrying" class="tabpanel">
+<div class="pool">
+  <svg class="orb" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="20" cy="21" r="12" stroke="currentColor" stroke-width="1.2"/>
+    <ellipse cx="20" cy="21" rx="12" ry="4.5" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+    <path d="M11 15c3.5 2.5 14.5 2.5 18 0" stroke="currentColor" stroke-width=".7" opacity=".5"/>
+    <path d="M20 5v3.5M20 33.5V37M4 21h3.5M32.5 21H36" stroke="currentColor" stroke-width=".8"/>
+  </svg>
+  <h1 class="ptitle">The Scrying Pool</h1>
+  <p class="psub">Every motion made here, kept so it can be watched again &mdash; and compared against
+    what it replaced</p>
+  <div id="scryhost"></div>
+  <p class="pfoot">
+    The Grimoire keeps what was written. This keeps what moves.<br>
+    Renders are made from Krita &mdash; <em>Render Animation &rarr; Export as video &rarr; GIF</em>,
+    ffmpeg at <code>/usr/bin/ffmpeg</code>.
+  </p>
+</div>
+</main>
+
 <script>
 /* ============================================================================
    LEDGER — the single source of truth for progress.
@@ -1302,6 +1368,80 @@ const LEDGER = {
     row.style.display = open ? 'flex' : 'none';
     li.querySelector('.chev').classList.toggle('open', open);
   });
+})();
+
+/* ============================================================================
+   SCRYING POOL — the moving record. One entry per render, newest first
+   within each lot. Add a new render by adding an object to `takes`.
+   verdict: "keep" (current) | "sup" (superseded) | "open" (unresolved note)
+   ==========================================================================*/
+const GALLERY = [
+  {
+    id: "T3-01",
+    title: "The nervous soot sprite",
+    goal: "Gaze aversion built from five pupil positions on a four-layer rig. Five phrases, 20 positions. The ending was chosen last and rebuilt three times in one day.",
+    takes: [
+      {
+        file: "t3-01-nervous-v4.gif", label: "v4 — the decay, steepened", verdict: "keep",
+        meta: "251 frames · 10.5s · 2026-08-29 21:12",
+        note: "Corrections <b>2 · 2 · 1</b>, sags <b>9 · 18</b>. He doubled the sags rather than taking Claude's 5·9·12 — a steeper curve, saying he isn't merely tiring but failing at an accelerating rate. A <b>one-frame correction against an eighteen-frame sag</b> is the moment he stops being able to fight. His call, and the stronger one."
+      },
+      {
+        file: "t3-01-nervous-v3.gif", label: "v3 — decay introduced", verdict: "sup",
+        meta: "235 frames · 9.8s · 2026-08-29 21:06",
+        note: "First pass at the fix: corrections begin to weaken. Superseded within six minutes by pushing the sags harder."
+      },
+      {
+        file: "t3-01-nervous-v2.gif", label: "v2 — ending placed, tremor even", verdict: "sup",
+        meta: "217 frames · 9.0s · 2026-08-29 09:46",
+        note: "The escape ending, first placement. Two tremor cycles of <b>2·5</b> and <b>2·5</b> — <em>identical</em>, which is the metronome he had already diagnosed on the drowsy hold. Kept as the before."
+      },
+      {
+        file: "t3-01-nervous-timing.svg", label: "the timing, drawn to scale", verdict: "open",
+        meta: "diagnostic · P4 unresolved",
+        note: "Each bar is one drawing, width = exposure, colour = his own keyframe label. <b>P1–P3 vary 5.7×; P4 varies 1.4×.</b> That flat red stretch is the section he called robotic from playback before either of us had counted anything — and it is the one job left on this shot."
+      }
+    ]
+  },
+  {
+    id: "T1-02",
+    title: "The drowsy blink",
+    goal: "Six drawings, ten keyframes. Finished 2026-08-15 after three sessions of re-timing — the first piece here with a story in it.",
+    takes: [
+      {
+        file: "t1-02-blink-drowsy-catches.gif", label: "the finished drowsy blink", verdict: "keep",
+        meta: "61 frames · 2.5s · 2026-08-29 09:01",
+        note: "A man holds out, catches himself twice, loses, clamps shut still fighting, releases at frame 31 — and is snatched awake half a second later. The <b>inverted asymmetry</b> is his: a waking blink is fast-close/slow-open, this is the reverse, and that reversal <em>is</em> the drowsiness. <b>Rendered seventeen days after it was made</b>, because the export gap was believed real until the ffmpeg inside Krita's flatpak was found."
+      }
+    ]
+  }
+];
+
+(function scry(){
+  const host = document.getElementById("scryhost");
+  if (!host) return;
+  const VERDICT = { keep:"current", sup:"superseded", open:"unresolved" };
+  for (const lot of GALLERY){
+    const s = document.createElement("section");
+    s.className = "lot";
+    s.innerHTML =
+      '<div class="lothead"><span class="lotid">' + lot.id + '</span>' +
+      '<h2>' + lot.title + '</h2></div>' +
+      '<p class="lotgoal">' + lot.goal + '</p>' +
+      '<div class="reel' + (lot.takes.length > 1 ? ' pair' : '') + '">' +
+      lot.takes.map(t =>
+        '<div class="plate' + (t.verdict === "keep" ? " now" : "") + '">' +
+        '<figure><img loading="lazy" src="../progress/track-1/' + t.file +
+        '" alt="' + t.label + '"></figure>' +
+        '<div class="cap">' +
+        '<span class="verdict ' + t.verdict + '">' + VERDICT[t.verdict] + '</span>' +
+        '<div class="vt">' + t.label + '</div>' +
+        '<div class="vm">' + t.meta + '</div>' +
+        '<p class="vn">' + t.note + '</p>' +
+        '</div></div>'
+      ).join("") + '</div>';
+    host.appendChild(s);
+  }
 })();
 
 /* ---------- tab switching ---------- */
