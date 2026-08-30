@@ -1431,7 +1431,7 @@ const GALLERY = [
       '<div class="reel' + (lot.takes.length > 1 ? ' pair' : '') + '">' +
       lot.takes.map(t =>
         '<div class="plate' + (t.verdict === "keep" ? " now" : "") + '">' +
-        '<figure><img loading="lazy" src="../progress/track-1/' + t.file +
+        '<figure><img src="../progress/track-1/' + t.file +
         '" alt="' + t.label + '"></figure>' +
         '<div class="cap">' +
         '<span class="verdict ' + t.verdict + '">' + VERDICT[t.verdict] + '</span>' +
