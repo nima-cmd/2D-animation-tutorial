@@ -44,6 +44,12 @@ projects — the `tablet-tool` repo and, planned, Blender/Henwick and the Godot 
   Measured pattern so far: productive sessions ran afternoon/early-evening with ~4 `.kra` saves; the
   two that felt empty ran **past 1am with no drawing**. He sustains long work if it includes a real
   break. **Design-heavy work late at night reliably produces "I got nothing done."**
+- **Show him the destination, not just the next step — it's what keeps him going.** Stated
+  2026-08-30, right after being shown the Spine order and where the tracks converge: *"seeing what's
+  in the future has me excited and motivated to push through more."* So surface the road ahead
+  periodically rather than only when asked — what this lesson unlocks, which stage is next, which
+  capstone it feeds. **A next step alone is a chore; a next step with a destination attached is
+  progress.** (`~/Projects/nima-cmd-work/SYLLABUS.md` is the map.)
 - **Call out drift at twenty minutes.** He asked for this outright (2026-08-28): *"I get too hung up
   on the tool and not on the work. Let me know if you see me drift off course."* **If twenty minutes
   pass with nothing placed on a timeline, say so.** Not a veto — he can override — but it gets named.
