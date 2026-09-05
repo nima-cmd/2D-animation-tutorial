@@ -515,6 +515,97 @@
     </svg>
   </div>
 
+  <div class="chapter" id="ch2">
+    <span class="chnum">Chapter II</span>
+    <h2>Track 2 — Drawing</h2>
+    <p class="chgoal">Opened out of order, and on his own initiative: the T2 drills became the
+      five minutes that start every session (2026-08-31) rather than a gate to be cleared first.
+      These entries come from the warm-up sheets.</p>
+
+    <h3>An ellipse is a circle seen at an angle — so its aspect is <em>information</em></h3>
+    <p><b>Question asked:</b> “Do I make the box, and what am I striving to do — should my ellipses
+      be more circular?”</p>
+    <p><b>No.</b> Not rounder — <em>chosen, and then repeated.</em> Here is why that isn’t a
+      platitude.</p>
+    <p>Under parallel projection, tilting a circle by an angle <em>d</em> away from edge-on
+      shortens its minor axis while the major axis is untouched:</p>
+    <p style="text-align:center"><b>minor ÷ major = sin <em>d</em></b></p>
+    <p>This is the convention technical-drawing <b>ellipse templates</b> have been sold under for a
+      century — a “30° ellipse,” a “45° ellipse.” Canonical and checkable against any
+      drafting-supply catalogue. Which means the aspect ratio you draw is not a matter of neatness;
+      it <b>declares which way the circle is facing.</b> Run the first warm-up sheet through it:</p>
+    <ul>
+      <li>roundest ellipse — aspect 1.92 → minor/major 0.521 → a <b>31.4°</b> circle</li>
+      <li>mean — aspect 2.57 → 0.389 → a <b>22.9°</b> circle</li>
+      <li>flattest — aspect 3.27 → 0.306 → a <b>17.8°</b> circle</li>
+    </ul>
+    <p>So twelve ellipses on one page were <b>twelve circles at twelve different tilts, spanning
+      13.6°.</b> That is the real cost, and it is not cosmetic: as a cart’s two wheels, the cart is
+      broken; as a soot sprite’s two eyes, the eyes are focused at different depths and the face
+      dies. <b>An uncontrolled aspect is a sentence you did not mean to write.</b></p>
+    <p>Hence the aim is <b>command, not roundness</b> — pick the degree before the stroke and land
+      it twelve times. A circle (aspect 1.0) is not the goal, because animation needs ellipses at
+      every tilt: eyes, wheels, joints, cups. Later, drill 5 (<em>funnels</em>) has you varying the
+      degree deliberately along an axis to draw a horn or a tapering limb — but varying on purpose
+      requires hitting on purpose first.</p>
+
+    <h3>Hand-draw only the thing being measured — never the ruler</h3>
+    <p>The same question’s first half: <em>do I make the box?</em> No — or at least, not by hand.
+      His grid was <b>a measuring device drawn by the very hand under test</b>, and it was crooked
+      in the same direction as the error it was supposed to measure: its two “vertical” lines lean
+      <b>7.17°</b> and <b>9.56°</b>, the further-right one worse. Calibrating an instrument with
+      itself proves nothing.</p>
+    <p>The no-undo and stabilizer-off conditions exist to protect <em>the drill</em>. A ruler is not
+      the drill, so let the software draw it — Krita’s grid, two squares wide by one tall, gives a
+      2.0 target geometrically instead of by feel. <span class="unwritten">(Claude’s own framing,
+      not received tradition.)</span></p>
+
+    <h3>Random scatter and a systematic gradient need opposite prescriptions</h3>
+    <p>Before fixing a drill result, ask which kind of wrong it is. <b>Scattered</b> error means
+      control is still being built and the cure is repetitions. A <b>gradient</b> — error that has
+      a direction across the page — means something mechanical is imposing itself, and further
+      repetitions merely practise the flaw forty times a session. Same sheet, same numbers,
+      opposite instructions.</p>
+    <p>Sheet 1 was a gradient: the ellipses flattened rightward in <b>four rows out of four</b>, and
+      the bottom row was worst. Because the grid drifted the same way (r = +0.51), the confound had
+      to be cancelled before the arm could be blamed — divide each ellipse’s aspect by its own
+      cell’s aspect and only what he <em>added</em> survives: <b>1.03 in columns 1–2, 1.17 in column
+      3, 1.27 in row 4, and 1.52 in the far corner.</b> Honest to the cell everywhere except at full
+      arm extension. Verdict: <b>posture.</b></p>
+    <p>The fix is therefore postural, not more mileage: <b>rotate the work, don’t extend the arm</b>
+      — keep the stroke in front of your sternum and bring the canvas to meet it. This is why a
+      traditional animation disc <em>rotates</em>; that is a documented property of the equipment,
+      and it exists for exactly the effect this sheet produced.</p>
+
+    <h3>Where these claims come from</h3>
+    <ul>
+      <li><b>Canonical and checkable:</b> minor/major = sin <em>d</em> for a circle in parallel
+        projection; the ellipse-template degree convention; the rotating animation disc; π/4 =
+        78.5% as the bounding-box fill of a true ellipse.</li>
+      <li><b>Claude’s own measurements</b> of <code>t2-01-warmup-01.kra</code>, computed from the
+        enclosed white region inside each ellipse and from line fits to the grid. Reproducible, and
+        the arithmetic is all shown above.</li>
+      <li><b>Claude’s own framing, load-bearing but not tradition:</b> “scatter vs. gradient →
+        opposite prescriptions,” and “never hand-draw the ruler.”</li>
+      <li><b>Claude’s error, recorded rather than patched:</b> the grid and the ellipses were
+        already on <em>separate layers</em> in the <code>.kra</code>, and Claude separated them the
+        expensive way — geometric masking and column-by-column line tracing — without ever looking
+        at the file’s structure. The finding survived because the grid was cancelled
+        mathematically instead, but the work was needless. <b>Read the structure before writing code
+        to infer the structure.</b></li>
+    </ul>
+  </div>
+
+  <div class="divider" aria-hidden="true">
+    <svg class="sigil" width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="15" stroke="currentColor" stroke-width="1"/>
+      <circle cx="20" cy="20" r="10" stroke="currentColor" stroke-width=".7" opacity=".7"/>
+      <circle cx="20" cy="20" r="3" stroke="currentColor" stroke-width="1"/>
+      <path d="M20 5V1 M20 35v4 M5 20H1 M35 20h4" stroke="currentColor" stroke-width=".8"/>
+      <path d="M9.5 9.5 7 7 M30.5 9.5 33 7 M9.5 30.5 7 33 M30.5 30.5 33 33" stroke="currentColor" stroke-width=".6" opacity=".6"/>
+    </svg>
+  </div>
+
   <div class="chapter" id="ch3">
     <span class="chnum">Chapter III</span>
     <h2>Track 3 — Animation fundamentals</h2>
@@ -916,6 +1007,89 @@
       why a shot is judged on playback rather than in the numbers — and it is the same reason
       <b>a jolt reads as frantic only in proportion to the stillness it interrupts</b>.</p>
 
+    <h3>You cannot tweak an improvisation — there is no error signal</h3>
+    <p><b>Found by the user</b>, closing the session in which his rebuilt shot <em>failed</em>:
+      <i>“I feel it was productive and now I have a vision for what I want and need to figure out
+      how to complete it, whereas I was improvising before — making it impossible to tweak.”</i></p>
+    <p>This is the most valuable thing to come out of T3-01, and it explains a run of earlier
+      observations that had looked unrelated.</p>
+    <p><b>Tweaking requires a target.</b> A correction is the difference between what you wanted and
+      what you got — so it only exists if a <em>wanted</em> was declared first. Improvise, and every
+      subsequent change is not a correction but a fresh guess: there is nothing to measure against,
+      so there is no direction of improvement and no way to know when to stop.</p>
+    <p><b>The consequence is counter-intuitive and worth holding onto:</b> excited v2
+      <em>failed</em>, and is worth more than the passage it replaced. It was built to express
+      something specific, so its failure is <b>information</b> — it tells you the amplitude is 4.5×
+      too wide and that the feeling wanted a frozen dial. Pass 1’s second half was not aimed at
+      anything, and he said so himself — <i>“the second half was me feeling like I don’t want to
+      repeat myself in a pattern, and I think it led me astray.”</i> <b>It succeeded at nothing in
+      particular, which makes it inert.</b> A shot that misses a declared target teaches; a shot
+      with no target cannot.</p>
+    <p>This is <em>pose to pose vs straight ahead</em> operating one level up — not on drawing order
+      but on <b>intent</b>. It is also the practical reason behind <i>derivation before
+      instruction</i>: stating the reasoning first is what makes the result <b>debuggable</b>.
+      <span class="unwritten">(The framing is Claude’s; the finding is his.)</span></p>
+
+    <h3>Amplitude has a strobing threshold — and “too much” is rarely too many keyframes</h3>
+    <p><b>Question asked</b> after building excited v2 and watching it: <i>“am I falling into the
+      trap of most early animators and doing too much — do I have too many keyframes?”</i></p>
+    <p><b>No, and the key count isn’t close to the problem.</b> v2 holds 12 keyframes across 101
+      frames — one every 8.4 frames. The <em>nervous</em> shot, which succeeded, ran 24 across 251 —
+      one every 10.5. Comparable density. <b>Key density is not the dial that was wrong.</b></p>
+    <p>The real trap has two other names, and he diagnosed the first one himself before being told:
+      <i>“the distance between the eye placement is too great and there’s too much movement going on
+      instead of the intense pulsating animation I was going for.”</i></p>
+    <ul>
+      <li><b>Amplitude, not frequency.</b> His full left-to-right pupil swing measures <b>≈36 px</b>
+        against a sclera <b>131 × 101 px</b>, while the pupil dot itself is only <b>≈8 px</b> across
+        <span class="unwritten">(that last figure inferred from changed-pixel counts between frames
+        — a direct measurement was attempted and failed, so treat it as approximate)</span>. So each
+        move displaces the pupil by roughly <b>4.5× its own diameter.</b> The standard spacing
+        heuristic — <span class="unwritten">paraphrased from memory of Williams’ discussion of
+        strobing, not re-checked</span> — is that once successive drawings displace an element by
+        more than about its own size, it <b>strobes</b>: it reads as two separate things flickering
+        rather than one thing moving. That is exactly what he saw. <b>For the two positions to fuse
+        into a single vibrating pupil, the displacement needs to be at or under the pupil’s own
+        diameter — roughly a quarter of what he drew.</b></li>
+      <li><b>Absence of stillness.</b> v2’s first 22 frames contain eight gaze changes and zero
+        rest. <b>Motion is only legible against stillness</b> — with no anchor there is nothing for
+        a vibration to be measured against, which is also why removing <em>home</em> converted the
+        shot from excited to nervous.</li>
+    </ul>
+    <p><b>So “doing too much” is an amplitude-and-rest problem wearing a keyframe-count costume.</b>
+      Conflating the two is the actual beginner trap; cutting keyframes would have made this shot
+      worse. <span class="unwritten">(Claude’s framing.)</span></p>
+
+    <h3>“Pulsating” is a scale word — a feeling can need a dial you have frozen</h3>
+    <p>The deeper reason his vision didn’t survive contact with the file. He was reaching for an
+      <i>“intense pulsating”</i> excitement — and <b>a pulse gets bigger and smaller.</b> That is
+      <em>scale</em>. But this drill deliberately froze scale and lid and left him <b>pupil position
+      only</b>. He was trying to produce a scale effect with a position dial, so no arrangement of
+      keyframes could have delivered it.</p>
+    <p><b>This is the drill reaching the edge of its own design, which is a result rather than a
+      failure.</b> A primer on the dials has done its job the moment you discover that a feeling
+      you can picture requires a dial you don’t currently have. Note the shape of the finding: he
+      had already proven <em>amplitude</em> was expressive when nobody had told him it was. Here he
+      found the same thing about <em>scale</em>, from the outside, by missing it.</p>
+
+    <h3>Look where you’re going, not where you’re starting</h3>
+    <p><b>Found by the user</b>, unprompted, from the ghosted-line warm-up: <i>“if I’m looking at
+      the destination instead of where I’m starting, I’m closer, than if I’m trying to trace the
+      path with my eyes as I do it.”</i></p>
+    <p>Correct, and canonical drawing instruction he had not yet been given. The mechanism, in
+      Claude’s paraphrase of real motor-control ideas: a stroke aimed at a target and then
+      <em>released</em> runs <b>feedforward</b> — the trajectory is pre-computed and fired as one
+      ballistic unit. A stroke steered by watching the nib runs on <b>feedback</b>, correcting
+      continuously, and every correction lands in the line as wobble. <span class="unwritten">(A
+      gaze-anchoring effect known as “quiet eye” is asserted from memory and was not verified; the
+      drawing-tradition version stands on its own.)</span></p>
+    <p><b>Why this is bigger than it sounds:</b> watching the nib forces a small visual window,
+      which forces wrist-and-finger control — which is precisely what produces the arm-arc gradient
+      measured on his first ellipse sheet (see Ch. II). <b>He found the cause from the inside while
+      Claude was measuring the symptom from the outside.</b> His version is the more useful of the
+      two, because “look at the destination” is an instruction you can act on and “your residual
+      aspect ratio is 1.17 in column three” is not.</p>
+
     <h3>Re-using drawings out of order (non-monotonic keyframes)</h3>
     <p>A keyframe need not introduce a <em>new</em> drawing — it can re-place one already made.
       A sequence may therefore double back: <code>open → half → open → half → shut</code>.</p>
@@ -981,6 +1155,59 @@
       separated almost entirely by <b>regularity</b> and <b>overshoot</b>. That is the precision this
       vocabulary affords.</p>
 
+    <h3>Correction — the table above was wrong, and the shot proved it (2026-08-30)</h3>
+    <p><b>Kept rather than patched, because the error is the more useful half.</b> The entries above
+      are <em>Claude's own synthesis and were never sourced</em>. Two of their claims did not survive
+      contact with the work:</p>
+    <ul>
+      <li>The table says excited is <b>“large amplitude… big overshoots.”</b> Building it showed the
+        opposite for a gaze. His derivation, unprompted: <i>“if you're focused on something your eyes
+        are not gonna dart left to right — your focus is already on the object and you just slightly
+        move to get the rest of it in.”</i> <b>Large amplitude means the eye is still searching. Small
+        amplitude means it has already found.</b></li>
+      <li>The table says the two are separated <b>“almost entirely by regularity and overshoot.”</b>
+        In the two finished shots they share their speed <em>and</em> their hold lengths almost
+        exactly. <b>What actually separates them is amplitude, and whether there is a home
+        position</b> — excited returns to centre after every departure; nervous never returns to
+        anything. Had the timing dials been the only tools available, excited would have come out as
+        nervous-but-faster.</li>
+    </ul>
+    <p><b>The dial that was missing.</b> The seven dials are all <em>when</em> and <em>how long</em>.
+      <b>Amplitude — how far — is a separate axis, and it carries emotion on its own.</b> That is the
+      user's finding, not Claude's; it was reasoned out before a single keyframe was placed.
+      Charitable reading of the original entry: it may describe an excited <em>body</em> lunging
+      rather than an excited <em>eye</em> examining. It was written as though it covered both.</p>
+
+    <h3>The pupil — what it can and cannot say (2026-08-30)</h3>
+    <p>Prompted by his proposal to build excited from <b>dilation plus a rapid oscillation</b> —
+      <i>“as if they're about to burst with joy.”</i> Checked before any frame counts rested on it;
+      full citations in <code>references.md</code>. <b>Half confirmed, half reversed.</b></p>
+    <ul>
+      <li><b>Dilation is real, but it encodes arousal — not joy.</b> With luminance properly matched,
+        pleasant and unpleasant images dilate the pupil <em>equally</em> (Bradley et al. 2008,
+        <i>p</i> = .09 for the difference). <b>A dilated pupil says “something is happening.” It
+        cannot tell delight from dread</b>, so it can never carry the emotion by itself.</li>
+      <li><b>It is far too slow to read as a beat.</b> Onset ~800 ms, peak ~930 ms, still rising at
+        6 s. <b>At 24 fps that is roughly 24 frames to reach full dilation</b> — a slow swell, not an
+        accent. Only the <em>light</em> reflex is fast (&lt;300 ms).</li>
+      <li><b>And too small to see.</b> The arousal component is <b>0.07–0.19 mm on a 4–6 mm pupil —
+        one to five percent</b>, described in the clinical literature as <i>“difficult to appreciate
+        by visual inspection.”</i></li>
+      <li><b>The oscillation exists — and means the opposite.</b> It is called <b>hippus</b>, runs
+        ~0.3–0.5 Hz (one cycle every two or three seconds), and is <em>visible to the naked eye</em>.
+        But clinically it is a <b>sleepiness</b> index: low unrest = alert, high unrest = drowsy, and
+        alertness actively suppresses it. <b>A throbbing pupil is a pupil about to fall asleep.</b>
+        It is a genuine tool — for the <em>drowsy</em> shot.</li>
+      <li><b>Pupils pulsing with excitement is not a documented phenomenon.</b> Searched for
+        directly; nothing exists outside pathology. <b>It is animation convention, not observation</b>
+        — legitimate to use, but the justification shifts from <i>“that's what eyes do”</i> to
+        <i>“that's what reads,”</i> and only playback can settle the second.</li>
+    </ul>
+    <p><b>The general lesson, which outlives the pupil:</b> a real physiological effect can be true
+      and still be <em>unanimatable</em> — too slow, too small, or carrying the wrong meaning.
+      Observation tells you what happens; it does not tell you what will read at 24 frames a second.
+      <b>Deciding to stylise is a legitimate move — the discipline is knowing you are doing it.</b></p>
+
     <h3>The signatures of Ghibli and <em>Frieren</em></h3>
     <ul>
       <li><b>Ghibli — <em>ma</em> (間), the pause.</b> Documented first-hand: at Toronto in 2002
@@ -1027,7 +1254,7 @@
   </div>
 
   <p class="unwritten" style="text-align:center">
-    Chapters II and IV are pages yet unwritten — they fill in as the lessons are lived,
+    Chapter IV is a page yet unwritten — it fills in as the lessons are lived,
     including every question asked along the way.
   </p>
   <p class="footnote">
@@ -1064,8 +1291,8 @@
    status per lesson: "done" | "current" | "todo"
    ==========================================================================*/
 const LEDGER = {
-  updated: "2026-08-30",
-  now: "T3-01 — nervous DONE (2026-08-30). Excited is the last drill, then the lesson closes.",
+  updated: "2026-09-03",
+  now: "T3-01 — excited v2 built and judged (2026-09-03). He rebuilt the whole shot as a decelerating flutter: 3·4·3·3·2·3·4·7·14·16·21·21, variation 10.5× — his highest ever, and the gravitational well run backwards. It reads as nervous, not excited, and he diagnosed why unaided: amplitude too great (≈36px swing against a ≈8px pupil = 4.5× the strobing threshold) and centre/home absent until f80. NEXT, and it is his target not Claude's: the intense pulsating vibration he can now picture — which needs amplitude cut to roughly a quarter, and probably the scale dial unfrozen, since 'pulsating' is a scale word and this drill froze scale. v2 has no render yet; timing was read straight out of the .kra keyframe XML, which beats a gif for re-timing work. Grimoire Ch. III gained four entries tonight, three of them his findings.",
   milestones: [
     {
       id: "T1",
@@ -1131,7 +1358,28 @@ const LEDGER = {
           id: "t2-01",
           title: "Line & shape control",
           status: "locked",
-          lesson: "curriculum/track-2-drawing/01-line-control.md"
+          lesson: "curriculum/track-2-drawing/01-line-control.md",
+          note: "not an active stage — but its drills now open every session (his idea, 2026-08-31), so warm-up sheets are reviewed here",
+          review: {
+            date: "2026-09-02",
+            measures: [
+              { what: "Conditions held", got: "no undo, stabilizer off, ~250px wide on a 1280px page", target: "commit to the stroke, draw big, from the shoulder", ok: true, note: "warmup-01 — the drill was run as specified, not softened" },
+              { what: "Curve quality", got: "ellipses fill 75.7% of their bounding box", target: "a true ellipse fills π/4 = 78.5%", ok: true, note: "3.6% under — real smooth arcs, not the polygonal chains a hesitant wrist makes" },
+              { what: "Aspect consistency", got: "1.92 → 3.27 across twelve (1.70× spread)", target: "one chosen aspect, repeated", ok: false, note: "in template degrees that is 31.4° down to 17.8° — a 13.6° swing of implied viewing angle" },
+              { what: "Is the error random or systematic?", got: "a gradient: c3 > c1 in 4 rows of 4; column means 2.32 / 2.49 / 2.90; row 4 flattest at 3.10", target: "diagnose before prescribing", ok: false, note: "scatter would mean keep drilling; a gradient means something mechanical is imposing itself" },
+              { what: "Grid confound, controlled", got: "cell aspect also drifts 2.27 → 2.40 → 2.55 and correlates at r = +0.51", target: "rule out the scaffold before blaming the arm", ok: true, note: "his hand-drawn grid leans 7.17° and 9.56° on the two verticals — the further-right one worse" },
+              { what: "Residual after cancelling the grid", got: "ellipse ÷ cell aspect = 1.03 in cols 1–2, 1.17 in col 3, 1.27 in row 4, 1.52 at r4c3", target: "n/a — this is the diagnosis", ok: false, note: "he adds his own flattening on top of the grid's, only at full arm extension. Verdict: posture" }
+            ],
+            working: [
+              "<b>He ran the drill honestly.</b> Stabilizer off and no undo are the two conditions that make this exercise worth anything and the two easiest to quietly abandon; the 75.7% fill figure is the proof they held, because a fiddled or software-smoothed line cannot produce near-true arcs at that size. The hand delivered. The defect is where his torso was sitting.",
+              "<b>He asked the question that upgrades the drill:</b> <i>“what am I striving to do, should my ellipses be more circular?”</i> — which is exactly the right thing not to know yet, and the answer reframed the whole exercise from <em>neatness</em> to <em>command</em>. See Grimoire Ch. II."
+            ],
+            fix: {
+              title: "rotate the work, don't extend the arm",
+              body: "Keep the stroke zone in front of your sternum and bring the canvas to meet it, rather than reaching for the far corner. This is why a traditional animation disc <b>rotates</b> — a documented property of the equipment, existing for exactly the effect this sheet produced. Note what the fix is <em>not</em>: more ellipses. The error has a direction, so mileage alone would practise the flaw forty times a session.",
+              drill: "Second rule, out of Claude's own mistake here: <b>hand-draw only the thing being measured — never the ruler.</b> Use Krita's grid, two squares wide by one tall, and aim for a 2.0 aspect (a 30&deg; ellipse) twelve times. That target sits at the round end of his current range, so it pushes against the flattening bias instead of indulging it."
+            }
+          }
         },
         {
           id: "t2-02",
@@ -1404,6 +1652,18 @@ const LEDGER = {
    verdict: "keep" (current) | "sup" (superseded) | "open" (unresolved note)
    ==========================================================================*/
 const GALLERY = [
+  {
+    id: "T3-01",
+    title: "The excited soot sprite — first pass",
+    goal: "Third and last drill of the primer. Built in one 60-minute sitting, 2026-08-30. Pupil position only: scale and lid deliberately frozen, so the whole emotion rides on where the gaze sits and for how long.",
+    takes: [
+      {
+        file: "t3-01-excited.gif", label: "first pass — the scanning gaze", verdict: "open",
+        meta: "101 frames · 4.2s · 9 keyframes · 3 pupil states",
+        note: "<b>Holds: 17 · 5 · 4 · 13 · 3 · 16 · 17 · 14 · 11.</b> Centre is home and every departure returns to it — the structural difference from nervous, which never came back to anything. <b>His derivation, and the finding of the session:</b> <i>“if you're focused on something your eyes are not gonna dart left to right — your focus is already on the object and you just slightly move to get the rest of it in.”</i> Nervous and excited share their speed and their hold lengths exactly; what separates them is <b>amplitude</b>. Big saccades mean the eye is still searching. Small ones mean it has already found. <b>He located an expressive dial nobody had told him was expressive.</b>"
+      }
+    ]
+  },
   {
     id: "T3-01",
     title: "The nervous soot sprite",

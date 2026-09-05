@@ -60,6 +60,27 @@ projects — the `tablet-tool` repo and, planned, Blender/Henwick and the Godot 
   flattest phrase is precisely the one he called "robotic" on playback. Attention declines within a
   session and shows up in the numbers, so working in story order gives the ending his worst effort
   every time. **Build the final beat while fresh** — which pose-to-pose recommends anyway.
+- **Open every session with 5–10 minutes of Track 2 drills — his idea, 2026-08-31.** Ghosted lines
+  and a table of ellipses. No grading, no discussion; then the lesson starts. He proposed it on being
+  told T2-01 was "a week of paper": *"if it's truly an important skill perhaps it should be built into
+  our session — a few minutes up top of drawing."* It is what T2-01 itself asks for (*"keep this drill
+  in rotation in the background while you move on"*), but naming the **when** is what makes it happen.
+  Three things it fixes at once: it **dissolves the T2 gate** so drawing never blocks animating; it
+  **costs no thinking budget** (motor, not cognitive — it doesn't spend the fresh hour); and it **puts
+  a mark on a page in minute one**, his stated cure for sessions that feel empty.
+  - **Paper is not required — derive it from the hardware.** T2-01 says paper because of
+    *"tablet-eye coordination"* — an objection about the **gap between hand and mark**. His 13.3"
+    display tablet (`HDMI-1`) and his iPad have **no gap** and sit on the paper side of that line.
+    The XP-Pen Deco Pro does not. Display-tablet setup, needed after every reboot and not yet
+    scripted: `xrandr --output HDMI-1 --pos 0x1440` then
+    `xinput map-to-output "Tablet Monitor Pen Pen (0)" HDMI-1`.
+  - **Three conditions, or the drill is worthless.** **No undo** — the drill is *committing* to a
+    stroke, not selecting a good one; 40 lines means 40 strokes, ugly ones included. **Stabilizer
+    OFF** — `LineSmoothingType` in `kritarc`, where `1` (Basic) is Krita's default and `0` is None;
+    set it via Tool Options → smoothing dropdown with the Freehand Brush active. Leave it on and
+    **the software does the drill for you**, which is the tool-becomes-the-task failure wearing a
+    different hat. **Draw big, from the shoulder**, never zoomed in.
+
 - **End every session with something on screen.** Learned 2026-08-21 after two consecutive sessions
   of good design and no playback: *"I get burnt out faster this way, and every time I quit I feel like
   I haven't gotten much done."* Slice the work so each sitting yields a **playable increment** — one

@@ -83,6 +83,86 @@ animated, and the frame counts depend on how fast a dart actually is.
 - **Not checked:** typical *fixation* durations. Deliberately left unverified so the user derives
   fixation lengths from observation rather than from a handed number.
 
+### Pupil dilation and emotional arousal (checked 2026-08-30)
+
+Looked up because the user proposed building the *excited* blink out of **pupil dilation with a
+rapid oscillation** — *"as if they're about to burst with joy."* Since frame counts were about to
+rest on it, it needed checking first. **The result was half confirmation and half reversal**, and
+the reversal is the more useful half.
+
+- **Arousal dilates the pupil — but it encodes arousal, not joy.** Bradley, Miccoli, Escrig & Lang
+  (2008), *"The pupil as a measure of emotional arousal and autonomic activation,"* **Psychophysiology
+  45(4):602–607** — 96 IAPS images, **luminance-matched across pleasant / neutral / unpleasant**.
+  Both pleasant and unpleasant dilated over neutral (*F*s(1,26) = 7.21 and 15.39, *p*s < .001), but
+  **pleasant vs unpleasant did not differ** (*F*(1,26) = 3.04, *p* = .09). Pupil change tracked skin
+  conductance, not heart rate → sympathetic mediation. The paper explicitly *"disconfirm[s] earlier
+  hypotheses regarding differential pupillary changes as a function of hedonic valence."*
+  [PDF](https://axonmedicaltech.com/wp-content/uploads/2021/07/NIH-The-pupil-as-a-measure-of-emotional-arousal-and-autonomic-activation.pdf)
+  **Consequence for animation: a dilated pupil says "something is happening." It cannot distinguish
+  delight from dread, so it cannot carry the emotion on its own.**
+- **The famous study is the weak one.** Hess & Polt (1960), *Science* 132(3423):349–350, is the
+  citation everyone reaches for — but **luminance was never controlled** (Hess himself later wrote it
+  was done *"before we had developed adequate techniques to control brightness"*), 5 slides were
+  selected from 30, and its headline gender-by-theme claim **failed to replicate**: de Winter,
+  Petermeijer, Kooijman & Dodou (2021), *Int J Psychophysiology* 165:145–205, N = 182 plus a
+  preregistered N = 147, found only 2 of 15 tests significant, one in the *opposite* direction.
+  Their verdict: *"Hess's works are valuable for their ideas and hypotheses but not for the empirical
+  results."* They did replicate the core effect (dilation to mental demand and arousing stimuli).
+  [de Winter PDF](https://ndownloader.figshare.com/files/36846816)
+- **Emotional dilation is SLOW — this is the number that killed the idea.** Latency **~800 ms**, vs
+  the pupillary *light* reflex at **<300 ms** — Larson & Behrends (2015), *"Portable Infrared
+  Pupillometry: A Review,"* **Anesth Analg 120(6):1242–1253**: *"the latency of PRD is approximately
+  800 milliseconds… In contrast, the light reflex latency is <300 milliseconds."* Time-to-peak for a
+  single discrete event is **930 ms (σ = 190 ms)** — Hoeks & Levelt (1993), *Behav Res Methods
+  Instrum Comput* 25(1):16–26, the canonical pupil response function. Sustained emotional arousal is
+  slower still: Bradley's emotional traces were **still rising at 6 s**.
+  [Larson & Behrends](https://neuroptics.com/wp-content/uploads/2020/08/Larson-M_Behrends-M_-Review-Article-Portable_Infrared_Pupillometry__A_Review.14_Internl-Anesth-Res-Soc_2015-highlighted-meds.pdf)
+  · [Hoeks & Levelt](https://www.mpi.nl/world/materials/publications/levelt/Hoeks_Pupillary_Dillation_Beh_Res_Meth_1993.pdf)
+  **Consequence: at 24 fps, peak dilation is ~24 frames away. It is a full-second swell, and there is
+  no fast emotional pupil response at all — only the light reflex is quick.**
+- **And too small to see.** Human pupil diameter runs **2–8 mm** (Mathôt 2018, *"Pupillometry:
+  Psychology, Physiology, and Function,"* **J Cognition 1(1):16**), but the *arousal* component is
+  **0.07–0.19 mm** on a 4–6 mm pupil — **1–5%**. Bradley Fig. 2: ~0.07–0.09 mm; Fig. 3: ~0.17–0.19 mm.
+  Oliva & Anikin (2018), *Sci Rep* 8:4871: **0.07 mm** (95% CI [0.03, 0.11]). Larson & Behrends:
+  arousal dilation is *"slow to develop and therefore difficult to appreciate by visual inspection."*
+  [Mathôt](https://journalofcognition.org/articles/10.5334/joc.18) ·
+  [Oliva & Anikin](https://www.nature.com/articles/s41598-018-23265-x)
+- **The oscillation is real, is called hippus — and means the opposite of what was wanted.**
+  Spontaneous pupillary unrest runs **0.04–2 Hz with a modal frequency near 0.3–0.5 Hz** (Rizzuto et
+  al. 2025, *Bioengineering* 12(12):1376), i.e. one cycle every 2–3 seconds. It is *"visible to the
+  naked eye but impossible to quantitate"* without instruments (Larson & Behrends), and it is
+  **parasympathetic in origin** — tropicamide extinguishes it, phenylephrine doesn't affect it
+  (Turnbull, Irani, Lim & Phillips 2017, *IOVS* 58(1):197–203). **Clinically it is a sleepiness
+  index** — the Pupillary Unrest Index, where **low = alert and high = drowsy**; mental activity
+  suppresses it, and Mathôt notes it appears especially *"when participants were left to themselves
+  without a specific task."*
+  [Rizzuto](https://pmc.ncbi.nlm.nih.gov/articles/PMC12729395/) ·
+  [Turnbull](https://iovs.arvojournals.org/article.aspx?articleid=2598502)
+  **Consequence: a throbbing pupil is a pupil about to fall asleep. The oscillation belongs in the
+  drowsy shot, not the excited one — it is an available tool, just for the other emotion.**
+- **No documented phenomenon of pupils pulsing with excitement.** Searched for specifically; nothing
+  found. What exists is hippus (slow, spontaneous, suppressed by arousal) and the arousal response
+  (a *single* slow swell). Rhythmic hippus as a rapid event appears only pathologically — ictal
+  hippus in epilepsy. **The trope is animation convention, not observation** — which is legitimate to
+  use, but the justification changes from *"because that's what eyes do"* to *"because that's what
+  reads,"* and only playback can settle the second one.
+
+**Not verified — flagged honestly:**
+- **Hess & Polt 1960 in the original.** science.org returns 403 to automated fetch; all its numbers
+  above are second-hand via de Winter et al. 2021, who worked from Hess's physical archive.
+- **The 800 ms latency figure** is from **anesthetised subjects given a tetanic (pain) stimulus**,
+  not awake emotional arousal. It is the best number found, not a perfect match to the case.
+- **Hippus amplitude in mm.** Widely repeated as "~0.5 mm, under 1 mm" but not traceable to any
+  primary source actually read. Treat as folklore-grade; Loewenfeld's *The Pupil* (1993) not consulted.
+- **Not consulted at all:** Loewenfeld 1993, Goldwater 1972, Beatty & Lucero-Wagoner 2000.
+
+**A process error recorded next to its correction.** The saccade section above states that fixation
+durations were *"deliberately left unverified so the user derives fixation lengths from observation
+rather than from a handed number."* On 2026-08-30, mid-session, Claude **handed him 200–300 ms
+anyway** — flagged as memory-based, but handed over regardless — and he placed 3/4/5-frame holds
+against it. The number may well be right; the point is that **the one measurement this file had
+deliberately protected got contaminated by convenience.** Still unverified as of this entry.
+
 ### The moving hold (checked 2026-08-15)
 
 Looked up after the user diagnosed the effect unprompted — *"once we hit 24 all tension kind of
