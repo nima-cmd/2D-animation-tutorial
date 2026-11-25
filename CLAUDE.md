@@ -32,15 +32,27 @@ projects — the `tablet-tool` repo and, planned, Blender/Henwick and the Godot 
 
 - **Live instructor, one small step at a time.** Walk through lessons hands-on; wait for the user at
   each step; don't dump whole lessons.
-- **Open every session by asking for a budget; close it at a declared destination.** His push-back,
-  2026-08-21: *"you can't design a plan to keep me interested if you don't know how long I'm gonna
-  work, how quickly I'll get burnt out or lose focus."* Claude had been recognising stopping points
-  only *after* he announced them and presenting them as planned. So: **ask** ("short one" / "I've got
-  an hour" / "tired but want to draw"), **state the destination out loud** sized to fit,
-  **timestamp the start and track elapsed time** with `date` (caveat: wall-clock between messages
-  isn't effort — he may have stepped away), **flag the landing before he has to**, and offer any
-  extension explicitly rather than drifting into it. *Arriving at a declared destination is what makes
-  stopping feel like finishing rather than quitting.*
+- **DEFAULT TO SHORT. DO NOT ASK FOR A BUDGET — offer the extension instead.** Superseded the
+  ask-first rule on **2026-09-09**, in his words: *"asking what session were gonna have puts some
+  pressure on me making me avoid this.. perhaps we should default start short with the option to
+  continue everytime."* **Why the old rule backfired:** the budget question lands at the moment he
+  has the least information about his own energy and the most inertia — and whatever he answers
+  becomes a promise he can fail. It quietly converts *starting* into *committing*. **Deciding to
+  continue is cheap because it is decided from inside the work**, where he actually knows how he
+  feels. So: **open with a ~25–30 minute block and one named deliverable**, run it, land it, then
+  **offer the next block explicitly** ("that's the render — stop here, or take the T2 sheet?").
+  Never ask how long he has. He can always volunteer it.
+  - **This keeps what the original rule was for.** The 2026-08-21 push-back — *"you can't design a
+    plan to keep me interested if you don't know how long I'm gonna work"* — was really about Claude
+    recognising stopping points only *after* he announced them and presenting them as planned. Small
+    declared destinations fix that better than one big forecast: **he stacks several small arrivals
+    instead of committing to one long haul.** Still required: **state the destination out loud**,
+    **timestamp with `date`** (caveat: wall-clock between messages isn't effort — he may have
+    stepped away), and **flag the landing before he has to.**
+  - This also suits the measured fact that his attention declines within a session: **each block
+    gets its own landing**, so the tail of the evening isn't one long undifferentiated slide.
+  - *Arriving at a declared destination is what makes stopping feel like finishing rather than
+    quitting* — and it works better when there are three of them than one.
   Measured pattern so far: productive sessions ran afternoon/early-evening with ~4 `.kra` saves; the
   two that felt empty ran **past 1am with no drawing**. He sustains long work if it includes a real
   break. **Design-heavy work late at night reliably produces "I got nothing done."**
@@ -125,13 +137,107 @@ review only in conversation.**
 - Overlays (`.svg`, blue=reference / green=should-be / orange=actual, *measurement marks only,
   never the corrected drawing*) apply to still-drawing lessons (Track 2), not motion review.
   **Never write into the user's `.kra`.**
+- **NEVER QUOTE AN ANGLE OR A DEGREE WITHOUT A PICTURE — his standing instruction, 2026-09-17.**
+  In his words: *"for all future comments if you use degrees i need a visual representation for
+  what you are showing me. this will give me a better understanding of what you mean and how to
+  reach these notes."* Applies to **both** senses that collide in this course: **angle degrees**
+  (off-square, tilt) and an **ellipse's degree** (minor ÷ major). He had been handed numbers like
+  *"off-square −5.6°"* and *"hold degree ≈ 0.35"* for two weeks with no idea what either looked
+  like — which is what produced the ramping degree on `t2-02-contours-02`: he had no target he
+  could see. **A number is not an instruction until he can recognise it by eye.** Use the visual
+  tool, or have him draw his own gauge on a reference layer (better — it lives in his file, at his
+  scale, and makes the reference his rather than Claude's).
+  - **ALWAYS GIVE BOTH A PICTURE AND A WORDS-ONLY EXPLANATION — his choice, asked directly
+    2026-09-20:** *"pair with a picture and give a word only explanation as well give me both."*
+    Not one or the other. The picture shows the magnitude; the sentence says what is being compared.
+  - **The part that was actually missing was "WHAT IS BEING MEASURED"** — he said so when asked
+    outright, after Claude had twice explained *why the numbers matter* and *what to do about
+    them*, which were not the gap. **Define the two quantities being compared before quoting any
+    ratio or angle.** For an ellipse's degree: *measure it the long way (length), measure it the
+    short way (width), divide width by length — it is the ellipse compared to itself, nothing
+    external is involved.*
+  - **When he cannot yet see a target, give a MECHANICAL procedure instead of a concept.** He built
+    three gauges and all three were wrong (lengths wandering up to 62%) because "five ellipses of
+    equal length at rising degrees" is a concept. *"Draw one straight line, copy-paste it four
+    times so they are identical by construction, mark the centre, step out half-widths of 20/35/
+    50/65/80 on a 200px line, draw through the four points"* is a procedure. **Understanding can
+    follow from seeing a correct result; it does not have to precede it.**
+- **VERIFY A SOFTWARE FEATURE BEFORE TELLING HIM TO USE IT — and say plainly when a word is
+  ambiguous.** Repeatedly costly on 2026-09-29: Claude told him canvas-rotation was `4`/`5`/`6`
+  (his install: **`Ctrl+]` / `Ctrl+[`, and Reset has no shortcut at all** — read out of
+  `share/krita/actions/kritamenu.action` in the Flatpak), and told him to "hold Shift" to constrain
+  strokes, which is a **Photoshop habit that was never checked for Krita** (the Line Tool has no
+  shortcut in his install, and the freehand-brush behaviour was never verified). The measurement
+  then showed his rungs fanned 7.6° apart, proving nothing had been constrained and voiding the
+  sheet. **Krita's own `.action` files under the Flatpak are readable — check there, not memory.**
+  - **The worse version: "rotate the canvas" meant the app to Claude and the HARDWARE to him**, for
+    two whole sessions, and neither party checked. He physically turned the Kamvas. **Name which
+    thing you mean when a word can mean two, and prefer a construction that cannot silently fail**
+    (draw one rung and copy-paste it) over one that depends on a modifier key behaving as assumed.
 - Every new concept AND every clarifying question the user asks → the **Grimoire**.
+- **LAYER CONVENTION FOR DRAWING DRILLS — his idea, 2026-09-09, adopted.** One layer holds the
+  shared construction (e.g. the funnel `spine`); each attempt gets its own layer(s) stacked on top
+  (`rungs-A`, `ellipses-A`, `rungs-B`…). **Ask him to name the layers** — names are stored in
+  `maindoc.xml`, so attribution becomes automatic instead of him having to say afterwards which
+  attempt was which. Two reasons this matters: (1) a shared base **holds the construction
+  constant**, so differences between attempts are attributable to him rather than to a
+  differently-drawn curve; (2) **layers can be decoded individually out of the `.kra`**, which
+  removes the whole failure mode of separating elements by colour in the flattened
+  `mergedimage.png` — where two strokes cross they chop each other into fragments, and that broke
+  the measurement twice on 2026-09-09 before it was caught. It is also the cel stack he already
+  uses in Track 1 (held `body`/`eye white`/`lid`, animated `pupil`), applied to Track 2.
+- **His measurement rig for Track 2, reusable:** decode the `.kra`, take each ellipse's true long
+  axis by PCA, fit the spine's **local** tangent under each centre (local PCA, *not* a y-on-x fit —
+  that is biased on steep sections), and report **off-square in degrees**. Compare **mean signed
+  against mean absolute**: equal means systematic *bias* that compounds; signed much smaller means
+  *scatter* that cancels. That distinction is what made the ends-first and rung results legible.
 
 ## Environment
 
 - Draws in the **XFCE / X11** session (tablet + pressure work there; NOT in COSMIC — see the
-  `tablet-tool` repo's CLAUDE.md for the full tablet saga & fixes). Tablet: XP-Pen Deco Pro MW.
-- 12fps is the working frame rate (traditional hand-drawn standard; matches Ghibli/anime "on twos").
+  `tablet-tool` repo's CLAUDE.md for the full tablet saga & fixes).
+- **TWO tablets, and only one of them is the drawing surface.** The **XP-Pen Deco Pro MW** is the
+  opaque one (a gap between hand and mark). The **Huion Kamvas 13** is the 13.3" *display* tablet
+  and is the one T2 drills should use — which is why its devices enumerate as `Tablet Monitor …`
+  rather than anything XP-Pen-shaped. This repo's notes named only the XP-Pen until 2026-09-07 and
+  that omission cost a whole evening.
+- **The pen roaming across all screens is fixed by a script now: `~/Projects/tablet-tool/src/tablet_setup.py`.**
+  Run it (no root) after any reboot or re-plug. It finds the tablet by **EDID name** (`Kamvas 13`)
+  rather than connector, waits for the stylus to appear, maps it, and verifies by re-deriving the
+  matrix from `xrandr`. `--list` prints every output and pointer with mapped/unmapped state.
+  Three hard-won rules baked into it: (1) the **kernel** name (`evdev`) and the **X** name
+  (`xinput`) are different namespaces for one pen — `map-to-output` needs the X one; (2) after a
+  re-plug the `Pen (0)` pointer takes **seconds** to appear, so a single empty check is not
+  evidence of a broken tablet; (3) **set the screen position BEFORE mapping** — `map-to-output`
+  bakes the geometry into a fixed matrix and never tracks the display afterwards.
+- **24fps is the document frame rate — verify, don't assume.** Every `.kra` in `progress/` carries
+  `<framerate value="24"/>` in `animation/index.xml`. This line previously read *"12fps is the
+  working frame rate"* and Claude quoted it as fact on 2026-09-03, making **every second-figure
+  given that session double the truth**. **12 is the cadence, not the grid** — "on twos" means a
+  drawing every 2 slots of a 24fps timeline, i.e. 12 drawings/sec. Setting the *document* to 12
+  would make that a ceiling and put "on ones" out of reach. See Grimoire Ch. III, *"Frame rate is
+  the grid; cadence is what you do on it."*
+- **Read timing out of the `.kra`, not out of a render.** It's a zip: `animation/index.xml` holds
+  the frame rate and playback range; `<layer>.keyframes.xml` holds exact frame numbers, the user's
+  colour labels (his legend: 1 blue · 2 green · 3 yellow · 4 orange · 5 brown · 6 red · 7 purple),
+  and a per-keyframe `<offset x= y=>` that Krita's Move tool writes into — so **spacing in pixels
+  is readable straight from the file**. Layer pixels are LZF-compressed 64×64 planar BGRA tiles and
+  can be decoded when a measurement needs it; that is how the double-pupil bug was confirmed on
+  2026-09-04. Caution learned the same night: **Krita re-orders tiles on re-save, so a changed hash
+  is evidence of a changed file, not a changed drawing** — compare byte sizes and pixels instead.
+- **EXPORT WORKS — the "no ffmpeg" note was wrong, and Claude re-asserted it on 2026-09-07 before
+  the user corrected him.** Krita here is a **Flatpak** (`org.kde.krita` 5.3.2.1), and its
+  `kritarc` has `ffmpegLocation=/usr/bin/ffmpeg` — a path *inside the Flatpak runtime*. **The host
+  has no `ffmpeg` and never needed one**, so `which ffmpeg` on the host is the wrong check and
+  proves nothing. Verified 2026-09-07 by `t3-01-excited-v4.gif`: 101 frames, 24.00fps, 1280×720.
+  Export settings live under `ExportConfiguration-ANIMATION_EXPORT` in
+  `~/.var/app/org.kde.krita/config/kritarc`.
+- **A gif can be checked without decoding it.** Frame count and per-frame delays sit in plain
+  Graphic Control Extension blocks. Note GIF stores delays in whole **centiseconds**, so 1/24s
+  (4.1667cs) is not representable — ffmpeg dithers 4cs and 5cs frames to average 24.00fps. That is
+  a format limit, not a timing error in the user's work.
+- **Reading a gif with the Read tool returns ONE frame, not the motion.** Say so rather than
+  implying the animation was watched. For timing, the `.kra` keyframe XML is more precise anyway.
 
 ## Current position
 
